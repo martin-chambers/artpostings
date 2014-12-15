@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<title>Website Holding Page (Hosted by Web Wiz; Windows Web Hosting Solutions)</title>
+<meta http-equiv="title" content="Website Holding Page (Hosted by Web Wiz; Windows Hosting Solutions)" />
+<meta name="description" content="Web Wiz - Windows Web Hosting Services." />
+<meta name="revisit-after" content="7 days" />
+<meta name="author" content="Web Wiz Windows Hosting Solutions" />
+<meta name="robots" content="index,follow" />
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
+<style>
+<!--
+body {
+	font-family: verdana, arial, sans-serif;
+	background-color: white;
+	text-align: center;
+}
+p,ul {
+	font-size: 72%;
+	line-height: 137%;
+	color: #333;
+}
+p.small {
+	font-size: 68%;
+	line-height: 137%;
+	color:#333;
+}
+
+h1 {
+	font-size: 100%;
+	color: #999;
+	margin: 0 0 5px 0;
+}
+
+h2 {
+	font-size: 72%;
+	color: #666;
+	margin: 0 0 5px 0;
+}
+-->
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" style="width: 750px;" border="0">
+ <tr>
+  <td colspan="2"><a href="http://www.webwiz.co.uk" title="Web Wiz Hosting Solutions - Windows Web Hosting, ASP.NET Hosting, Forum Hosting, Virtaul Servers, Domain Registraion."><img src="http://syndication.webwiz.co.uk/images/web_wiz_logo.jpg" border="0"></a> </td>
+ </tr>
+ <tr>
+  <td colspan="2" style="padding-bottom: 20px; border-bottom: 1px solid #CCC;"><h1>Website Holding Page</h1>
+   <p>This is the default Web Wiz  web hosting holding page. If you see this page it means:</p>
+   <ul>
+    <li>Hosting for this domain name is not configured</li>
+    <li>This domain name has only just been registered </li>
+    <li>The website owner has not uploaded the website</li>
+   </ul></td>
+ </tr>
+ <tr>
+  <td valign="top" style="padding: 20px 0;"><h2>Useful Links:</h2>
+   <ul>
+    <li><a href="http://www.webwiz.co.uk" title="Web Wiz Host - Web Hosting Solutions">Web Wiz</a> - Main Website</li>
+    <li><a href="http://www.webwiz.co.uk/domain-names/" title="Domain Name Registration">Domain Name Registration</a></li>
+    <li><a href="http://www.webwiz.co.uk/kb/web-hosting/" title="Hosting Support Pages">Hosting Support Pages</a></li>
+    <li><a href="http://www.webwiz.co.uk/contact/" title="Contact Web Wiz">Contact Web Wiz</a></li>
+   </ul></td>
+  <td valign="top" style="padding: 20px 0;"><h2>Hosting Information:</h2>
+   <ul>
+    <li><a href="http://www.webwiz.co.uk/web-hosting/" title="Windows Web Hosting">Windows  Hosting</a></li>
+    <li><a href="http://www.webwiz.co.uk/web-hosting-resellers/">Windows Reseller  Hosting</a></li>
+    <li><a href="http://www.webwiz.co.uk/virtual-servers/">Virtual Servers</a></li>
+  </ul></td>
+ </tr>
+ <tr>
+  <td colspan="3" style="padding-top: 10px; border-top: 1px solid #CCC;"><p class="small"><a href="http://www.webwiz.co.uk/legal/terms-of-use.htm">Terms and Conditions</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.webwiz.co.uk/legal/aup.htm" class="underline">Acceptable Use Policy</a>&nbsp;| <a href="http://www.webwiz.co.uk/legal/antiSPAM-policy.htm">Anti-spam Policy</a><br />
+    Copyright &copy; 2001 - 2011 Web Wiz&reg;. All rights reserved.</p></td>
+ </tr>
+</table>
+</body>
+</html>

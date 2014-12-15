@@ -1,0 +1,383 @@
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 00:36:34
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 00:36:33 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 68.173.166.63 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_1_2+like+Mac+OS+X)+AppleWebKit/537.51.2+(KHTML,+like+Gecko)+GSA/5.0.41735+Mobile/11D257+Safari/9537.53 - 200 0 60776 346 703
+2014-12-12 00:50:00 W3SVC51 GET / - 80 - 131.253.26.248 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) - 200 0 3560 229 312
+2014-12-12 00:50:03 W3SVC51 GET /Content/Site.css - 80 - 131.253.26.248 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://www.annchambers.net/ 200 0 1307 308 109
+2014-12-12 00:50:03 W3SVC51 GET /Content/lightbox.css - 80 - 131.253.24.152 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://www.annchambers.net/ 200 0 1411 312 93
+2014-12-12 00:50:03 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 65.55.212.64 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://www.annchambers.net/ 200 0 4258 320 218
+2014-12-12 00:50:03 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 131.253.26.236 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://www.annchambers.net/ 200 0 35038 319 296
+2014-12-12 00:50:03 W3SVC51 GET /Scripts/iefix.js - 80 - 131.253.26.248 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://www.annchambers.net/ 200 0 897 308 296
+2014-12-12 00:50:03 W3SVC51 GET /Scripts/lightbox.js - 80 - 131.253.24.152 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://www.annchambers.net/ 200 0 3171 311 296
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 01:22:06
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 01:22:06 W3SVC51 GET /Content/art/A+Forest+Dream.JPG - 80 - 73.162.133.248 Mozilla/5.0+(iPad;+CPU+OS+8_1_1+like+Mac+OS+X)+AppleWebKit/600.1.4+(KHTML,+like+Gecko)+Version/8.0+Mobile/12B435+Safari/600.1.4 https://www.google.com/ 200 0 70819 347 1718
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 01:51:47
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 01:51:46 W3SVC51 GET /Content/art/Trees+Fantastic+2.JPG - 80 - 157.55.39.126 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 51499 311 625
+2014-12-12 01:51:59 W3SVC51 GET /Content/art/Colour+of+Summer.JPG - 80 - 207.46.13.112 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 68985 310 609
+2014-12-12 01:53:42 W3SVC51 GET /Content/art/Water+Lilies+12.JPG - 80 - 157.55.39.223 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 64976 309 609
+2014-12-12 01:55:57 W3SVC51 GET /Content/art/Water+Lilies+14.JPG - 80 - 157.55.39.11 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 80441 309 609
+2014-12-12 02:00:50 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 157.55.39.126 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 41609 304 609
+2014-12-12 02:11:58 W3SVC51 GET /Content/art/Fauna+2.JPG - 80 - 157.55.39.11 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 49663 299 609
+2014-12-12 02:12:55 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 207.46.13.85 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 69982 298 609
+2014-12-12 02:17:03 W3SVC51 GET /Content/art/stmarks.jpg - 80 - 207.46.13.85 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 501601 297 1593
+2014-12-12 02:19:36 W3SVC51 GET /Content/art/Water+Lilies+5.JPG - 80 - 157.55.39.11 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 69677 308 593
+2014-12-12 02:21:53 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 207.46.13.112 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 44465 297 609
+2014-12-12 02:23:18 W3SVC51 GET /Content/art/Blue+River.JPG - 80 - 157.55.39.11 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 69071 302 609
+2014-12-12 02:23:21 W3SVC51 GET /Content/art/Glorious+Summer.JPG - 80 - 207.46.13.85 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 73152 307 609
+2014-12-12 02:24:42 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 207.46.13.85 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 40911 312 609
+2014-12-12 02:24:42 W3SVC51 GET /Content/art/E+Lincs+Landscape.JPG - 80 - 207.46.13.85 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 54027 311 296
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 02:50:11
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 02:50:11 W3SVC51 GET /Content/art/Joanne's+Poppies.JPG - 80 - 157.55.39.126 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 76492 308 625
+2014-12-12 02:54:38 W3SVC51 GET /Content/art/Fauna+1.JPG - 80 - 157.55.39.126 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 43423 299 578
+2014-12-12 03:05:20 W3SVC51 GET /Home/ViewLocation - 80 - 66.249.67.103 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2980 360 234
+2014-12-12 03:11:04 W3SVC51 GET /robots.txt - 80 - 66.249.67.108 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 404 0 2132 256 93
+2014-12-12 03:11:04 W3SVC51 GET / - 80 - 66.249.67.124 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 289 124
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 03:33:30
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 03:33:30 W3SVC51 GET / - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://semalt.semalt.com/crawler.php?u=http://annchambers.net 200 0 3560 385 328
+2014-12-12 03:33:30 W3SVC51 GET /Content/Site.css - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1307 318 468
+2014-12-12 03:33:30 W3SVC51 GET /Scripts/lightbox.js - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 3171 306 265
+2014-12-12 03:33:30 W3SVC51 GET /Content/lightbox.css - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1411 322 421
+2014-12-12 03:33:30 W3SVC51 GET /Scripts/iefix.js - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 897 303 421
+2014-12-12 03:33:30 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 4258 315 453
+2014-12-12 03:33:31 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 35038 314 1031
+2014-12-12 03:33:32 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 44465 310 1234
+2014-12-12 03:33:34 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 28016 313 2593
+2014-12-12 03:33:34 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 53773 323 2671
+2014-12-12 03:33:34 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 60776 328 1640
+2014-12-12 03:33:35 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 38890 311 4000
+2014-12-12 03:33:35 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 58143 332 4125
+2014-12-12 03:33:37 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 40911 325 5078
+2014-12-12 03:33:37 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 41609 317 1437
+2014-12-12 03:33:37 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 50722 311 1500
+2014-12-12 03:33:37 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 56843 318 3046
+2014-12-12 03:33:38 W3SVC51 GET /Content/art/Parade.JPG - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 64441 309 3468
+2014-12-12 03:33:38 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 8733 325 953
+2014-12-12 03:33:39 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 753 323 578
+2014-12-12 03:33:40 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 82536 311 6062
+2014-12-12 03:33:41 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 46517 313 4437
+2014-12-12 03:33:41 W3SVC51 GET /Content/art/ann.jpg - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 62602 306 4093
+2014-12-12 03:33:42 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 69982 311 5359
+2014-12-12 03:33:42 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 186.92.247.189 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 70590 320 5640
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 04:50:59
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 04:50:59 W3SVC51 GET / - 80 - 66.249.67.111 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 293 140
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 05:44:04
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 05:44:03 W3SVC51 GET /Home/Contact - 80 - 66.249.67.119 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3020 355 156
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 06:02:42
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 06:02:42 W3SVC51 GET /Home/Archive - 80 - 157.55.39.126 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 3357 286 187
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 06:55:09
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 06:55:08 W3SVC51 GET /Home/ViewLocation - 80 - 66.249.67.111 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2980 360 125
+2014-12-12 06:58:16 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 123.125.71.42 Mozilla/5.0+(compatible;+Baiduspider/2.0;++http://www.baidu.com/search/spider.html) - 200 0 35057 250 890
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 08:30:19
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 08:30:18 W3SVC51 GET / - 80 - 66.249.67.108 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 289 124
+2014-12-12 08:35:15 W3SVC51 GET /Home/About - 80 - 66.249.67.119 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2952 353 109
+2014-12-12 08:38:01 W3SVC51 GET / - 80 - 66.249.67.103 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 293 93
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 09:36:13
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 09:36:13 W3SVC51 GET /Home/ViewLocation - 80 - 207.46.13.112 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 2980 291 187
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 10:32:45
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 10:32:44 W3SVC51 GET /Home/Contact - 80 - 66.249.67.119 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3020 355 125
+2014-12-12 10:47:04 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 82.34.158.38 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/39.0.2171.95+Safari/537.36 https://www.google.co.uk/ 200 0 60776 381 390
+2014-12-12 10:47:12 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 82.34.158.38 Mozilla/4.0+(compatible;+MSIE+7.0;+Windows+NT+6.1;+Win64;+x64;+Trident/7.0;+.NET+CLR+2.0.50727;+SLCC2;+.NET+CLR+3.5.30729;+.NET+CLR+3.0.30729;+Media+Center+PC+6.0;+.NET4.0C;+.NET4.0E;+InfoPath.3;+ms-office;+MSOffice+14) - 200 0 60776 403 218
+2014-12-12 10:59:56 W3SVC51 GET / - 80 - 66.249.67.111 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+6_0+like+Mac+OS+X)+AppleWebKit/536.26+(KHTML,+like+Gecko)+Version/6.0+Mobile/10A5376e+Safari/8536.25+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 357 109
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 11:17:51
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 11:17:51 W3SVC51 GET /robots.txt - 80 - 66.249.67.103 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 404 0 2132 260 109
+2014-12-12 11:17:51 W3SVC51 GET /Home/Links - 80 - 66.249.67.103 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3037 353 125
+2014-12-12 11:30:51 W3SVC51 GET /robots.txt - 80 - 176.9.111.170 Mozilla/5.0+(compatible;+XoviBot/2.0;++http://www.xovibot.net/) - 404 0 2132 156 31
+2014-12-12 11:40:48 W3SVC51 GET /robots.txt - 80 - 157.55.39.125 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 404 0 2132 267 152
+2014-12-12 11:40:55 W3SVC51 GET /Home/Archive - 80 - 157.55.39.126 Mozilla/5.0+(compatible;+bingbot/2.0;++http://www.bing.com/bingbot.htm) - 200 0 3357 282 156
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 11:59:05
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 11:59:05 W3SVC51 GET / - 80 - 66.249.67.116 DoCoMo/2.0+N905i(c100;TB;W24H16)+(compatible;+Googlebot-Mobile/2.1;++http://www.google.com/bot.html) - 200 0 3560 273 108
+2014-12-12 12:14:02 W3SVC51 GET /Home/ViewLocation - 80 - 66.249.67.103 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2980 360 93
+2014-12-12 12:17:30 W3SVC51 GET / - 80 - 66.249.67.119 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 293 109
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 13:34:35
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 13:34:35 W3SVC51 GET / - 80 - 82.9.141.114 Mozilla/5.0+(Linux;+U;+Android+4.0.3;+en-gb;+HTC_Desire_C+Build/IML74K)+AppleWebKit/534.30+(KHTML,+like+Gecko)+Version/4.0+Mobile+Safari/534.30 - 200 0 3560 484 1218
+2014-12-12 13:34:37 W3SVC51 GET /favicon.ico - 80 - 82.9.141.114 Mozilla/5.0+(Linux;+U;+Android+4.0.3;+en-gb;+HTC_Desire_C+Build/IML74K)+AppleWebKit/534.30+(KHTML,+like+Gecko)+Version/4.0+Mobile+Safari/534.30 http://annchambers.net/ 404 0 2133 456 203
+2014-12-12 13:43:24 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 31.221.93.98 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko - 200 0 60776 428 46
+2014-12-12 13:43:40 W3SVC51 GET / - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://make-money-online.7makemoneyonline.com/money.php?u=http://annchambers.net 200 0 3560 404 250
+2014-12-12 13:43:40 W3SVC51 GET /Content/Site.css - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1307 318 437
+2014-12-12 13:43:40 W3SVC51 GET /Scripts/lightbox.js - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 3171 306 249
+2014-12-12 13:43:40 W3SVC51 GET /Content/lightbox.css - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1411 322 421
+2014-12-12 13:43:40 W3SVC51 GET /Scripts/iefix.js - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 897 303 437
+2014-12-12 13:43:40 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 4258 315 437
+2014-12-12 13:43:40 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 35038 314 750
+2014-12-12 13:43:41 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 58143 332 484
+2014-12-12 13:43:41 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 44465 310 701
+2014-12-12 13:43:41 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 28016 313 703
+2014-12-12 13:43:41 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 60776 328 296
+2014-12-12 13:43:41 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 40911 325 781
+2014-12-12 13:43:41 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 38890 311 796
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 53773 323 937
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Parade.JPG - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 64441 309 296
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 82536 311 484
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 46517 313 265
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 56843 318 515
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 41609 317 499
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/ann.jpg - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 62602 306 296
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 50722 311 750
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 69982 311 484
+2014-12-12 13:43:42 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 70590 320 468
+2014-12-12 13:43:42 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 8733 325 515
+2014-12-12 13:43:42 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 2804:14d:7e8d:2c2:993b:f613:7bfe:1884 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 753 323 437
+2014-12-12 13:56:09 W3SVC51 GET /Home/About - 80 - 66.249.78.95 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2952 353 46
+2014-12-12 13:59:52 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 31.221.93.98 Mozilla/5.0+(Windows+NT+6.1;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko - 200 0 60776 428 140
+2014-12-12 13:59:55 W3SVC51 GET /favicon.ico - 80 - 31.221.93.98 Mozilla/5.0+(Windows+NT+6.1;+Win64;+x64;+Trident/7.0;+rv:11.0)+like+Gecko - 404 0 2133 347 15
+2014-12-12 14:06:36 W3SVC51 GET /Home/Contact - 80 - 66.249.78.95 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3020 355 31
+2014-12-12 14:11:51 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 66.249.78.95 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 4258 261 15
+2014-12-12 14:11:52 W3SVC51 GET /Content/lightbox.css - 80 - 66.249.78.95 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 1411 253 15
+2014-12-12 14:11:53 W3SVC51 GET /Scripts/lightbox.js - 80 - 66.249.67.119 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3171 252 93
+2014-12-12 14:11:53 W3SVC51 GET /Content/Site.css - 80 - 66.249.78.95 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 1307 249 15
+2014-12-12 14:11:55 W3SVC51 GET /Scripts/iefix.js - 80 - 66.249.78.88 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 897 249 15
+2014-12-12 14:11:56 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 66.249.78.88 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 35038 260 62
+2014-12-12 14:27:38 W3SVC51 GET /robots.txt - 80 - 199.16.156.126 Twitterbot/1.0 - 404 0 2132 142 93
+2014-12-12 14:27:38 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 199.16.156.126 Twitterbot/1.0 - 200 0 60776 159 453
+2014-12-12 14:41:26 W3SVC51 GET / - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://semalt.semalt.com/crawler.php?u=http://annchambers.net 200 0 3560 385 374
+2014-12-12 14:41:26 W3SVC51 GET /Content/Site.css - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1307 318 546
+2014-12-12 14:41:26 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 4258 315 250
+2014-12-12 14:41:27 W3SVC51 GET /Scripts/iefix.js - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 897 303 437
+2014-12-12 14:41:27 W3SVC51 GET /Content/lightbox.css - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1411 322 453
+2014-12-12 14:41:27 W3SVC51 GET /Scripts/lightbox.js - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 3171 306 453
+2014-12-12 14:41:27 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 35038 314 765
+2014-12-12 14:41:28 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 38890 311 296
+2014-12-12 14:41:28 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 44465 310 890
+2014-12-12 14:41:28 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 60776 328 328
+2014-12-12 14:41:28 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 28016 313 828
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 58143 332 1062
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 40911 325 1062
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 56843 318 406
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 82536 311 671
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 41609 317 390
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 50722 311 375
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/Parade.JPG - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 64441 309 593
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 46517 313 421
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 53773 323 1515
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/ann.jpg - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 62602 306 390
+2014-12-12 14:41:29 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 8733 325 359
+2014-12-12 14:41:29 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 70590 320 515
+2014-12-12 14:41:30 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 753 323 547
+2014-12-12 14:41:30 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 177.194.36.76 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 69982 311 765
+2014-12-12 14:53:49 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 84.19.56.34 Mozilla/5.0+(Windows+NT+6.1;+Trident/7.0;+rv:11.0)+like+Gecko http://www.bing.com/images/search?q=WW1facts.net%2f+paintings+by+soldiers&FORM=HDRSC2 200 0 60776 466 46
+2014-12-12 14:55:05 W3SVC51 GET /Home/Links - 80 - 66.249.78.88 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3037 353 31
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 15:24:12
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 15:24:11 W3SVC51 GET / - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://buttons-for-website.com 200 0 3560 354 312
+2014-12-12 15:24:11 W3SVC51 GET /Content/Site.css - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1307 318 453
+2014-12-12 15:24:12 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 4258 315 281
+2014-12-12 15:24:12 W3SVC51 GET /Scripts/lightbox.js - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 3171 306 281
+2014-12-12 15:24:12 W3SVC51 GET /Scripts/iefix.js - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 897 303 453
+2014-12-12 15:24:12 W3SVC51 GET /Content/lightbox.css - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1411 322 468
+2014-12-12 15:24:12 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 35038 314 812
+2014-12-12 15:24:12 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 28016 313 265
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 44465 310 796
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 53773 323 812
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 60776 328 546
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 40911 325 1016
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 38890 311 1078
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/Parade.JPG - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 64441 309 281
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 58143 332 1093
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 82536 311 562
+2014-12-12 15:24:13 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 56843 318 531
+2014-12-12 15:24:14 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 46517 313 296
+2014-12-12 15:24:14 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 41609 317 530
+2014-12-12 15:24:14 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 50722 311 531
+2014-12-12 15:24:14 W3SVC51 GET /Content/art/ann.jpg - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 62602 306 280
+2014-12-12 15:24:14 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 8733 325 265
+2014-12-12 15:24:14 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 70590 320 546
+2014-12-12 15:24:14 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 69982 311 765
+2014-12-12 15:24:14 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 189.103.105.245 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 753 323 453
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 15:50:13
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 15:50:13 W3SVC51 GET / - 80 - 130.211.181.100 NerdyBot - 200 0 22318 100 375
+2014-12-12 16:03:23 W3SVC51 GET / - 80 - 66.249.78.102 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 293 31
+2014-12-12 16:11:02 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 5.152.201.149 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/39.0.2171.71+Safari/537.36 http://www.melonmc.com/profile/4961379 304 0 174 494 15
+2014-12-12 16:17:11 W3SVC51 GET / - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://buttons-for-website.com 200 0 3560 354 250
+2014-12-12 16:17:11 W3SVC51 GET /Content/Site.css - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1307 318 265
+2014-12-12 16:17:12 W3SVC51 GET /Content/lightbox.css - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1411 322 281
+2014-12-12 16:17:12 W3SVC51 GET /Scripts/iefix.js - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 897 303 281
+2014-12-12 16:17:12 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 4258 315 296
+2014-12-12 16:17:12 W3SVC51 GET /Scripts/lightbox.js - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 3171 306 296
+2014-12-12 16:17:12 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 35038 314 1046
+2014-12-12 16:17:13 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 28016 313 750
+2014-12-12 16:17:13 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 53773 323 781
+2014-12-12 16:17:13 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 40911 325 875
+2014-12-12 16:17:13 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 44465 310 968
+2014-12-12 16:17:13 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 38890 311 984
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 82536 311 531
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 58143 332 1359
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 56843 318 562
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/Parade.JPG - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 64441 309 593
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 41609 317 656
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 60776 328 968
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 50722 311 453
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 69982 311 421
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 70590 320 390
+2014-12-12 16:17:14 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 8733 325 265
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 46517 313 671
+2014-12-12 16:17:14 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 753 323 296
+2014-12-12 16:17:14 W3SVC51 GET /Content/art/ann.jpg - 80 - 189.32.126.179 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 62602 306 531
+2014-12-12 16:18:17 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 92.30.38.65 Mozilla/5.0+(Linux;+Android+4.4.2;+Q102+Build/KOT49H)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Version/4.0+Chrome/30.0.0.0+Safari/537.36+GSA/3.6.16.1614640.arm - 200 0 60776 304 203
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 16:38:33
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 16:38:32 W3SVC51 GET / - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://semalt.semalt.com/crawler.php?u=http://annchambers.net 200 0 3560 385 140
+2014-12-12 16:38:32 W3SVC51 GET /Content/Site.css - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 1307 318 78
+2014-12-12 16:38:33 W3SVC51 GET /Content/lightbox.css - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 1411 322 78
+2014-12-12 16:38:33 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 4258 315 62
+2014-12-12 16:38:33 W3SVC51 GET /Scripts/lightbox.js - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 3171 306 281
+2014-12-12 16:38:33 W3SVC51 GET /Scripts/iefix.js - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 897 303 343
+2014-12-12 16:38:33 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 35038 314 531
+2014-12-12 16:38:33 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 28016 313 499
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 38890 311 625
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 58143 332 703
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 82536 311 343
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 53773 323 1187
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 60776 328 453
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 44465 310 1328
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 50722 311 187
+2014-12-12 16:38:34 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 41609 317 296
+2014-12-12 16:38:35 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 56843 318 1078
+2014-12-12 16:38:35 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 70590 320 437
+2014-12-12 16:38:35 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 46517 313 781
+2014-12-12 16:38:35 W3SVC51 GET /Content/art/Parade.JPG - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 64441 309 1125
+2014-12-12 16:38:35 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 8733 325 312
+2014-12-12 16:38:35 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 753 323 281
+2014-12-12 16:38:35 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 40911 325 2562
+2014-12-12 16:38:36 W3SVC51 GET /Content/art/ann.jpg - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 62602 306 828
+2014-12-12 16:38:36 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 5.39.148.75 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1700.107+Safari/537.36 http://annchambers.net/ 200 0 69982 311 1312
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 17:34:53
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 17:34:53 W3SVC51 GET /Home/ViewLocation - 80 - 66.249.78.102 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2980 360 109
+2014-12-12 17:38:16 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg width=1920&height=0&scale_mode=fill 80 - 80.44.180.44 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/39.0.2171.95+Safari/537.36 - 200 0 60776 369 4625
+2014-12-12 17:51:04 W3SVC51 GET /Home/Contact - 80 - 66.249.78.95 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3020 355 31
+2014-12-12 17:52:53 W3SVC51 GET /Home/ViewLocation - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) - 200 0 2980 242 281
+2014-12-12 17:52:57 W3SVC51 GET /Content/Site.css - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://annchambers.net/Home/ViewLocation 200 0 1307 317 281
+2014-12-12 17:52:59 W3SVC51 GET /Content/lightbox.css - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://annchambers.net/Home/ViewLocation 200 0 1411 321 281
+2014-12-12 17:53:02 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://annchambers.net/Home/ViewLocation 200 0 35038 328 296
+2014-12-12 17:53:05 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://annchambers.net/Home/ViewLocation 200 0 4258 329 296
+2014-12-12 17:53:09 W3SVC51 GET /Scripts/iefix.js - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://annchambers.net/Home/ViewLocation 200 0 897 317 281
+2014-12-12 17:53:11 W3SVC51 GET /Scripts/lightbox.js - 80 - 65.55.218.44 Mozilla/5.0+(compatible;+MSIE+9.0;+Windows+NT+6.0;+Trident/5.0;++Trident/5.0) http://annchambers.net/Home/ViewLocation 200 0 3171 320 218
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 18:16:08
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 18:16:07 W3SVC51 GET / - 80 - 208.80.194.121 Mozilla/5.0+(Windows+NT+5.1)+AppleWebKit/534.24+(KHTML,+like+Gecko)+Chrome/11.0.696.68+Safari/534.24 - 200 0 22313 172 765
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 19:11:17
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 19:11:17 W3SVC51 GET /robots.txt - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) - 404 0 2151 285 125
+2014-12-12 19:11:18 W3SVC51 GET /robots.txt - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) - 404 0 2151 289 93
+2014-12-12 19:11:22 W3SVC51 GET / - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) - 200 0 3579 279 93
+2014-12-12 19:11:23 W3SVC51 GET /Home/Links - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) http://www.annchambers.net/ 200 0 3056 327 108
+2014-12-12 19:11:28 W3SVC51 GET /Home/About - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) http://www.annchambers.net/ 200 0 2971 327 78
+2014-12-12 19:11:32 W3SVC51 GET /Home/Archive - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) http://www.annchambers.net/ 200 0 3376 329 109
+2014-12-12 19:11:38 W3SVC51 GET /Home/Contact - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) http://www.annchambers.net/ 200 0 3039 329 93
+2014-12-12 19:11:41 W3SVC51 GET /Home/ViewLocation - 80 - 162.243.122.43 Mozilla/5.0+(compatible;+spbot/4.4.1;++http://OpenLinkProfiler.org/bot+) http://www.annchambers.net/ 200 0 2999 334 78
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 19:35:28
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 19:35:28 W3SVC51 GET /robots.txt - 80 - 5.255.253.194 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) - 404 0 2132 189 125
+2014-12-12 19:35:28 W3SVC51 GET /robots.txt - 80 - 5.255.253.194 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) - 404 0 2132 185 93
+2014-12-12 19:35:30 W3SVC51 GET / - 80 - 5.255.253.194 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) - 200 0 3560 284 93
+2014-12-12 19:35:31 W3SVC51 GET / - 80 - 5.255.253.194 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) - 200 0 3560 280 78
+2014-12-12 19:35:34 W3SVC51 GET / - 80 - 5.255.253.194 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) - 200 0 3560 284 93
+2014-12-12 19:35:35 W3SVC51 GET / - 80 - 5.255.253.194 Mozilla/5.0+(compatible;+YandexBot/3.0;++http://yandex.com/bots) - 200 0 3560 280 78
+2014-12-12 19:42:58 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 198.248.12.175 Mozilla/5.0+(Windows+NT+5.1;+rv:34.0)+Gecko/20100101+Firefox/34.0 - 200 0 82536 280 546
+2014-12-12 19:56:09 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 198.248.12.175 Mozilla/5.0+(Windows+NT+5.1;+rv:34.0)+Gecko/20100101+Firefox/34.0 - 200 0 50722 280 656
+2014-12-12 19:59:27 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 92.23.172.163 Mozilla/5.0+(Windows+NT+6.1)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/39.0.2171.95+Safari/537.36 https://www.google.co.uk/ 200 0 60776 362 156
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 20:28:14
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 20:28:13 W3SVC51 GET /robots.txt - 80 - 199.16.156.125 Twitterbot/1.0 - 404 0 2132 142 156
+2014-12-12 20:28:13 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 199.16.156.125 Twitterbot/1.0 - 200 0 60776 159 406
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 22:11:09
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 22:11:08 W3SVC51 GET /Home/About - 80 - 66.249.78.102 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+6_0+like+Mac+OS+X)+AppleWebKit/536.26+(KHTML,+like+Gecko)+Version/6.0+Mobile/10A5376e+Safari/8536.25+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 2952 417 62
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 22:40:59
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 22:40:58 W3SVC51 GET /robots.txt - 80 - 66.249.78.131 Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 404 0 2132 256 46
+2014-12-12 22:40:58 W3SVC51 GET / - 80 - 66.249.78.138 Mozilla/5.0+(iPhone;+CPU+iPhone+OS+6_0+like+Mac+OS+X)+AppleWebKit/536.26+(KHTML,+like+Gecko)+Version/6.0+Mobile/10A5376e+Safari/8536.25+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html) - 200 0 3560 353 27
+#Software: Microsoft Internet Information Services 8.5
+#Version: 1.0
+#Date: 2014-12-12 23:54:31
+#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-bytes cs-bytes time-taken
+2014-12-12 23:54:31 W3SVC51 GET / - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://make-money-online.7makemoneyonline.com/money.php?u=http://annchambers.net 200 0 3560 404 390
+2014-12-12 23:54:31 W3SVC51 GET /Content/Site.css - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1307 318 359
+2014-12-12 23:54:31 W3SVC51 GET /Content/lightbox.css - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 1411 322 328
+2014-12-12 23:54:31 W3SVC51 GET /Scripts/modernizr-1.7.min.js - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 4258 315 406
+2014-12-12 23:54:31 W3SVC51 GET /Scripts/iefix.js - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 897 303 390
+2014-12-12 23:54:31 W3SVC51 GET /Scripts/lightbox.js - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 3171 306 406
+2014-12-12 23:54:32 W3SVC51 GET /Scripts/jquery-1.7.2.min.js - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 35038 314 1046
+2014-12-12 23:54:34 W3SVC51 GET /Content/art/1sr+WW+lighter-001.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 40911 325 2109
+2014-12-12 23:54:34 W3SVC51 GET /Content/art/Tanyas+waterlilies.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 53773 323 2343
+2014-12-12 23:54:36 W3SVC51 GET /Content/art/Pasquale.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 38890 311 3250
+2014-12-12 23:54:36 W3SVC51 GET /Content/art/Blue+Cow.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 28016 313 2531
+2014-12-12 23:54:36 W3SVC51 GET /Content/art/Paprika.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 44465 310 3609
+2014-12-12 23:54:37 W3SVC51 GET /Content/art/WW1soldiers+(2nd+version).jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 58143 332 4313
+2014-12-12 23:54:37 W3SVC51 GET /Content/art/WW1Soldiers+Poppies+4.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 60776 328 2546
+2014-12-12 23:54:38 W3SVC51 GET /Content/art/2013+Poppies1.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 56843 318 2937
+2014-12-12 23:54:38 W3SVC51 GET /Content/art/Wisteria.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 82536 311 3953
+2014-12-12 23:54:38 W3SVC51 GET /Content/art/Parade.JPG - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 64441 309 3046
+2014-12-12 23:54:39 W3SVC51 GET /Content/art/risdarr3.JPG - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 50722 311 2858
+2014-12-12 23:54:39 W3SVC51 GET /Content/art/Culpepper3.JPG - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 46517 313 2656
+2014-12-12 23:54:39 W3SVC51 GET /Content/art/Golden+Storm.JPG - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 41609 317 3843
+2014-12-12 23:54:40 W3SVC51 GET /Content/themes/base/images/loading.gif - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 8733 325 421
+2014-12-12 23:54:40 W3SVC51 GET /Content/themes/base/images/close.png - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 753 323 375
+2014-12-12 23:54:41 W3SVC51 GET /Content/art/ann.jpg - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 62602 306 2531
+2014-12-12 23:54:41 W3SVC51 GET /Content/art/Louisa's+Lilies.JPG - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 70590 320 2828
+2014-12-12 23:54:41 W3SVC51 GET /Content/art/Jupiter3.JPG - 80 - 179.199.202.30 Mozilla/5.0+(Windows+NT+6.1;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/36.0.1985.143+Safari/537.36 http://annchambers.net/ 200 0 69982 311 3218
+2014-12-12 23:56:08 W3SVC51 GET / - 80 - 2620:101:4037:3a03:150:70:97:124 Mozilla/4.0+(compatible;+MSIE+8.0;+Windows+NT+5.1;+Trident/4.0) - 200 0 22294 131 468
