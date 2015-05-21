@@ -13,29 +13,5 @@ namespace AnnChambersArt.Controllers
             ViewBag.Mode = "_shopwindow";
             return View();
         }
-        public ActionResult Links()
-        {
-            ViewBag.Mode = "_shopwindow";
-            return View();
-        }
-
-        public ActionResult ViewLocation()
-        {
-            ViewBag.Mode = "_shopwindow";
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Mode = "_shopwindow";
-            ViewBag.Message = "";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Mode = "_shopwindow";
-            return View();
-        }
     }
 }
