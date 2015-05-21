@@ -13,11 +13,6 @@ namespace AnnChambersArt.Controllers
             ViewBag.Mode = "_shopwindow";
             return View();
         }
-        public ActionResult Archive()
-        {
-            ViewBag.Mode = "_archive";
-            return View();
-        }
         public ActionResult Links()
         {
             ViewBag.Mode = "_shopwindow";
