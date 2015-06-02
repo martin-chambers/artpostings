@@ -20,8 +20,8 @@ namespace AnnChambersArt.Controllers
         // GET: Archive
         public ActionResult Index()
         {
-            ViewBag.Mode = "_archive";        
-            return View(repository.ListPostings());
+            ViewBag.Mode = "_archive";
+            return View(repository.ArchivePostings());
         }
     }
 }

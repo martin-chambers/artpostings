@@ -1,0 +1,6 @@
+﻿Next steps:
+
+- Factor out repository calls to a service. Currently all shopwindow controllers call the same repo method - bad!
+- probably need to combine _archive.cshtml and _shopwindow.cshtml into 1 with text passed in from the controller
+- dependency injection
+- data access

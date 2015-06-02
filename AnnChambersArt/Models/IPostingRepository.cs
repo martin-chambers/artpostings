@@ -9,6 +9,7 @@ namespace AnnChambersArt.Models
     public interface IPostingRepository
     {
         bool Create(ItemPosting posting);
-        IEnumerable<ItemPosting> ListPostings();        
+        IEnumerable<ItemPosting> ShopPostings();
+        IEnumerable<ItemPosting> ArchivePostings();        
     }
 }
