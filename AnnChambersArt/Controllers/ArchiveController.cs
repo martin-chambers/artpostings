@@ -9,19 +9,19 @@ namespace AnnChambersArt.Controllers
 {
     public class ArchiveController : Controller
     {
-        private IPostingRepository repository;
-        public ArchiveController(IPostingRepository _repository)
+        private IPostingService service;
+        public ArchiveController(IPostingService _service)
         {
-            repository = _repository;
+            service = _service;
         }
-        public ArchiveController() : this(new PostingRepository()) { }
+        public ArchiveController() : this(PostingService.Instance) { }
 
 
         // GET: Archive
         public ActionResult Index()
         {
             ViewBag.Mode = "_archive";
-            return View(repository.ArchivePostings());
+            return View(service.ArchivePostings());
         }
     }
 }

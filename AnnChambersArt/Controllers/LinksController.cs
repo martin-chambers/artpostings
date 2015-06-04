@@ -9,18 +9,18 @@ namespace AnnChambersArt.Controllers
 {
     public class LinksController : Controller
     {
-        private IPostingRepository repository;
-        public LinksController(IPostingRepository _repository)
+        private IPostingService service;
+        public LinksController(IPostingService _service)
         {
-            repository = _repository;
+            service = _service;
         }
-        public LinksController() : this(new PostingRepository()) { }
-
+        public LinksController() : this(PostingService.Instance) { }
+        
         // GET: Links
         public ActionResult Index()
         {
             ViewBag.Mode = "_shopwindow";
-            return View(repository.ShopPostings());
+            return View(service.ShopPostings());
         }
     }
 }
