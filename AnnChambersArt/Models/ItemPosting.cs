@@ -17,7 +17,7 @@ namespace AnnChambersArt.Models
         public ItemPosting(string filepath, string title, string shortName, string header, string description, string size, string price)
         {
             FilePath = HttpUtility.UrlPathEncode(filepath);
-            Title = title;
+            Title = title.Replace(" ", "&nbsp");
             ShortName = shortName;
             Header = header;
             Description = description;

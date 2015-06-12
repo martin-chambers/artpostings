@@ -348,7 +348,6 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Links\Index.cshtml" />
     <Content Include="Views\Viewing\Index.cshtml" />
-    <Content Include="Views\Shared\_archive.old.cshtml" />
     <Content Include="Views\Shared\_shopwindow.cshtml" />
     <Content Include="Views\Shared\_postingList.cshtml" />
     <Content Include="Views\Shared\_archive.cshtml" />
