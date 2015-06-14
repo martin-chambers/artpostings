@@ -10,6 +10,6 @@ namespace AnnChambersArt.Models
     {
         bool Create(ItemPosting posting);
         IEnumerable<ItemPosting> ShopPostings();
-        IEnumerable<ItemPosting> ArchivePostings();        
+        IEnumerable<ItemPosting> ArchivePostings();
     }
 }

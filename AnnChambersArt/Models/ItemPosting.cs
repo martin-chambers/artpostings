@@ -17,6 +17,7 @@ namespace AnnChambersArt.Models
         public ItemPosting(string filepath, string title, string shortName, string header, string description, string size, string price)
         {
             FilePath = HttpUtility.UrlPathEncode(filepath);
+            // title is passed to jQuery as Html, so need to avoid breaking spaces
             Title = title.Replace(" ", "&nbsp");
             ShortName = shortName;
             Header = header;
