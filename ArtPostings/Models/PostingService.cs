@@ -32,6 +32,19 @@ namespace ArtPostings.Models
                 }
             }
         }
+        public string ShopText
+        {
+            get
+            {
+                return "Paintings are acrylic or oil. Click on any painting for a larger image. " +
+                    "Please note, prices quoted for all items do not include postage and packing costs, " +
+                    "which would be by arrangement. © Copyright Ann Chambers 2014"; 
+            }
+        }
+        public string ArchiveText
+        {
+            get { return "Paintings are acrylic or oil. Click on any painting for a larger image. © Copyright Ann Chambers 2012";  }
+        }
         private IPostingRepository repository;
         
         IEnumerable<ItemPosting> IPostingService.ShopPostings()

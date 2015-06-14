@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -349,9 +349,8 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Links\Index.cshtml" />
     <Content Include="Views\Viewing\Index.cshtml" />
-    <Content Include="Views\Shared\_shopwindow.cshtml" />
     <Content Include="Views\Shared\_postingList.cshtml" />
-    <Content Include="Views\Shared\_archive.cshtml" />
+    <Content Include="Views\Shared\_itemDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

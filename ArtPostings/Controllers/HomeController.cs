@@ -19,6 +19,7 @@ namespace ArtPostings.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Blurb = service.ShopText;
             ViewBag.Mode = "_shopwindow";
             return View(service.ShopPostings());
         }

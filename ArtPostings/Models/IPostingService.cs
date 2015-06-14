@@ -9,6 +9,8 @@ namespace ArtPostings.Models
     public interface IPostingService
     {
         IEnumerable<ItemPosting> ShopPostings();
-        IEnumerable<ItemPosting> ArchivePostings();        
+        IEnumerable<ItemPosting> ArchivePostings();
+        string ArchiveText { get; }
+        string ShopText { get; }
     }
 }
