@@ -113,14 +113,14 @@ table.main
     width: 400px;
 }
 
-#header 
+.top 
 {
     padding-top: 20px;
     padding-left: 20px;
     margin: 0;
     padding-bottom:50px;    
 }
-#headerlist
+.topmenu
 {
     list-style:none;
     padding-top: 48px;
@@ -129,13 +129,15 @@ table.main
     display:block;
 }
 
-#headerlist li
+.topmenu li
 {
     display:inline;
-    margin-right: 60px;    
+    margin-right: 30px;    
+    margin-left: 30px;    
+    float:right;
 }
 
-#headerlist li a
+.topmenu li a
 {
     text-decoration:none;
     color:gray;

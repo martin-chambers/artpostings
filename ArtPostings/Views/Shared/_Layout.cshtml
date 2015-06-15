@@ -14,12 +14,12 @@
 </head>
 <body>
 <div class="outer">
-<div id="header">
+<div class="top">
     <h1>Ann Chambers Art</h1>
-    <ul id="headerlist">
+    <ul class="topmenu">
+        @Html.Partial("_LoginPartial")
         <li><a href='@Url.Action("Index", "About")'>About</a></li>
         <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
-        <li><a href='@Url.Action("Login", "Account")'>Admin Login</a></li>
     </ul>
 </div>       
 <table>
@@ -38,11 +38,14 @@
     </header>
    </div>
   </td>  
-     <td>@Html.Partial("_itemDisplay")</td>
+     <td>@if(ViewBag.Mode == "_itemDisplay") { @Html.Partial("_itemDisplay") }</td>
   <td style="width:80px;"></td>
    <td style="width:300px;">
   <section id="main">
-     @RenderBody()
+      @Scripts.Render("~/bundles/jquery")
+      @Scripts.Render("~/bundles/bootstrap")
+      @RenderSection("scripts", required: false)   
+      @RenderBody()      
    </section>
  </td>
  </tr>

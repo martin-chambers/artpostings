@@ -342,7 +342,7 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.old.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
     <Content Include="Scripts\lightbox.min.map" />
     <Content Include="Views\About\Index.cshtml" />
@@ -351,6 +351,7 @@
     <Content Include="Views\Viewing\Index.cshtml" />
     <Content Include="Views\Shared\_postingList.cshtml" />
     <Content Include="Views\Shared\_itemDisplay.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

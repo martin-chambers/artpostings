@@ -21,7 +21,7 @@ namespace ArtPostings.Controllers
         public ActionResult Index()
         {
             ViewBag.Blurb = service.ShopText;
-            ViewBag.Mode = "_shopwindow";
+            ViewBag.Mode = "_noItemDisplay";
             return View(service.ShopPostings());
         }
     }
