@@ -1,0 +1,162 @@
+[33mcommit d2fa4af1a2c27af47fe517ffed08a9f578dd30de[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Wed Jun 24 22:46:16 2015 +0100
+
+    changes to css
+
+[33mcommit fe7badb833d6667803359bd5797d705d9a14906a[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Mon Jun 15 23:15:40 2015 +0100
+
+    Added MVC Identity authentication mechanisms - working correctly but CSS needs attention.
+
+[33mcommit 2e4cdeb1e22c06d31d26b1638325d88b3171c362[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sun Jun 14 23:34:04 2015 +0100
+
+    added nav bar; itemDisplay partial view replaces _archive and _shopwindow
+
+[33mcommit 5625ae2664e5461d048bc3d26d43b2d32f6e51f7[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sun Jun 14 11:12:56 2015 +0100
+
+    Part 2 of renaming AnnChambers to ArtPostings - this follows a git add -u
+
+[33mcommit 6cd2839873b2382d98fae89738ca5cb8e5e3fd74[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sun Jun 14 11:07:05 2015 +0100
+
+    Renamed solution, namespaces, projects, folder structure
+
+[33mcommit 6379453a542eacd36b0062ba7c50ce458c9f638a[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sun Jun 14 08:04:24 2015 +0100
+
+    repositories now use database
+
+[33mcommit f1f3753f844a4ffcc835191e2df774d1a93dd869[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Fri Jun 12 21:44:55 2015 +0100
+
+    added remainder of postings to repository; fixed non-breaking space issue in caption; minor changes to posting design
+
+[33mcommit 5c1e7cc05105838797e85fb6bb13331de277e27d[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Mon Jun 8 21:26:07 2015 +0100
+
+    Added artpostings to repository archive listing
+
+[33mcommit 62274d7956e9b3f390753eb75554781ab73502b4[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Thu Jun 4 21:48:18 2015 +0100
+
+    added IPostingService to all controllers
+
+[33mcommit 3d3ac42aba3456057d542a7a8069b294b1ed7459[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Tue Jun 2 21:57:58 2015 +0100
+
+    Added repository behaviour to all controllers; encoded paths for href urls; partial layout for posting lists
+
+[33mcommit 418fc4d0e7e2c0a03fe084cedef692668549417c[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sun May 24 15:59:37 2015 +0100
+
+    added repository and interface; changes to ArchiveController
+
+[33mcommit 7de126b352c1028970e58ff6cf20a4c52aedf50a[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sat May 23 14:33:46 2015 +0100
+
+    re-adding ItemPosting.cs after all sorts of problems with GIT
+
+[33mcommit be7b6f6a568b0b7e0e36a064d837f097d198e773[m
+Merge: 9a352de 03a87aa
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sat May 23 14:19:17 2015 +0100
+
+    Merge branch 'master' into old
+
+[33mcommit 9a352de3e20623a45d55e4c86e1f1227d9149db7[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sat May 23 14:18:54 2015 +0100
+
+    build changes
+
+[33mcommit 48d43a85f3a1ad1aa5519b3772dfb6b1168ffe25[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sat May 23 14:06:42 2015 +0100
+
+    reimplementing controller/view changes to old build 2
+
+[33mcommit ad76fbac8aeb875c8e43df8609b398ee70686bc0[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Sat May 23 14:06:13 2015 +0100
+
+    reimplementing controller/view changes to old build
+
+[33mcommit 03a87aa36eb819af952d1207ffb92b57b858ca98[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Thu May 21 23:57:26 2015 +0100
+
+    New controllers: About, Links, Contact, Viewing
+
+[33mcommit 68592733e18bc8af4c415790aee8b692fba13d72[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Thu May 21 21:20:25 2015 +0100
+
+    Addd .pdb to .gitignore
+
+[33mcommit ba90952ce01bbd84539e7c042568920ac8ffc3c0[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Thu May 21 21:16:09 2015 +0100
+
+    Removed .pdb files from source control; ItemPosting class
+
+[33mcommit 5a0bfca369c150730bf8eb98fa84390ecd06056c[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Mon May 18 22:42:13 2015 +0100
+
+    untracking DLLs etc
+
+[33mcommit c4973835cb321335157e8e47029774614471805f[m
+Author: martinchambers <martinclivechambers@gmail.com>
+Date:   Mon May 18 22:02:42 2015 +0100
+
+    Created ArchiveController
+
+[33mcommit b4b32387462d3a51536177712adbb9aed964c3d2[m
+Author: Martin Chambers <martinclivechambers@gmail.com>
+Date:   Sat Dec 20 10:08:07 2014 +0000
+
+    added .gitignore
+
+[33mcommit 69c0214b51c15ba9eaa58d6d262b90bfbaffb103[m
+Author: Martin Chambers <martinclivechambers@gmail.com>
+Date:   Sat Dec 20 09:35:23 2014 +0000
+
+    Updates to art items and error page
+
+[33mcommit a37b54e3a9f077dcfcaac1c10105e2f592203ae8[m
+Author: Martin Chambers <martinclivechambers@gmail.com>
+Date:   Fri Dec 19 10:47:04 2014 +0000
+
+    Changes to allow web deployment, including full trust level and customErrors
+
+[33mcommit 797d909a7a1cce7d9fb9c9a7d09a039d69637ef5[m
+Author: Martin Chambers <martinclivechambers@gmail.com>
+Date:   Fri Dec 19 00:37:35 2014 +0000
+
+    upgrade to MVC 5
+
+[33mcommit 0f0cf38b83eab381dbd9dc983da2907b9690cbcd[m
+Author: Martin Chambers <martinclivechambers@gmail.com>
+Date:   Thu Dec 18 14:19:24 2014 +0000
+
+    removing MVC3 implementation
+
+[33mcommit ebb9d738af26fa678284e07c6f6f673025342062[m
+Author: Martin Chambers <martinclivechambers@gmail.com>
+Date:   Mon Dec 15 15:23:39 2014 +0000
+
+    initial commit

@@ -15,32 +15,22 @@
 <body>
 <div class="outer">
 <div class="top">
-    <h1>Ann Chambers Art</h1>
     <ul class="topmenu">
-        @Html.Partial("_LoginPartial")
-        <li><a href='@Url.Action("Index", "About")'>About</a></li>
-        <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
+            @Html.Partial("_LoginPartial")
+            <li><a href='@Url.Action("Index", "About")'>About</a></li>        
+            <li><a href='@Url.Action("Index", "Links")'>Links</a></li>
+            <li><a href='@Url.Action("Index", "Archive")'>Archive</a></li>
+           <li><a href='@Url.Action("Index", "Viewing")'>Viewing</a></li>
+            <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
+            <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
     </ul>
 </div>       
-<table>
+<h1>Ann Chambers Art</h1><br />
+<table id="outer">
  <tr>
-  <td class="sidebar">
-   <div class="page">
-    <header>
-     <div id="menucontainer">
-       <ul id="menu">
-         <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
-         <li><a href='@Url.Action("Index", "Viewing")'>Viewing</a></li>                    
-         <li><a href='@Url.Action("Index", "Links")'>Links</a></li>         
-         <li><a href='@Url.Action("Index", "Archive")'>Archive</a></li>
-       </ul>
-     </div>
-    </header>
-   </div>
-  </td>  
      <td>@if(ViewBag.Mode == "_itemDisplay") { @Html.Partial("_itemDisplay") }</td>
-  <td style="width:80px;"></td>
-   <td style="width:300px;">
+  <td class="innerseparator" ></td>
+   <td class="leftside">
   <section id="main">
       @Scripts.Render("~/bundles/jquery")
       @Scripts.Render("~/bundles/bootstrap")
@@ -49,8 +39,7 @@
    </section>
  </td>
  </tr>
-</table>
-</div>
+</table>    
 <footer>
 </footer>
 </body>
