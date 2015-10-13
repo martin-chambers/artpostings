@@ -3,27 +3,19 @@
 {
     <tr>
         <td>
-            <table>
-                <tr style="height:130px;">
+            <table style="width:100%;">
+                <tr>
                     <td style="vertical-align:middle; width:180px">
                         <a class="picturelink" href=@posting.FilePath rel="lightbox" title=@posting.Title>
-                            <img alt=@posting.ShortName width="120px" src=@posting.FilePath /><div>@posting.ShortName</div>
+                            <img alt=@posting.ShortName width="120px" title=@posting.ShortName src=@posting.FilePath />
                         </a>
                     </td>
-                    <td>
-                        <table style="padding:8px; border-width:0px; width:350px;">
-                            <tr style="vertical-align:middle;">
-                                <td style="background-color:#CC9900; text-align:left;"><strong>@posting.Header</strong></td>
-                            </tr>
-                            <tr>
-                                <td style="height:110px; vertical-align:top;">
-                                    @posting.Description
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="background-color:#333333; text-align:left;">@posting.Price | Size :@posting.Size</td>
-                            </tr>
-                        </table>
+                    <td style="text-align:left; position:relative;">
+                        <div style="color:white; background-color:plum; text-align:left; border-radius: 5px; padding: 4px; width:97%">
+                            <strong>@posting.Header</strong>
+                        </div>
+                        <div style="padding:7px;">@posting.Description</div><br /><br />
+                        <div style="position:absolute; bottom:0px; background-color:gainsboro; text-align:left; border-radius: 5px; padding: 4px;width:97%;">@posting.Price | Size :@posting.Size</div>
                     </td>
                 </tr>
             </table>

@@ -19,11 +19,11 @@ namespace ArtPostings.Models
             FilePath = HttpUtility.UrlPathEncode(filepath);
             // title is passed to jQuery as Html, so need to avoid breaking spaces
             Title = title.Replace(" ", "&nbsp");
-            ShortName = shortName;
             Header = header;
             Description = description;
             Size = size;
             Price = price;
+            ShortName = shortName.Replace(" ", "_");
         }
         
     }    

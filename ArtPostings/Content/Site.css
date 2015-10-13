@@ -48,14 +48,14 @@ table {
 
 
 body {
-    background-color: silver;
+    background-color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     margin-left: 0;
     margin-top: 0;
-    color: teal;
+    color: black;
 }
 a:link {
-    color: #FFFFFF;
+    color: blue;
 }
 a:link.picturelink {
     color:White;
@@ -86,12 +86,14 @@ div.outer
 
 h1 {
     float: left;
+    color: cornflowerblue;
     font-weight: bold;
-    padding-left:30px;
+    font-family: 'Segoe Print', Mistral, 'Freestyle Script', sans-serif;
+    padding:30px;
     margin:inherit;
     border: none;
     line-height: 2em;
-    font-size: 32px !important; 
+    font-size: 40px !important; 
     width:500px;
     float:left;
 }
@@ -134,28 +136,47 @@ table#outer
 {
     padding-top: 14px;
     margin: 0;
-    padding-bottom:80px;    
+    padding-bottom:50px;    
 }
-.topmenu
+.topleftmenu
 {
-    float: left;
-    list-style:none;
+    float: left;    
     padding-left: 2px;
     display:block;
 }
 
-.topmenu li
+.toprightmenu
+{
+    float: right;    
+    padding-left: 2px;
+    display:block;
+}
+
+.toprightmenu li
 {
     display:inline;
-    margin-right: 30px;    
+    margin-right: 10px;    
     margin-left: 30px;    
     float:right;
 }
 
-.topmenu li a
+.topleftmenu li
+{
+    display:inline;
+    margin-right: 10px;    
+    margin-left: 30px;    
+    float:right;
+}
+
+.toprightmenu li a
 {
     text-decoration:none;
-    color:gray;
+    color:mediumorchid;
+}
+.topleftmenu li a
+{
+    text-decoration:none;
+    color:mediumorchid;
 }
 
     
@@ -217,13 +238,14 @@ tr
 }
 
 .col-md-10 {
-    padding: 5px 0px 5px 0px;
+    padding: 5px;
 }
 
 .form-control {
-    border-radius: 5px 5px;
-    font-size: larger;
+    border-radius: 4px;
+    font-size: medium;
     width: 300px;    
+    padding: 3px;
 }
 
 .btn {
@@ -232,44 +254,4 @@ tr
 }
 
 
-
-/* STU NICHOLLS DOT COM Plug In: ------------------------------------------------------------*/
-
-#menu {list-style-type:none; padding:0; margin:0; }
-#menu ul {list-style-type:none; padding: 0; margin: 0;}
-#menu li {list-style-type:none; background:#FF5C33; margin:3px 3px 0 0; position:relative; display:block  }
-#menu li.sub {background:#baa;}
-
-/* for IE5.5 and IE6 only */
-#menu table {border-collapse:collapse;position:absolute;top:0;left:0;z-index:80;font-size:1em;}
-
-#menu li a {display:table; 
-            height:25px; 
-            font-family:arial, sans-serif; 
-            font-size:20px; 
-            font-weight:bold;
-            color: #FFFFFF; 
-            line-height:30px; 
-            width:125px; 
-            text-decoration:none; 
-            text-align:center;
-            
-}
-#menu :hover {color:#CC3300; background:#FF5C33;}
-#menu :hover > a {color:#CC3300; background:#FF5C33;}
-
-#menu ul, 
-#menu :hover ul ul,
-#menu :hover ul :hover ul ul,
-#menu :hover ul :hover ul ul.left {position:absolute; left:-9999px; width:128px;}
-
-#menu :hover ul{left:0;top:25px; background:url(transparent.gif);} /* the background image is for IE7 */
-
-#menu :hover ul :hover ul,
-#menu :hover ul :hover ul :hover ul {padding:0 3px; left:125px; top:-3px;}
-
-#menu :hover ul :hover ul.left,
-#menu :hover ul :hover ul :hover ul.left {padding:0 3px; left:-131px; top:-3px;}
-
-/* END OF STU NICHOLLS DOT COM Plug In ------------------------------------------------------------*/
 

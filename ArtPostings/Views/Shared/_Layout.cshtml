@@ -9,14 +9,15 @@
     <link href="@Url.Content("~/Content/lightbox.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.11.0.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/iefix.js")" type="text/javascript"></script>
     <script src="../../Scripts/lightbox.min.js      " type="text/javascript"></script>
 </head>
 <body>
 <div class="outer">
 <div class="top">
-    <ul class="topmenu">
-            @Html.Partial("_LoginPartial")
+       <ul class="toprightmenu">
+         @Html.Partial("_LoginPartial")
+       </ul>
+       <ul class="topleftmenu">            
             <li><a href='@Url.Action("Index", "About")'>About</a></li>        
             <li><a href='@Url.Action("Index", "Links")'>Links</a></li>
             <li><a href='@Url.Action("Index", "Archive")'>Archive</a></li>
@@ -24,22 +25,22 @@
             <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
             <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
     </ul>
-</div>       
-<h1>Ann Chambers Art</h1><br />
-<table id="outer">
- <tr>
-     <td>@if(ViewBag.Mode == "_itemDisplay") { @Html.Partial("_itemDisplay") }</td>
-  <td class="innerseparator" ></td>
-   <td class="leftside">
-  <section id="main">
-      @Scripts.Render("~/bundles/jquery")
-      @Scripts.Render("~/bundles/bootstrap")
-      @RenderSection("scripts", required: false)   
-      @RenderBody()      
-   </section>
- </td>
- </tr>
-</table>    
+</div> 
+    <div style="display:block">
+        <h1 style="width:100%;">Ann Chambers Art</h1><br />
+        <div style="display:inline; width:100%; margin-left:30px; margin-right:30px; vertical-align:top;">
+            <div style="display: inline-block; max-width:50%;  float:left; padding-left:30px;">@if (ViewBag.Mode == "_itemDisplay")
+            { @Html.Partial("_itemDisplay")}</div>
+            <div style="display: inline-block; float:left; width:30%; padding-top: 12px; padding-left:60px;">
+                <section id="main">
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    @RenderSection("scripts", required: false)
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+    </div>
 <footer>
 </footer>
 </body>
