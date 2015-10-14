@@ -33,7 +33,6 @@ namespace ArtPostings.Models
             Editing = false;
         }
         // default constructor
-        public ItemPosting() { }
-        
+        public ItemPosting() { }        
     }    
 }

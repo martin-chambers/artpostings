@@ -54,10 +54,14 @@ body {
     margin-top: 0;
     color: black;
 }
+<<<<<<< HEAD
 a {
     color: blue;
 }
 a#loginLink {
+=======
+a:link {
+>>>>>>> 8b8eb084c779e48135d966bc011717d700154726
     color: blue;
 }
 a:link.picturelink {
@@ -140,11 +144,16 @@ table#outer
     padding-top: 14px;
     margin: 0;
     padding-bottom:50px;    
+<<<<<<< HEAD
     width: 85%;
+=======
+>>>>>>> 8b8eb084c779e48135d966bc011717d700154726
 }
 .topleftmenu
 {
     float: left;    
+<<<<<<< HEAD
+=======
     padding-left: 2px;
     display:block;
 }
@@ -152,9 +161,20 @@ table#outer
 .toprightmenu
 {
     float: right;    
+>>>>>>> 8b8eb084c779e48135d966bc011717d700154726
+    padding-left: 2px;
     display:block;
 }
 
+<<<<<<< HEAD
+.toprightmenu
+{
+    float: right;    
+    display:block;
+}
+
+.toprightmenu li
+=======
 .toprightmenu li
 {
     display:inline;
@@ -163,6 +183,16 @@ table#outer
     float:right;
 }
 
+.topleftmenu li
+>>>>>>> 8b8eb084c779e48135d966bc011717d700154726
+{
+    display:inline;
+    margin-right: 10px;    
+    margin-left: 30px;    
+    float:right;
+}
+
+<<<<<<< HEAD
 .topleftmenu li
 {
     display:inline;
@@ -180,6 +210,17 @@ table#outer
 {
     text-decoration:none;
     color:mediumorchid;
+=======
+.toprightmenu li a
+{
+    text-decoration:none;
+    color:mediumorchid;
+}
+.topleftmenu li a
+{
+    text-decoration:none;
+    color:mediumorchid;
+>>>>>>> 8b8eb084c779e48135d966bc011717d700154726
 }
 
     
