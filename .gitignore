@@ -9,6 +9,7 @@
 *.pdb
 *.cache
 *.publishsettings
+*.suo
  
 # Packages #
 ############
