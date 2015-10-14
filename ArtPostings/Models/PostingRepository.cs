@@ -42,6 +42,7 @@ namespace ArtPostings.Models
                     {
                         postings.Add(
                             new ItemPosting(
+                                reader["Id"].ToString(),
                                 pictureFolder + reader["Filename"].ToString(),
                                 reader["Title"].ToString(),
                                 reader["Shortname"].ToString(),
@@ -56,7 +57,6 @@ namespace ArtPostings.Models
             }
             catch (Exception ex) { }
             return postings;
-        }
-
+        }        
     }
 }

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ArtPostings.Models.ItemPosting>
+@foreach (ArtPostings.Models.ItemPosting posting in Model)
+{
+    <tr>
+        <td>
+            <table style="width:100%;">
+                <tr>
+                    @{ if (posting.Editing)
+                        {
+                            <td style='vertical - align:middle; width: 180px'> <a class='picturelink' href=@posting.FilePath rel='lightbox' title=@posting.Title> <img alt=@posting.ShortName width='120px' title=@posting.ShortName src=@posting.FilePath /> </a> </td> <td style='text-align:left; position:relative;'> <div style='color:white; background-color:plum; text-align:left; border-radius: 5px; padding: 4px; width:97%'> <strong>@posting.Header</strong> <div style='float:right; color:white; font-size:small; vertical-align:central;'>Save</div> </div> <div style='padding:7px;'>@posting.Description</div><br /><br /> <div style='position:absolute; bottom:0px; background-color:gainsboro; text-align:left; border-radius: 5px; padding: 4px;width:97%;'>@posting.Price | Size :@posting.Size</div> </td>
+                        }
+                        else
+                        {
+                            <td style='vertical - align:middle; width: 180px'> <a class='picturelink' href=@posting.FilePath rel='lightbox' title=@posting.Title> <img alt=@posting.ShortName width='120px' title=@posting.ShortName src=@posting.FilePath /> </a> </td> <td style='text-align:left; position:relative;'> <div style='color:white; background-color:plum; text-align:left; border-radius: 5px; padding: 4px; width:97%'> <strong>@posting.Header</strong>  <div style='float:right; color:white; font-size:small; vertical-align:central;'>@Html.ActionLink("Edit", "Edit", "Home", new { id = posting.Id }, null)</div> </div> <div style='padding:7px;'>@posting.Description</div><br /><br /> <div style='position:absolute; bottom:0px; background-color:gainsboro; text-align:left; border-radius: 5px; padding: 4px;width:97%;'>@posting.Price | Size :@posting.Size</div> </td>
+                        }
+
+                    }
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <hr />
+        </td>
+    </tr>
+                        }

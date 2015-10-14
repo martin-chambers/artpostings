@@ -20,7 +20,7 @@ namespace ArtPostings.Controllers
         public ActionResult Index()
         {
             ViewBag.Blurb = service.ShopText;
-            ViewBag.Mode = "_itemDisplay";
+            ViewBag.Mode = "_noItemDisplay";
             return View(service.ShopPostings());
         }
     }

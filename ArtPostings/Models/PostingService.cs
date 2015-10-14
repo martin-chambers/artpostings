@@ -56,5 +56,20 @@ namespace ArtPostings.Models
         {
             return repository.ArchivePostings();
         }
+
+        IEnumerable<ItemPosting> IPostingService.EditableShopPostings(int id)
+        {
+            IEnumerable<ItemPosting> postings = new List<ItemPosting>();
+            postings = repository.ShopPostings();
+            foreach (ItemPosting i in postings)
+            {
+                if (i.Id == id)
+                {
+                    i.Editing = true;
+                }
+            }            
+            return postings;
+        }
+        
     }
 }

@@ -11,6 +11,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using ArtPostings.Models;
+using System.Configuration;
+using System.Net;
+using System.Net.Mail;
+using System.Collections.Specialized;
 
 namespace ArtPostings
 {
@@ -19,7 +23,25 @@ namespace ArtPostings
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            var emailConfig = ConfigurationManager.GetSection("EmailConfig") as NameValueCollection;
+            var email = new MailMessage(Convert.ToString(emailConfig["FromMailAddress"]), message.Destination)
+            {
+                Subject = message.Subject,
+                Body = message.Body,
+                IsBodyHtml = true
+            };
+            var mailClient = new SmtpClient(
+                Convert.ToString(emailConfig["EmailHost"]),
+                Convert.ToInt32(emailConfig["EmailPort"]))
+            {
+                Credentials =
+                    new NetworkCredential(
+                        Convert.ToString(emailConfig["EmailUsername"]),
+                        Convert.ToString(emailConfig["EmailPassword"])),
+                EnableSsl = true
+            };
+            return mailClient.SendMailAsync(email); 
+            //return Task.FromResult(0);
         }
     }
 
