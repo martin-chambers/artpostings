@@ -53,3 +53,6 @@ C:\GIT\artpostings\ArtPostings\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\GIT\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache
 C:\GIT\artpostings\ArtPostings\obj\Debug\ArtPostings.dll
 C:\GIT\artpostings\ArtPostings\obj\Debug\ArtPostings.pdb
+C:\git\artpostings\ArtPostings\bin\Elmah.dll
+C:\git\artpostings\ArtPostings\bin\Elmah.Mvc.dll
+C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll

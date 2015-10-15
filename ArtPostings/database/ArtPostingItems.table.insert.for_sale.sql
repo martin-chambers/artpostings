@@ -2,7 +2,7 @@ DELETE FROM [dbo].[ArtPostingItems] WHERE Archive_flag = 0
 INSERT INTO [dbo].[ArtPostingItems] ([Filename],[Title],[Shortname],[Header],[Description],[Size],[Price],[Archive_flag])
      VALUES ('Pasquale.jpg','Pasquale','Pasquale','Pasquale','An abstract painting . Acrylic paint on canvas.','102 cm x 80 cm x 15 mm','£300',0)
 INSERT INTO [dbo].[ArtPostingItems] ([Filename],[Title],[Shortname],[Header],[Description],[Size],[Price],[Archive_flag])
-     VALUES ('Tanyas waterlilies.jpg','Tanya's Waterlilies (19),'Tanya's Waterlilies (19),'Tanya's Waterlilies (19),'Print of an abstract acrylic painting. Can be framed.','60 x 46 x 4cm','£120',0)
+     VALUES ('Tanyas waterlilies.jpg','Tanya''s Waterlilies (19)','Tanya''s Waterlilies (19)','Tanya''s Waterlilies (19)','Print of an abstract acrylic painting. Can be framed.','60 x 46 x 4cm','£120',0)
 INSERT INTO [dbo].[ArtPostingItems] ([Filename],[Title],[Shortname],[Header],[Description],[Size],[Price],[Archive_flag])
      VALUES ('Blue Cow.jpg','Blue Cow','Blue Cow','Blue Cow','Print of an abstract acrylic painting. Can be framed.','60 x 46 x 4cm','£120',0)
 INSERT INTO [dbo].[ArtPostingItems] ([Filename],[Title],[Shortname],[Header],[Description],[Size],[Price],[Archive_flag])
