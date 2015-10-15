@@ -57,28 +57,64 @@ body {
 a {
     color: blue;
 }
-a#loginLink {
-    color: blue;
-}
-a:link.picturelink {
-    color:White;
-    text-decoration: underline;
-    text-align:left;
-    font-size:small;
-}
-a:visited {
-    color: blue;
-}
 a:hover {
-    color: green;    
+    font-weight:bolder;
 }
-a:active {
-    color: black;
+div.commentary {
+    display: inline-block; 
+    float:left; 
+    width:30%; 
+    padding-top: 12px; 
+    padding-left:60px;
 }
-
 div.head
 {
     font-size:medium;    
+}
+div.inner {
+    display:inline; 
+    width:100%; 
+    margin-left:30px; 
+    margin-right:30px; 
+    vertical-align:top;
+}
+div.itemaction {
+    float:right; 
+    color:white; 
+    font-size:small; 
+    vertical-align:central;
+}
+
+div.itemaction a {
+    color:white;
+}
+
+div.itemdesc {
+    padding:7px;
+}
+div.itemfooter {
+    position:absolute; 
+    bottom:0px; 
+    background-color:gainsboro; 
+    text-align:left; 
+    border-radius: 5px; 
+    padding: 4px;
+    width:97%;
+}
+div.itemheader {
+    color:white; 
+    background-color:plum; 
+    text-align:left; 
+    border-radius: 5px; 
+    padding: 4px; 
+    width:97%
+}
+
+div.listsection {
+    display: inline-block; 
+    max-width:50%;  
+    float:left; 
+    padding-left:30px;
 }
 div.outer
 {
@@ -86,24 +122,52 @@ div.outer
     margin-left: auto;
     margin-right: auto;    
 }
-
+div.outer2
+{
+    display:block    
+}
 h1 {
     float: left;
     color: cornflowerblue;
     font-weight: bold;
-    font-family: 'Segoe Print', Mistral, 'Freestyle Script', sans-serif;
+    font-family: 'Segoe Print', Mistral, sans-serif;
     padding:30px;
     margin:inherit;
     border: none;
     line-height: 2em;
     font-size: 40px !important; 
-    width:500px;
+    width:100%; 
     float:left;
 }
 
 h2 {
     font-size: 16px;
     font-weight: bold;
+}
+
+.sidebar 
+{
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+table#main
+{
+    width: 100%;
+}
+
+table.posting {
+     width:100%;
+}
+
+td.picturecell {
+    vertical-align:middle; 
+    width:180px;
+}
+
+td.itemtext {
+    text-align:left; 
+    position:relative;
 }
 
 td {
@@ -117,24 +181,6 @@ td.innerseparator {
     min-width: 70px;
     width: 10%;
 }
-.sidebar 
-{
-    padding-left: 15px;
-    padding-top: 10px;
-}
-
-table#main
-{
-    width: 100%;
-}
-
-table#outer
-{
-    margin-left: 30px;
-    margin-right:30px;
-    width: 100%;
-}
-
 .top 
 {
     padding-top: 14px;

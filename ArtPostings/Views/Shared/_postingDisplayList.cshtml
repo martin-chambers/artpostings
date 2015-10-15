@@ -3,19 +3,19 @@
 {
     <tr>
         <td>
-            <table style="width:100%;">
+            <table class="posting">
                 <tr>
-                    <td style="vertical-align:middle; width:180px">
+                    <td class="picturecell">
                         <a class="picturelink" href=@posting.FilePath rel="lightbox" title=@posting.Title>
                             <img alt=@posting.ShortName width="120px" title=@posting.ShortName src=@posting.FilePath />
                         </a>
                     </td>
-                    <td style="text-align:left; position:relative;">
-                        <div style="color:white; background-color:plum; text-align:left; border-radius: 5px; padding: 4px; width:97%">
+                    <td class="itemtext">
+                        <div class="itemheader">
                             <strong>@posting.Header</strong>
                         </div>
-                        <div style="padding:7px;">@posting.Description</div><br /><br />
-                        <div style="position:absolute; bottom:0px; background-color:gainsboro; text-align:left; border-radius: 5px; padding: 4px;width:97%;">@posting.Price | Size :@posting.Size</div>
+                        <div class="itemdesc">@posting.Description</div><br /><br />
+                        <div class="itemfooter"> @posting.Price | Size :@posting.Size</div>
                     </td>
                 </tr>
             </table>

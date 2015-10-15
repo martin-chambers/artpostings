@@ -26,12 +26,12 @@
             <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
     </ul>
 </div> 
-    <div style="display:block">
-        <h1 style="width:100%;">Ann Chambers Art</h1><br />
-        <div style="display:inline; width:100%; margin-left:30px; margin-right:30px; vertical-align:top;">
-            <div style="display: inline-block; max-width:50%;  float:left; padding-left:30px;">@if (ViewBag.Mode == "_itemDisplay")
+    <div class="outer2">
+        <h1 >Ann Chambers Art</h1><br />
+        <div class="inner"style="">
+            <div class="listsection">@if (ViewBag.Mode == "_itemDisplay")
             { @Html.Partial("_itemDisplay")}</div>
-            <div style="display: inline-block; float:left; width:30%; padding-top: 12px; padding-left:60px;">
+            <div class="commentary">
                 <section id="main">
                     @Scripts.Render("~/bundles/jquery")
                     @Scripts.Render("~/bundles/bootstrap")
