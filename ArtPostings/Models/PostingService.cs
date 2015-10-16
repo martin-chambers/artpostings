@@ -56,20 +56,24 @@ namespace ArtPostings.Models
         {
             return repository.ArchivePostings();
         }
-
+        ItemPosting IPostingService.GetPosting(int id)
+        {
+            return repository.GetPosting(id);
+        }
         IEnumerable<ItemPosting> IPostingService.EditableShopPostings(int id)
         {
             IEnumerable<ItemPosting> postings = new List<ItemPosting>();
             postings = repository.ShopPostings();
+            // the 'Editing' property of ItemPosting is set to false on initialisation
             foreach (ItemPosting i in postings)
             {
                 if (i.Id == id)
                 {
                     i.Editing = true;
                 }
-            }            
+            }
             return postings;
         }
-        
+
     }
 }

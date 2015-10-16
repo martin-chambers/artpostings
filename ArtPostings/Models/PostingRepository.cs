@@ -57,6 +57,40 @@ namespace ArtPostings.Models
             }
             catch (Exception ex) { }
             return postings;
-        }        
-    }
+        }
+        ItemPosting IPostingRepository.GetPosting(int id)
+        {
+            try
+            {
+                ItemPosting posting = new ItemPosting();
+                string commandText = "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
+                    "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Id = @Id";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(commandText, connection);
+                    command.Parameters.Add(new SqlParameter("@Id", id));
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        posting = new ItemPosting(
+                            reader["Id"].ToString(),
+                            pictureFolder + reader["Filename"].ToString(),
+                            reader["Title"].ToString(),
+                            reader["Shortname"].ToString(),
+                            reader["Header"].ToString(),
+                            reader["Description"].ToString(),
+                            reader["Size"].ToString(),
+                            reader["Price"].ToString()
+                            );
+                    }
+                    return posting;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw (new Exception("Error retrieving item posting with id: " + id.ToString(), ex));
+            }
+        }
+    }    
 }

@@ -60,6 +60,10 @@ a {
 a:hover {
     font-weight:bolder;
 }
+
+a.icon {
+    text-decoration:none;
+}
 div.commentary {
     display: inline-block; 
     float:left; 
@@ -71,7 +75,7 @@ div.head
 {
     font-size:medium;    
 }
-div.inner {
+div#inner {
     display:inline; 
     width:100%; 
     margin-left:30px; 
@@ -110,19 +114,19 @@ div.itemheader {
     width:97%
 }
 
-div.listsection {
+div#listitems {
     display: inline-block; 
     max-width:50%;  
     float:left; 
     padding-left:30px;
 }
-div.outer
+div#outer1
 {
     width: 80%;
     margin-left: auto;
     margin-right: auto;    
 }
-div.outer2
+div#outer2
 {
     display:block    
 }
@@ -145,6 +149,10 @@ h2 {
     font-weight: bold;
 }
 
+.ion-close {
+    padding-right: 6px;    
+}
+
 .sidebar 
 {
     padding-left: 15px;
@@ -162,7 +170,7 @@ table.posting {
 
 td.picturecell {
     vertical-align:middle; 
-    width:180px;
+    width:150px;
 }
 
 td.itemtext {

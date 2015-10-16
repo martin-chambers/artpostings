@@ -1,9 +1,10 @@
-﻿using System;
+﻿//using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+//using System.Linq;
+//using System.Web;
 using System.Web.Mvc;
 using ArtPostings.Models;
+//using System.Net;
 
 namespace ArtPostings.Controllers
 {
@@ -21,15 +22,24 @@ namespace ArtPostings.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            ViewBag.Blurb = service.ShopText;
-            ViewBag.Mode = "_itemDisplay";
+            setItemInfo();
             return View(service.ShopPostings());
         }
-        public ActionResult Edit(int Id)
+        public ActionResult Reload()
+        {
+            setItemInfo();
+            return PartialView("_itemDisplay", service.ShopPostings());
+        }
+        public ActionResult Edit(int id)
+        {
+            setItemInfo();
+            return PartialView("_itemDisplay", service.EditableShopPostings(id));
+        }
+
+        private void setItemInfo()
         {
             ViewBag.Blurb = service.ShopText;
             ViewBag.Mode = "_itemDisplay";
-            return View("Index",service.EditableShopPostings(Id));
         }
 
     }

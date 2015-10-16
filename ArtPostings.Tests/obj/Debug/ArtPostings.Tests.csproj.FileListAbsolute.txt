@@ -42,3 +42,6 @@ C:\GIT\artpostings\ArtPostings.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\GIT\artpostings\ArtPostings.Tests\obj\Debug\ArtPostings.Tests.csprojResolveAssemblyReference.cache
 C:\GIT\artpostings\ArtPostings.Tests\obj\Debug\AnnChambersArt.Tests.dll
 C:\GIT\artpostings\ArtPostings.Tests\obj\Debug\AnnChambersArt.Tests.pdb
+C:\git\artpostings\ArtPostings.Tests\bin\Debug\Elmah.dll
+C:\git\artpostings\ArtPostings.Tests\bin\Debug\Elmah.Mvc.dll
+C:\git\artpostings\ArtPostings.Tests\bin\Debug\System.Data.SqlServerCe.dll

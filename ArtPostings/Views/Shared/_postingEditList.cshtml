@@ -1,4 +1,19 @@
-﻿@model IEnumerable<ArtPostings.Models.ItemPosting>
+﻿<script type="text/javascript">
+    $(function () {
+        $('.ion-close, .ion-checkmark').click(function () {
+            event.preventDefault();
+            $.ajax({
+                url: '@Url.Action("Reload", "Home")',
+                type: 'GET',
+                success: function (htmlstring) {
+                    // need to replace at a fairly high level to ensure old postings are cleared out of the view
+                    $('#listitems').html(htmlstring);
+                    $('#listitems').show();
+                }
+            });
+        });
+    });
+</script>
 @foreach (ArtPostings.Models.ItemPosting posting in Model)
 {
     <tr>
@@ -18,7 +33,12 @@
                                         @posting.Header
                                     </strong>
                                     <div class="itemaction">
-                                        Save
+                                        <a class="icon" href="#">
+                                            <span class="ion-close" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Cancel changes"></span>
+                                        </a>
+                                        <a class="icon" href="#">
+                                            <span class="ion-checkmark" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Done"></span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="itemdesc">@posting.Description</div><br /><br />
@@ -38,7 +58,11 @@
                                         @posting.Header
                                     </strong>
                                     <div class="itemaction">
-                                        @Html.ActionLink("Edit", "Edit", "Home", new { id = posting.Id }, null)
+                                        @*using two different techniques for ajax call to controllers (so that I remember how to do both): 
+                                            next line, and the JS function call at the head of this doc*@
+                                        <a href="@Url.Action("Edit", new { id = posting.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>
+                                            <span class="ion-edit" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Edit"></span>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="itemdesc">@posting.Description</div><br /><br />
@@ -55,4 +79,5 @@
             <hr />
         </td>
     </tr>
-                        }
+}
+
