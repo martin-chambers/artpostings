@@ -47,48 +47,58 @@ namespace ArtPostings.Models
         }
         private IPostingRepository repository;
         
-        IEnumerable<ItemPosting> IPostingService.ShopPostings()
+        public IEnumerable<ItemPostingViewModel> ShopPostings()
         {
-            return repository.ShopPostings();
+            IEnumerable<ItemPosting> postings = repository.ShopPostings();
+            List<ItemPostingViewModel> postingViewModels = new List<ItemPostingViewModel>();
+            foreach (ItemPosting posting in postings)
+            {
+                postingViewModels.Add(new ItemPostingViewModel() { Posting = posting, Editing = false });
+            }
+            return postingViewModels;            
         }
 
-        IEnumerable<ItemPosting> IPostingService.ArchivePostings()
+        public IEnumerable<ItemPostingViewModel> ArchivePostings()
         {
-            return repository.ArchivePostings();
+            IEnumerable<ItemPosting> postings = repository.ArchivePostings();
+            List<ItemPostingViewModel> postingViewModels = new List<ItemPostingViewModel>();
+            foreach (ItemPosting posting in postings)
+            {
+                postingViewModels.Add(new ItemPostingViewModel() { Posting = posting, Editing = false });
+            }
+            return postingViewModels;
         }
-        ItemPosting IPostingService.GetPosting(int id)
+        ItemPostingViewModel IPostingService.GetPosting(int id)
         {
-            return repository.GetPosting(id);
+            return new ItemPostingViewModel() { Posting = repository.GetPosting(id), Editing = false };
         }
         /// <summary>
-        /// Set the Editing property of the specified ItemPosting to true
+        /// Set the Editing property of the specified ItemPostingViewModel to true
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        IEnumerable<ItemPosting> IPostingService.EditModeShopPostings(int id)
+        IEnumerable<ItemPostingViewModel> IPostingService.EditModeShopPostings(int id)
         {
-            // the 'Editing' property of ItemPosting is set to false on initialisation
-            List<ItemPosting> postings = new List<ItemPosting>();
-            postings = repository.ShopPostings().ToList();
-            if(postings.Find(x=>x.Id==id) == null)
+            // the 'Editing' property of ItemPostingViewModel is originally set to false by the service
+            List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
+            postings = this.ShopPostings().ToList();
+            if(postings.Find(x=>x.Posting.Id==id) == null)
             {
-                throw new ArgumentException("ItemPosting id not found", "id");
+                throw new ArgumentException("ItemPostingViewModel id not found", "id");
             }
-            postings.Find(x => x.Id == id).Editing = true;
+            postings.Find(x => x.Posting.Id == id).Editing = true;
             return postings;
         }
-        IEnumerable<ItemPosting> IPostingService.EditModeArchivePostings(int id)
+        IEnumerable<ItemPostingViewModel> IPostingService.EditModeArchivePostings(int id)
         {
-            IEnumerable<ItemPosting> postings = new List<ItemPosting>();
-            postings = repository.ArchivePostings();
-            // the 'Editing' property of ItemPosting is set to false on initialisation
-            foreach (ItemPosting i in postings)
+            // the 'Editing' property of ItemPostingViewModel is originally set to false by the service
+            List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
+            postings = this.ArchivePostings().ToList();
+            if (postings.Find(x => x.Posting.Id == id) == null)
             {
-                if (i.Id == id)
-                {
-                    i.Editing = true;
-                }
+                throw new ArgumentException("ItemPostingViewModel id not found", "id");
             }
+            postings.Find(x => x.Posting.Id == id).Editing = true;
             return postings;
         }
 

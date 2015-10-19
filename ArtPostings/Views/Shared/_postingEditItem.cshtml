@@ -1,12 +1,12 @@
 ﻿<td class="picturecell">
-    <a class='picturelink' href=@Model.FilePath rel='lightbox' title=@Model.Title>
-        <img alt=@Model.ShortName width="120" title=@Model.ShortName src=@Model.FilePath />
+    <a class='picturelink' href=@Model.Posting.FilePath rel='lightbox' title=@Model.Posting.Title>
+        <img alt=@Model.Posting.ShortName width="120" title=@Model.Posting.ShortName src=@Model.Posting.FilePath />
     </a>
 </td>
 <td class="itemtext">
     <div class="itemheader">
         <strong>
-            @Model.Header
+            @Model.Posting.Header
         </strong>
         <div class="itemaction">
             <a class="icon" href="#">
@@ -17,6 +17,6 @@
             </a>
         </div>
     </div>
-    <div class="itemdesc">@Model.Description</div><br /><br />
-    <div class="itemfooter"> @Model.Price | Size :@Model.Size</div>
+    <div class="itemdesc">@Model.Posting.Description</div><br /><br />
+    <div class="itemfooter"> @Model.Posting.Price | Size :@Model.Posting.Size</div>
 </td>

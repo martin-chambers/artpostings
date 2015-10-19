@@ -8,11 +8,11 @@ namespace ArtPostings.Models
 {
     public interface IPostingService
     {
-        IEnumerable<ItemPosting> ShopPostings();
-        IEnumerable<ItemPosting> ArchivePostings();
-        IEnumerable<ItemPosting> EditModeShopPostings(int id);
-        IEnumerable<ItemPosting> EditModeArchivePostings(int id);
-        ItemPosting GetPosting(int id);
+        IEnumerable<ItemPostingViewModel> ShopPostings();
+        IEnumerable<ItemPostingViewModel> ArchivePostings();
+        IEnumerable<ItemPostingViewModel> EditModeShopPostings(int id);
+        IEnumerable<ItemPostingViewModel> EditModeArchivePostings(int id);
+        ItemPostingViewModel GetPosting(int id);
         string ArchiveText { get; }
         string ShopText { get; }
     }

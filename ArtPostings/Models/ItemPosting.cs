@@ -18,7 +18,6 @@ namespace ArtPostings.Models
         // For future reference: 
         // I think a ItemPostingViewModel class is required - consisting perhaps of 
         // an ItemPosting and an edit flag
-        public bool Editing { get; set; }
         public ItemPosting(string id, string filepath, string title, string shortName, string header, string description, string size, string price)
         {
             Id = Convert.ToInt32(id);
@@ -30,7 +29,6 @@ namespace ArtPostings.Models
             Size = size;
             Price = price;
             ShortName = shortName.Replace(" ", "_");
-            Editing = false;
         }
         // default constructor
         public ItemPosting() { }        

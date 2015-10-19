@@ -24,7 +24,7 @@ namespace ArtPostings.Tests.Controllers
         {
             HomeController controller = new HomeController(mock);
             ViewResult result = controller.Index() as ViewResult;
-            List<ItemPosting> postings = (List<ItemPosting>)result.Model;
+            List<ItemPostingViewModel> postings = (List<ItemPostingViewModel>)result.Model;
             Assert.IsTrue(postings.Count == 3);
         }
 
@@ -43,8 +43,8 @@ namespace ArtPostings.Tests.Controllers
             int existentId = 5;
             PartialViewResult result = (PartialViewResult)controller.Edit(existentId);
 
-            List<ItemPosting> postings = (List<ItemPosting>)result.Model;
-            Assert.IsTrue(postings.Find(x => x.Id == existentId).Editing);
+            List<ItemPostingViewModel> postings = (List<ItemPostingViewModel>)result.Model;
+            Assert.IsTrue(postings.Find(x => x.Posting.Id == existentId).Editing);
         }
         [TestMethod]
         public void Edit_SetBlurb_Success()

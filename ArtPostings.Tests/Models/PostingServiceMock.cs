@@ -30,119 +30,124 @@ namespace ArtPostings.Tests.Models
                 return "This is Shop Text";
             }
         }
-        private IEnumerable<ItemPosting> getAllPostings()
+        private IEnumerable<ItemPostingViewModel> getAllPostings()
         {
-            List<ItemPosting> postings = new List<ItemPosting>();
+            List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
             postings.AddRange(this.ArchivePostings());
             postings.AddRange(this.ShopPostings());
             return postings;
         }
 
-        public IEnumerable<ItemPosting> ArchivePostings()
+        public IEnumerable<ItemPostingViewModel> ArchivePostings()
         {
-            List<ItemPosting> archivePostings = new List<ItemPosting>();
-            archivePostings.Add(
-                new ItemPosting(
-                "1",
-                "some filepath",
-                "some title",
-                "some shortname",
-                "some header",
-                "some description",
-                "some size",
-                "some price"
-                ));
-            archivePostings.Add(
-                new ItemPosting(
-                "2",
-                "some filepath 2",
-                "some title 2",
-                "some shortname 2",
-                "some header 2",
-                "some description 2",
-                "some size 2",
-                "some price 2"
-                ));
-            archivePostings.Add(
-                new ItemPosting(
-                "3",
-                "some filepath 3",
-                "some title 3",
-                "some shortname 3",
-                "some header 3",
-                "some description 3",
-                "some size 3",
-                "some price 3"
-                ));
+            List<ItemPostingViewModel> archivePostings = new List<ItemPostingViewModel>();
+            archivePostings.Add(new ItemPostingViewModel()
+            {
+                Posting = new ItemPosting("1",
+                    "some filepath 1",
+                    "some title 1",
+                    "some shortname 1",
+                    "some header 1",
+                    "some description 1",
+                    "some size 1",
+                    "some price 1"),
+                Editing = false
+            });
+            archivePostings.Add(new ItemPostingViewModel()
+                { Posting = new ItemPosting("2",
+                    "some filepath 2",
+                    "some title 2",
+                    "some shortname 2",
+                    "some header 2",
+                    "some description 2",
+                    "some size 2",
+                    "some price 2"),
+                Editing = false
+            });
+            archivePostings.Add(new ItemPostingViewModel()
+            {
+                Posting = new ItemPosting("3",
+                    "some filepath 3",
+                    "some title 3",
+                    "some shortname 3",
+                    "some header 3",
+                    "some description 3",
+                    "some size 3",
+                    "some price 3"),
+                Editing = false
+            });
             return archivePostings;
         }
 
-        public IEnumerable<ItemPosting> EditModeArchivePostings(int id)
+        public IEnumerable<ItemPostingViewModel> EditModeArchivePostings(int id)
         {
             int editId = 2;
-            List<ItemPosting> editModeArchivePostings = new List<ItemPosting>();
-            editModeArchivePostings = (List<ItemPosting>)this.ArchivePostings();
-            ItemPosting editModeItemPosting = editModeArchivePostings.Find(x => x.Id == editId);
-            editModeArchivePostings.RemoveAll(x => x.Id == editId);
-            editModeItemPosting.Editing = true;
-            editModeArchivePostings.Add(editModeItemPosting);
+            List<ItemPostingViewModel> editModeArchivePostings = new List<ItemPostingViewModel>();
+            editModeArchivePostings = (List<ItemPostingViewModel>)this.ArchivePostings();
+            ItemPostingViewModel editModeItemPostingVM = editModeArchivePostings.Find(x => x.Posting.Id == editId);
+            editModeArchivePostings.RemoveAll(x => x.Posting.Id == editId);
+            editModeItemPostingVM.Editing = true;
+            editModeArchivePostings.Add(editModeItemPostingVM);
             return editModeArchivePostings;
         }
 
-        public IEnumerable<ItemPosting> EditModeShopPostings(int id)
+        public IEnumerable<ItemPostingViewModel> EditModeShopPostings(int id)
         {
             int editId = 5;
-            List<ItemPosting> editModeShopPostings = new List<ItemPosting>();
-            editModeShopPostings = (List<ItemPosting>)this.ShopPostings();
-            ItemPosting editModeItemPosting = editModeShopPostings.Find(x => x.Id == editId);
-            editModeShopPostings.RemoveAll(x => x.Id == editId);
-            editModeItemPosting.Editing = true;
-            editModeShopPostings.Add(editModeItemPosting);
+            List<ItemPostingViewModel> editModeShopPostings = new List<ItemPostingViewModel>();
+            editModeShopPostings = (List<ItemPostingViewModel>)this.ShopPostings();
+            ItemPostingViewModel editModeItemPostingVM = editModeShopPostings.Find(x => x.Posting.Id == editId);
+            editModeShopPostings.RemoveAll(x => x.Posting.Id == editId);
+            editModeItemPostingVM.Editing = true;
+            editModeShopPostings.Add(editModeItemPostingVM);
             return editModeShopPostings;
         }
 
-        public ItemPosting GetPosting(int id)
+        public ItemPostingViewModel GetPosting(int id)
         {
-            List<ItemPosting> postings = this.getAllPostings().ToList();
-            return postings.Find(x => x.Id == id);
+            List<ItemPostingViewModel> postings = this.getAllPostings().ToList();
+            return postings.Find(x => x.Posting.Id == id);
         }
 
-        public IEnumerable<ItemPosting> ShopPostings()
+        public IEnumerable<ItemPostingViewModel> ShopPostings()
         {
-            List<ItemPosting> shopPostings = new List<ItemPosting>();
-            shopPostings.Add(
-                new ItemPosting(
-                "4",
-                "some filepath",
-                "some title",
-                "some shortname",
-                "some header",
-                "some description",
-                "some size",
-                "some price"
-                ));
-            shopPostings.Add(
-                new ItemPosting(
-                "5",
-                "some filepath 2",
-                "some title 2",
-                "some shortname 2",
-                "some header 2",
-                "some description 2",
-                "some size 2",
-                "some price 2"
-                ));
-            shopPostings.Add(
-                new ItemPosting(
-                "6",
-                "some filepath 3",
-                "some title 3",
-                "some shortname 3",
-                "some header 3",
-                "some description 3",
-                "some size 3",
-                "some price 3"
-                ));
+            List<ItemPostingViewModel> shopPostings = new List<ItemPostingViewModel>();
+            shopPostings.Add(new ItemPostingViewModel()
+            {
+                Posting = new ItemPosting("4",
+                    "some filepath 4",
+                    "some title 4",
+                    "some shortname 4",
+                    "some header 4",
+                    "some description 4",
+                    "some size 4",
+                    "some price 4"),
+                Editing = false
+            });
+            shopPostings.Add(new ItemPostingViewModel()
+            {
+                Posting = new ItemPosting("5",
+                    "some filepath 5",
+                    "some title 5",
+                    "some shortname 5",
+                    "some header 5",
+                    "some description 5",
+                    "some size 5",
+                    "some price 5"),
+                Editing = false
+            });
+            shopPostings.Add(new ItemPostingViewModel()
+            {
+                Posting = new ItemPosting("6",
+                    "some filepath 6",
+                    "some title 6",
+                    "some shortname 6",
+                    "some header 6",
+                    "some description 6",
+                    "some size 6",
+                    "some price 6"),
+                Editing = false
+            });
             return shopPostings;
         }
     }
