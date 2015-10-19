@@ -14,8 +14,11 @@
     </tr>
     <tr>
         <td>
-            @Html.Partial("_itemList")
-        </td>
+            <div id="itemlist">
+                @{var partialView = (User.Identity.IsAuthenticated) ? "_postingEditList" : "_postingDisplayList";
+            Html.RenderPartial(partialView);}
+            </div>
+</td>
     </tr>
 </table>
 

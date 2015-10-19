@@ -184,6 +184,7 @@
     <Compile Include="Models\IPostingRepository.cs" />
     <Compile Include="Models\IPostingService.cs" />
     <Compile Include="Models\ItemPosting.cs" />
+    <Compile Include="Models\ItemPostingViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostingRepository.cs" />
     <Compile Include="Models\PostingService.cs" />
@@ -371,7 +372,6 @@
     <Content Include="Views\Shared\_postingEditList.cshtml" />
     <Content Include="Views\Shared\_postingEditItem.cshtml" />
     <Content Include="Views\Shared\_postingDisplayItem.cshtml" />
-    <Content Include="Views\Shared\_itemList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

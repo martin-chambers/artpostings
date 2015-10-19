@@ -60,10 +60,27 @@ namespace ArtPostings.Models
         {
             return repository.GetPosting(id);
         }
-        IEnumerable<ItemPosting> IPostingService.EditableShopPostings(int id)
+        /// <summary>
+        /// Set the Editing property of the specified ItemPosting to true
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        IEnumerable<ItemPosting> IPostingService.EditModeShopPostings(int id)
+        {
+            // the 'Editing' property of ItemPosting is set to false on initialisation
+            List<ItemPosting> postings = new List<ItemPosting>();
+            postings = repository.ShopPostings().ToList();
+            if(postings.Find(x=>x.Id==id) == null)
+            {
+                throw new ArgumentException("ItemPosting id not found", "id");
+            }
+            postings.Find(x => x.Id == id).Editing = true;
+            return postings;
+        }
+        IEnumerable<ItemPosting> IPostingService.EditModeArchivePostings(int id)
         {
             IEnumerable<ItemPosting> postings = new List<ItemPosting>();
-            postings = repository.ShopPostings();
+            postings = repository.ArchivePostings();
             // the 'Editing' property of ItemPosting is set to false on initialisation
             foreach (ItemPosting i in postings)
             {

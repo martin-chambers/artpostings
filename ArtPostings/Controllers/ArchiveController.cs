@@ -20,9 +20,24 @@ namespace ArtPostings.Controllers
         // GET: Archive
         public ActionResult Index()
         {
-            ViewBag.Mode = "_itemDisplay";
-            ViewBag.Blurb = service.ArchiveText;
+            setItemInfo();
             return View(service.ArchivePostings());
         }
+        public ActionResult Reload()
+        {
+            setItemInfo();
+            return PartialView("_itemDisplay", service.ArchivePostings());
+        }
+        public ActionResult Edit(int id)
+        {
+            setItemInfo();
+            return PartialView("_itemDisplay", service.EditModeArchivePostings(id));
+        }
+        private void setItemInfo()
+        {
+            ViewBag.Blurb = service.ArchiveText;
+            ViewBag.Mode = "_itemDisplay";
+        }
+
     }
 }

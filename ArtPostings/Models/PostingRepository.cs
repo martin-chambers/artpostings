@@ -55,7 +55,10 @@ namespace ArtPostings.Models
                     }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception("Error reading from ArtPostitems data source", ex);
+            }
             return postings;
         }
         ItemPosting IPostingRepository.GetPosting(int id)

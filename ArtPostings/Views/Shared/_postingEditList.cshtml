@@ -3,10 +3,10 @@
         $('.ion-close, .ion-checkmark').click(function () {
             event.preventDefault();
             $.ajax({
-                url: '@Url.Action("Reload", "Home")',
+                url: '@Url.Action("Reload")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
                 type: 'GET',
                 success: function (htmlstring) {
-                    // need to replace at a fairly high level to ensure old postings are cleared out of the view
+                    // need to replace content at a fairly high level to ensure old postings are cleared out of the view
                     $('#listitems').html(htmlstring);
                     $('#listitems').show();
                 }
@@ -22,52 +22,11 @@
                 <tr>
                     @{ if (posting.Editing)
                         {
-                            <td class="picturecell">
-                                <a class='picturelink' href=@posting.FilePath rel='lightbox' title=@posting.Title>
-                                    <img alt=@posting.ShortName width="120" title=@posting.ShortName src=@posting.FilePath />
-                                </a>
-                            </td>
-                            <td class="itemtext">
-                                <div class="itemheader">
-                                    <strong>
-                                        @posting.Header
-                                    </strong>
-                                    <div class="itemaction">
-                                        <a class="icon" href="#">
-                                            <span class="ion-close" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Cancel changes"></span>
-                                        </a>
-                                        <a class="icon" href="#">
-                                            <span class="ion-checkmark" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Done"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="itemdesc">@posting.Description</div><br /><br />
-                                <div class="itemfooter"> @posting.Price | Size :@posting.Size</div>
-                            </td>
+                            Html.RenderPartial("_postingEditItem", posting);
                         }
                         else
                         {
-                            <td class="picturecell">
-                                <a class='picturelink' href=@posting.FilePath rel='lightbox' title=@posting.Title>
-                                    <img alt=@posting.ShortName width='120px' title=@posting.ShortName src=@posting.FilePath />
-                                </a>
-                            </td>
-                            <td class="itemtext">
-                                <div class="itemheader">
-                                    <strong>
-                                        @posting.Header
-                                    </strong>
-                                    <div class="itemaction">
-                                        @*using two different techniques for ajax call to controllers (so that I remember how to do both): 
-                                            next line, and the JS function call at the head of this doc*@
-                                        <a href="@Url.Action("Edit", new { id = posting.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>
-                                            <span class="ion-edit" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Edit"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="itemdesc">@posting.Description</div><br /><br />
-                                <div class="itemfooter"> @posting.Price | Size :@posting.Size</div>
-                            </td>
+                            Html.RenderPartial("_postingDisplayItem", posting);
                         }
                     }
                 </tr>
@@ -79,5 +38,5 @@
             <hr />
         </td>
     </tr>
-}
+                        }
 

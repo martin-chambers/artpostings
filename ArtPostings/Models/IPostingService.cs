@@ -10,7 +10,8 @@ namespace ArtPostings.Models
     {
         IEnumerable<ItemPosting> ShopPostings();
         IEnumerable<ItemPosting> ArchivePostings();
-        IEnumerable<ItemPosting> EditableShopPostings(int id);
+        IEnumerable<ItemPosting> EditModeShopPostings(int id);
+        IEnumerable<ItemPosting> EditModeArchivePostings(int id);
         ItemPosting GetPosting(int id);
         string ArchiveText { get; }
         string ShopText { get; }

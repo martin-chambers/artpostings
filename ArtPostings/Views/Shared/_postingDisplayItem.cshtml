@@ -9,7 +9,9 @@
             @Model.Header
         </strong>
         <div class="itemaction">
-            <a href="@Url.Action("Edit", "Home", new { id = Model.Id })">
+            @*using two different techniques for ajax call to controllers (so that I remember how to do both - MCC):
+              (1) next line, and (2) the JS function call at the head of _postingEditList*@
+            <a href="@Url.Action("Edit", new { id = Model.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>
                 <span class="ion-edit" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Edit"></span>
             </a>
         </div>

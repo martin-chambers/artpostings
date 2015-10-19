@@ -33,9 +33,8 @@ namespace ArtPostings.Controllers
         public ActionResult Edit(int id)
         {
             setItemInfo();
-            return PartialView("_itemDisplay", service.EditableShopPostings(id));
+            return PartialView("_itemDisplay", service.EditModeShopPostings(id));
         }
-
         private void setItemInfo()
         {
             ViewBag.Blurb = service.ShopText;
