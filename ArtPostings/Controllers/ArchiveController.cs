@@ -38,6 +38,13 @@ namespace ArtPostings.Controllers
             ViewBag.Blurb = service.ArchiveText;
             ViewBag.Mode = "_itemDisplay";
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Editing, ItemPosting")]ItemPostingViewModel posting)
+        {
+            setItemInfo();
+            service.SaveArchiveChanges(posting);
+            return Json(new { success = true });
+        }
     }
 }

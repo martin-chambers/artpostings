@@ -43,7 +43,7 @@ namespace ArtPostings.Tests.Models
             List<ItemPostingViewModel> archivePostings = new List<ItemPostingViewModel>();
             archivePostings.Add(new ItemPostingViewModel()
             {
-                Posting = new ItemPosting("1",
+                ItemPosting = new ItemPosting("1",
                     "some filepath 1",
                     "some title 1",
                     "some shortname 1",
@@ -54,7 +54,7 @@ namespace ArtPostings.Tests.Models
                 Editing = false
             });
             archivePostings.Add(new ItemPostingViewModel()
-                { Posting = new ItemPosting("2",
+                { ItemPosting = new ItemPosting("2",
                     "some filepath 2",
                     "some title 2",
                     "some shortname 2",
@@ -66,7 +66,7 @@ namespace ArtPostings.Tests.Models
             });
             archivePostings.Add(new ItemPostingViewModel()
             {
-                Posting = new ItemPosting("3",
+                ItemPosting = new ItemPosting("3",
                     "some filepath 3",
                     "some title 3",
                     "some shortname 3",
@@ -84,8 +84,8 @@ namespace ArtPostings.Tests.Models
             int editId = 2;
             List<ItemPostingViewModel> editModeArchivePostings = new List<ItemPostingViewModel>();
             editModeArchivePostings = (List<ItemPostingViewModel>)this.ArchivePostings();
-            ItemPostingViewModel editModeItemPostingVM = editModeArchivePostings.Find(x => x.Posting.Id == editId);
-            editModeArchivePostings.RemoveAll(x => x.Posting.Id == editId);
+            ItemPostingViewModel editModeItemPostingVM = editModeArchivePostings.Find(x => x.ItemPosting.Id == editId);
+            editModeArchivePostings.RemoveAll(x => x.ItemPosting.Id == editId);
             editModeItemPostingVM.Editing = true;
             editModeArchivePostings.Add(editModeItemPostingVM);
             return editModeArchivePostings;
@@ -96,8 +96,8 @@ namespace ArtPostings.Tests.Models
             int editId = 5;
             List<ItemPostingViewModel> editModeShopPostings = new List<ItemPostingViewModel>();
             editModeShopPostings = (List<ItemPostingViewModel>)this.ShopPostings();
-            ItemPostingViewModel editModeItemPostingVM = editModeShopPostings.Find(x => x.Posting.Id == editId);
-            editModeShopPostings.RemoveAll(x => x.Posting.Id == editId);
+            ItemPostingViewModel editModeItemPostingVM = editModeShopPostings.Find(x => x.ItemPosting.Id == editId);
+            editModeShopPostings.RemoveAll(x => x.ItemPosting.Id == editId);
             editModeItemPostingVM.Editing = true;
             editModeShopPostings.Add(editModeItemPostingVM);
             return editModeShopPostings;
@@ -106,7 +106,7 @@ namespace ArtPostings.Tests.Models
         public ItemPostingViewModel GetPosting(int id)
         {
             List<ItemPostingViewModel> postings = this.getAllPostings().ToList();
-            return postings.Find(x => x.Posting.Id == id);
+            return postings.Find(x => x.ItemPosting.Id == id);
         }
 
         public IEnumerable<ItemPostingViewModel> ShopPostings()
@@ -114,7 +114,7 @@ namespace ArtPostings.Tests.Models
             List<ItemPostingViewModel> shopPostings = new List<ItemPostingViewModel>();
             shopPostings.Add(new ItemPostingViewModel()
             {
-                Posting = new ItemPosting("4",
+                ItemPosting = new ItemPosting("4",
                     "some filepath 4",
                     "some title 4",
                     "some shortname 4",
@@ -126,7 +126,7 @@ namespace ArtPostings.Tests.Models
             });
             shopPostings.Add(new ItemPostingViewModel()
             {
-                Posting = new ItemPosting("5",
+                ItemPosting = new ItemPosting("5",
                     "some filepath 5",
                     "some title 5",
                     "some shortname 5",
@@ -138,7 +138,7 @@ namespace ArtPostings.Tests.Models
             });
             shopPostings.Add(new ItemPostingViewModel()
             {
-                Posting = new ItemPosting("6",
+                ItemPosting = new ItemPosting("6",
                     "some filepath 6",
                     "some title 6",
                     "some shortname 6",
@@ -149,6 +149,14 @@ namespace ArtPostings.Tests.Models
                 Editing = false
             });
             return shopPostings;
+        }
+        public void SaveArchiveChanges(ItemPostingViewModel vm)
+        {
+            throw new NotImplementedException();
+        }
+        public void SaveShopChanges(ItemPostingViewModel vm)
+        {
+            throw new NotImplementedException();
         }
     }
 }

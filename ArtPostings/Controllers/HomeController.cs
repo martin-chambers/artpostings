@@ -35,6 +35,15 @@ namespace ArtPostings.Controllers
             setItemInfo();
             return PartialView("_itemDisplay", service.EditModeShopPostings(id));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Editing, ItemPosting")]ItemPostingViewModel posting)
+        {
+            setItemInfo();
+            service.SaveShopChanges(posting);
+            return Json(new { success = true });
+        }
         private void setItemInfo()
         {
             ViewBag.Blurb = service.ShopText;

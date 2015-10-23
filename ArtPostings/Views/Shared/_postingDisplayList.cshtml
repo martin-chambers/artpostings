@@ -1,21 +1,21 @@
 ﻿@model IEnumerable<ArtPostings.Models.ItemPostingViewModel>
-@foreach (ArtPostings.Models.ItemPostingViewModel posting in Model)
-{
+    @foreach (ArtPostings.Models.ItemPostingViewModel posting in Model)
+    {
     <tr>
         <td>
             <table class="posting">
                 <tr>
                     <td class="picturecell">
-                        <a class="picturelink" href=@posting.Posting.FilePath rel="lightbox" title=@posting.Posting.Title>
-                            <img alt=@posting.Posting.ShortName width="120px" title=@posting.Posting.ShortName src=@posting.Posting.FilePath />
+                        <a class="picturelink" href=@posting.ItemPosting.FilePath rel="lightbox" title=@posting.ItemPosting.Title>
+                            <img alt=@posting.ItemPosting.ShortName width="120px" title=@posting.ItemPosting.ShortName src=@posting.ItemPosting.FilePath />
                         </a>
                     </td>
                     <td class="itemtext">
                         <div class="itemheader">
-                            <strong>@posting.Posting.Header</strong>
+                            <strong>@posting.ItemPosting.Header</strong>
                         </div>
-                        <div class="itemdesc">@posting.Posting.Description</div><br /><br />
-                        <div class="itemfooter"> @posting.Posting.Price | Size :@posting.Posting.Size</div>
+                        <div class="itemdesc">@posting.ItemPosting.Description</div><br /><br />
+                        <div class="itemfooter"> @posting.ItemPosting.Price | Size :@posting.ItemPosting.Size</div>
                     </td>
                 </tr>
             </table>
@@ -26,4 +26,4 @@
             <hr />
         </td>
     </tr>
-}
+    }

@@ -44,7 +44,7 @@ namespace ArtPostings.Tests.Controllers
             PartialViewResult result = (PartialViewResult)controller.Edit(existentId);
 
             List<ItemPostingViewModel> postings = (List<ItemPostingViewModel>)result.Model;
-            Assert.IsTrue(postings.Find(x => x.Posting.Id == existentId).Editing);
+            Assert.IsTrue(postings.Find(x => x.ItemPosting.Id == existentId).Editing);
         }
         [TestMethod]
         public void Edit_SetBlurb_Success()

@@ -5,7 +5,8 @@
     <title>Ann Chambers Art</title>
     <meta property="og:title" content="Ann Chambers Art" />
     <meta property="og:image" content="http://annchambers.net/Content/art/aaa_thumb.JPG" />
-    <meta property="og:site_name" content="Acylic and oil paintings by Ann Chambers" /><link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <meta property="og:site_name" content="Acylic and oil paintings by Ann Chambers" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/lightbox.css")" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" media="screen" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
     <script src="@Url.Content("~/Scripts/jquery-1.11.0.min.js")" type="text/javascript"></script>
@@ -17,25 +18,27 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-<div id="outer1">
-<div class="top">
-       <ul class="toprightmenu">
-         @Html.Partial("_LoginPartial")
-       </ul>
-       <ul class="topleftmenu">            
-            <li><a href='@Url.Action("Index", "About")'>About</a></li>        
-            <li><a href='@Url.Action("Index", "Links")'>Links</a></li>
-            <li><a href='@Url.Action("Index", "Archive")'>Archive</a></li>
-            <li><a href='@Url.Action("Index", "Viewing")'>Viewing</a></li>
-            <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
-            <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
-    </ul>
-</div> 
-    <div id="outer2">
-        <h1 >Ann Chambers Art</h1><br />
-        <div id="inner">
-            <div id="listitems">@if (ViewBag.Mode == "_itemDisplay")
-            { @Html.Partial("_itemDisplay")}</div>
+    <div id="outer1">
+        <div class="top">
+            <ul class="toprightmenu">
+                @Html.Partial("_LoginPartial")
+            </ul>
+            <ul class="topleftmenu">
+                <li><a href='@Url.Action("Index", "About")'>About</a></li>
+                <li><a href='@Url.Action("Index", "Links")'>Links</a></li>
+                <li><a href='@Url.Action("Index", "Archive")'>Archive</a></li>
+                <li><a href='@Url.Action("Index", "Viewing")'>Viewing</a></li>
+                <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
+                <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
+            </ul>
+        </div>
+        <div id="outer2">
+            <h1>Ann Chambers Art</h1><br />
+            <div id="inner">
+                <div id="listitems">
+                    @if (ViewBag.Mode == "_itemDisplay")
+            { @Html.Partial("_itemDisplay")}
+            </div>
             <div class="commentary">
                 <section id="main">
                     @RenderSection("scripts", required: false)

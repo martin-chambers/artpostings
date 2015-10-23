@@ -24,7 +24,7 @@ namespace ArtPostings.Models
         }
         IEnumerable<ItemPosting> IPostingRepository.ArchivePostings()
         {
-            string commandText = "SELECT [Id],[Filename],[Title],[Shortname],[Header], " + 
+            string commandText = "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
                 "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 1";
             return getPostings(commandText);
         }
@@ -95,5 +95,46 @@ namespace ArtPostings.Models
                 throw (new Exception("Error retrieving item posting with id: " + id.ToString(), ex));
             }
         }
+        void IPostingRepository.Update(ItemPosting itemposting, bool archived)
+        {
+            //try
+            //{
+            string commandText = "Update [dbo].[ArtPostingItems] " +
+                "SET [Filename] = '" + itemposting.FilePath.Replace(pictureFolder,"") + "'," +
+                "[Title] = '" + itemposting.Title + "'," +
+                "[Shortname] = '" + itemposting.ShortName + "'," +
+                "[Header] = '" + itemposting.Header + "'," +
+                "[Description] = '" + itemposting.Description + "'," +
+                "[Size] = '" + itemposting.Size + "'," +
+                "[Price] = '" + itemposting.Price + "'," +
+                "[Archive_flag] = '" + archived.ToString() +
+                "' WHERE id = @id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                connection.Open();
+                adapter.UpdateCommand = connection.CreateCommand();
+                adapter.UpdateCommand.CommandText = commandText;
+                SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);
+                idParam.Value = itemposting.Id;
+                adapter.UpdateCommand.Parameters.Add(idParam);
+                adapter.UpdateCommand.ExecuteNonQuery();
+            }
+        //}
+        // no posting object?
+        //catch (NullReferenceException nullex)
+        //{
+        //    throw new Exception("Could not retrieve art posting to update", nullex);
+        //}
+        //catch (SqlException sqlex)
+        //{
+        //    Console.WriteLine("Could not update database for art posting item " + posting.Title + ": " + sqlex.Message);
+        //}
+        //catch (Exception ex)
+        //{
+        //    throw new Exception("Could not update database for art posting item " + posting.Title, ex);
+        //}
+
+    }
     }    
 }

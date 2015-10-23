@@ -13,6 +13,8 @@ namespace ArtPostings.Models
         IEnumerable<ItemPostingViewModel> EditModeShopPostings(int id);
         IEnumerable<ItemPostingViewModel> EditModeArchivePostings(int id);
         ItemPostingViewModel GetPosting(int id);
+        void SaveShopChanges(ItemPostingViewModel vm);
+        void SaveArchiveChanges(ItemPostingViewModel vm);
         string ArchiveText { get; }
         string ShopText { get; }
     }

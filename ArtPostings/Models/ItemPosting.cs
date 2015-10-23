@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace ArtPostings.Models
 {
@@ -12,12 +13,10 @@ namespace ArtPostings.Models
         public string Title { get; set; }
         public string ShortName { get; set; }
         public string Header { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public string Size { get; set; }
         public string Price { get; set; }
-        // For future reference: 
-        // I think a ItemPostingViewModel class is required - consisting perhaps of 
-        // an ItemPosting and an edit flag
         public ItemPosting(string id, string filepath, string title, string shortName, string header, string description, string size, string price)
         {
             Id = Convert.ToInt32(id);

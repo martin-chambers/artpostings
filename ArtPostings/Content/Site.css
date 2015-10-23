@@ -64,6 +64,16 @@ a:hover {
 a.icon {
     text-decoration:none;
 }
+
+.description {
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;     
+    height: 150px;
+    font-size:medium;
+    border:dotted;
+    border-radius:10px;        
+}
+
 div.commentary {
     display: inline-block; 
     float:left; 
@@ -95,6 +105,10 @@ div.itemaction a {
 
 div.itemdesc {
     padding:7px;
+}
+div.itemdescedit {
+    padding:7px;    
+
 }
 div.itemfooter {
     position:absolute; 
@@ -309,6 +323,5 @@ tr
     border-radius: 4px 4px;
     margin-left: 1px;
 }
-
 
 

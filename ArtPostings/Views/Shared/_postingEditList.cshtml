@@ -1,20 +1,4 @@
-﻿<script type="text/javascript">
-    $(function () {
-        $('.ion-close, .ion-checkmark').click(function () {
-            event.preventDefault();
-            $.ajax({
-                url: '@Url.Action("Reload")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
-                type: 'GET',
-                success: function (htmlstring) {
-                    // need to replace content at a fairly high level to ensure old postings are cleared out of the view
-                    $('#listitems').html(htmlstring);
-                    $('#listitems').show();
-                }
-            });
-        });
-    });
-</script>
-@foreach (ArtPostings.Models.ItemPostingViewModel posting in Model)
+﻿@foreach (ArtPostings.Models.ItemPostingViewModel posting in Model)
 {
     <tr>
         <td>
@@ -37,6 +21,4 @@
         <td>
             <hr />
         </td>
-    </tr>
-                        }
-
+    </tr>}

@@ -53,7 +53,7 @@ namespace ArtPostings.Models
             List<ItemPostingViewModel> postingViewModels = new List<ItemPostingViewModel>();
             foreach (ItemPosting posting in postings)
             {
-                postingViewModels.Add(new ItemPostingViewModel() { Posting = posting, Editing = false });
+                postingViewModels.Add(new ItemPostingViewModel() { ItemPosting = posting, Editing = false });
             }
             return postingViewModels;            
         }
@@ -64,13 +64,13 @@ namespace ArtPostings.Models
             List<ItemPostingViewModel> postingViewModels = new List<ItemPostingViewModel>();
             foreach (ItemPosting posting in postings)
             {
-                postingViewModels.Add(new ItemPostingViewModel() { Posting = posting, Editing = false });
+                postingViewModels.Add(new ItemPostingViewModel() { ItemPosting = posting, Editing = false });
             }
             return postingViewModels;
         }
         ItemPostingViewModel IPostingService.GetPosting(int id)
         {
-            return new ItemPostingViewModel() { Posting = repository.GetPosting(id), Editing = false };
+            return new ItemPostingViewModel() { ItemPosting = repository.GetPosting(id), Editing = false };
         }
         /// <summary>
         /// Set the Editing property of the specified ItemPostingViewModel to true
@@ -82,11 +82,11 @@ namespace ArtPostings.Models
             // the 'Editing' property of ItemPostingViewModel is originally set to false by the service
             List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
             postings = this.ShopPostings().ToList();
-            if(postings.Find(x=>x.Posting.Id==id) == null)
+            if(postings.Find(x=>x.ItemPosting.Id==id) == null)
             {
                 throw new ArgumentException("ItemPostingViewModel id not found", "id");
             }
-            postings.Find(x => x.Posting.Id == id).Editing = true;
+            postings.Find(x => x.ItemPosting.Id == id).Editing = true;
             return postings;
         }
         IEnumerable<ItemPostingViewModel> IPostingService.EditModeArchivePostings(int id)
@@ -94,13 +94,36 @@ namespace ArtPostings.Models
             // the 'Editing' property of ItemPostingViewModel is originally set to false by the service
             List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
             postings = this.ArchivePostings().ToList();
-            if (postings.Find(x => x.Posting.Id == id) == null)
+            if (postings.Find(x => x.ItemPosting.Id == id) == null)
             {
                 throw new ArgumentException("ItemPostingViewModel id not found", "id");
             }
-            postings.Find(x => x.Posting.Id == id).Editing = true;
+            postings.Find(x => x.ItemPosting.Id == id).Editing = true;
             return postings;
         }
+        private ItemPosting extractItemPostingVM(ItemPostingViewModel vm)
+        {
+            ItemPosting ip = new ItemPosting();
+            ip.Id = vm.ItemPosting.Id;
+            ip.Description = Utility.PrepForSql(vm.ItemPosting.Description);
+            ip.FilePath = Utility.PrepForSql(vm.ItemPosting.FilePath);
+            ip.Header = Utility.PrepForSql(vm.ItemPosting.Header);
+            ip.Price = Utility.PrepForSql(vm.ItemPosting.Price);
+            ip.ShortName = Utility.PrepForSql(vm.ItemPosting.ShortName);
+            ip.Size = Utility.PrepForSql(vm.ItemPosting.Size);
+            ip.Title = Utility.PrepForSql(vm.ItemPosting.Title);
+            return ip;
+        }
 
+        void IPostingService.SaveShopChanges(ItemPostingViewModel vm)
+        {
+            ItemPosting posting = extractItemPostingVM(vm);
+            repository.Update(posting, false);
+        }
+        void IPostingService.SaveArchiveChanges(ItemPostingViewModel vm)
+        {
+            ItemPosting posting = vm.ItemPosting;
+            repository.Update(posting, true);
+        }
     }
 }

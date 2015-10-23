@@ -7,7 +7,10 @@ namespace ArtPostings
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            // Not using this:
+            // see - http://benfoster.io/blog/aspnet-mvc-custom-error-pages
+            // and - http://dusted.codes/demystifying-aspnet-mvc-5-error-pages-and-error-logging
+            //filters.Add(new HandleErrorAttribute());
         }
     }
 }

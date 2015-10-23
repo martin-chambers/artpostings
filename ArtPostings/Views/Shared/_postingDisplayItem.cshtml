@@ -1,21 +1,21 @@
 ﻿<td class="picturecell">
-    <a class='picturelink' href=@Model.Posting.FilePath rel='lightbox' title=@Model.Posting.Title>
-        <img alt=@Model.Posting.ShortName width='120px' title=@Model.Posting.ShortName src=@Model.Posting.FilePath />
+    <a class='picturelink' href=@Model.ItemPosting.FilePath rel='lightbox' title=@Model.ItemPosting.Title>
+        <img alt=@Model.ItemPosting.ShortName width='120px' title=@Model.ItemPosting.ShortName src=@Model.ItemPosting.FilePath />
     </a>
 </td>
 <td class="itemtext">
     <div class="itemheader">
         <strong>
-            @Model.Posting.Header
+            @Model.ItemPosting.Header
         </strong>
         <div class="itemaction">
             @*using two different techniques for ajax call to controllers (so that I remember how to do both - MCC):
-              (1) next line, and (2) the JS function call at the head of _postingEditList*@
-            <a href="@Url.Action("Edit", new { id = Model.Posting.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>
+                (1) next line, and (2) the JS function call at the head of _postingEditList*@
+            <a href="@Url.Action("Edit", new { id = Model.ItemPosting.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>
                 <span class="ion-edit" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Edit"></span>
             </a>
         </div>
     </div>
-    <div class="itemdesc">@Model.Posting.Description</div><br /><br />
-    <div class="itemfooter"> @Model.Posting.Price | Size :@Model.Posting.Size</div>
+    <div class="itemdesc">@Model.ItemPosting.Description</div><br /><br />
+    <div class="itemfooter"> @Model.ItemPosting.Price | Size :@Model.ItemPosting.Size</div>
 </td>
