@@ -1,4 +1,22 @@
-﻿<td class="picturecell">
+﻿<script>
+    function openEdit(postingId) {
+        event.preventDefault();
+        $.ajax({
+            url: '@Url.Action("Edit")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
+            data: {id: postingId},
+            type: 'GET',
+            success: function (htmlstring) {
+                // need to replace content at a fairly high level to ensure old postings are cleared out of the view
+                $('#listitems').html(htmlstring);
+                $('#listitems').show();
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        });
+    };
+</script>
+<td class="picturecell">
     <a class='picturelink' href=@Model.ItemPosting.FilePath rel='lightbox' title=@Model.ItemPosting.Title>
         <img alt=@Model.ItemPosting.ShortName width='120px' title=@Model.ItemPosting.ShortName src=@Model.ItemPosting.FilePath />
     </a>
@@ -11,8 +29,9 @@
         <div class="itemaction">
             @*using two different techniques for ajax call to controllers (so that I remember how to do both - MCC):
                 (1) next line, and (2) the JS function call at the head of _postingEditList*@
-            <a href="@Url.Action("Edit", new { id = Model.ItemPosting.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>
-                <span class="ion-edit" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Edit"></span>
+            @*<a href="@Url.Action("Edit", new { id = Model.ItemPosting.Id })" data-ajax='true' data-ajax-update='#listitems' data-ajax-mode='replace'>*@
+            <a class="icon" href="#">
+                <span class="ion-edit" onclick="openEdit(@Model.ItemPosting.Id)" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Edit"></span>
             </a>
         </div>
     </div>

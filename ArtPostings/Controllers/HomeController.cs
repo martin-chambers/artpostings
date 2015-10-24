@@ -1,4 +1,4 @@
-﻿//using System;
+﻿using System;
 using System.Collections.Generic;
 //using System.Linq;
 //using System.Web;
@@ -21,7 +21,7 @@ namespace ArtPostings.Controllers
         // GET: Home
         [AllowAnonymous]
         public ActionResult Index()
-        {
+        {            
             setItemInfo();
             return View(service.ShopPostings());
         }

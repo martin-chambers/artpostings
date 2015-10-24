@@ -97,6 +97,7 @@ namespace ArtPostings.Models
         }
         void IPostingRepository.Update(ItemPosting itemposting, bool archived)
         {
+
             //try
             //{
             string commandText = "Update [dbo].[ArtPostingItems] " +

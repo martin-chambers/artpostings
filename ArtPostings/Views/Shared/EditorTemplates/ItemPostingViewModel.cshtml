@@ -5,11 +5,15 @@
         $.ajax({
             url: '@Url.Action("Reload")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
             type: 'GET',
+            cache: false,
             success: function (htmlstring) {
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
                 debugger;
                 $('#listitems').html(htmlstring);
                 $('#listitems').show();
+            },
+            error: function (request, status, error) {
+                alert(error);
             }
         });
     };
@@ -27,7 +31,6 @@
         return returnVal;
     })();
     function checkmarksave() {
-        debugger;
         var obj = @ArtPostings.Models.JavaScriptConvert.SerializeObject(Model.ItemPosting);
         var url = '@Url.Action("Edit")';
         var edit = false;
@@ -62,9 +65,12 @@
             data: payload,
             dataType: "json",
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            error: function (request, status, error) {
+                alert(request.responseText);
+            },
             success: function () {
                 closeEdit();
-            },
+            }
         })
         // the following prevents default behaviour following an onclick event. It duplicates effect of
         // event.preventdefault above, so not particularly necessary
