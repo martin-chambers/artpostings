@@ -20,7 +20,7 @@ namespace ArtPostings.Controllers
         public ActionResult Index()
         {
             ViewBag.Mode = "_noItemDisplay";
-            return View(service.ShopPostings());
+            return View();
         }
     }
 }
