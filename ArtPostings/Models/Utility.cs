@@ -16,13 +16,18 @@ namespace ArtPostings.Models
         /// <returns></returns>
         public static string PrepForSql(string value)
         {
+            string rv = "";
             // tags - get rid
-            var step1 = Regex.Replace(value, @"<[^>]+>", "").Trim();
-            // double spaces, %20s and nspbs, replace with 1 space
-            var step2 = Regex.Replace(step1, @"\s{2,}|%20|&nbsp;|&nbsp", " ");
-            // single quotes - replace with double
-            var step3 = Regex.Replace(step2, @"'", "''");
-            return step3;
+            if (value != null)
+            {
+                var step1 = Regex.Replace(value, @"<[^>]+>", "").Trim();
+                // double spaces, %20s and nspbs, replace with 1 space
+                var step2 = Regex.Replace(step1, @"\s{2,}|%20|&nbsp;|&nbsp", " ");
+                // single quotes - replace with double
+                var step3 = Regex.Replace(step2, @"'", "''");
+                rv = step3;
+            }
+            return rv;
         }
     }
 }

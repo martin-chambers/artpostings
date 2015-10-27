@@ -1,8 +1,81 @@
-﻿
+﻿@model List<ArtPostings.Models.PictureFileRecord>
 @{
     ViewBag.Title = "Admin";
+    var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 5, defaultSort:"Archived,Order");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin</h2>
+
+
+<style type="text/css">
+    /*Here we will add css for style webgrid*/
+    .webgrid-table {
+        font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;     
+        font-size: medium;
+        width: 100%;
+        display: table;
+        border-collapse: separate;
+        border: none;
+        background-color: white;
+    }
+
+    .webgrid-table td, th {
+        border: 0px;
+        padding: 15px;
+        border-radius: 3px;
+    }
+
+    .wide-column {
+        min-width: 225px;    
+    }
+
+    .webgrid-header {
+        background-color: darkgray;
+        font-size: medium;
+        font-weight:bold;
+        color: white;
+        padding-bottom: 4px;
+        padding-top: 5px;
+        text-align: left;
+    }
+
+    .webgrid-footer {
+        background-color: darkgray;
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: lightgrey;
+        padding: 3px 7px 2px;
+    }
+</style>
+
+<div id="content">
+    @grid.GetHtml(
+tableStyle: "webgrid-table",
+headerStyle: "webgrid-header",
+footerStyle: "webgrid-footer",
+alternatingRowStyle: "webgrid-alternating-row",
+rowStyle: "webgrid-row-style",
+
+columns: grid.Columns(
+grid.Column(header: "Image", format: @<text><img width='120' src=@item.FilePath /></text>, canSort: false),
+grid.Column(columnName: "Header", header: "Header", style: "wide-column"),
+grid.Column(columnName: "FileName", header: "File", style: "wide-column", canSort: false),
+grid.Column(columnName: "Order", header: "Order", canSort: true),
+grid.Column(header: "Displayed in pages?", format: (item) => Html.Raw("<input type='checkbox' " + ((item.Displayed == true) ? "checked" : "") + " disabled = 'false' />"), canSort: true),
+grid.Column(
+    columnName: "Archived",
+    header: "{Archive_Header",
+    format: (item) => Html.Raw("<input type='checkbox' " + ((item.Archived == true) ? "checked" : "") + " disabled = 'false' />"))
+))
+</div>
+<br /><br />
+
+
+
+
 

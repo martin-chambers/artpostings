@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
+using System.Configuration;
 
 namespace ArtPostings.Models
 {
@@ -10,6 +12,10 @@ namespace ArtPostings.Models
         // the service class is implemented as a singleton
         private static PostingService instance = null;
         private static readonly object padlock = new object();
+
+        private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
+        private string fullyMappedPictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");
+
 
         // explicit private constructor to prevent other classes creating instances
         private PostingService(IPostingRepository _repository) 
@@ -106,6 +112,7 @@ namespace ArtPostings.Models
             ItemPosting ip = new ItemPosting();
             ip.Id = vm.ItemPosting.Id;
             ip.Description = Utility.PrepForSql(vm.ItemPosting.Description);
+            ip.FileName = Utility.PrepForSql(vm.ItemPosting.FileName);
             ip.FilePath = Utility.PrepForSql(vm.ItemPosting.FilePath);
             ip.Header = Utility.PrepForSql(vm.ItemPosting.Header);
             ip.Price = Utility.PrepForSql(vm.ItemPosting.Price);
@@ -125,5 +132,38 @@ namespace ArtPostings.Models
             ItemPosting posting = vm.ItemPosting;
             repository.Update(posting, true);
         }
+        public List<PictureFileRecord> PictureFileRecordList()
+        {
+            List<PictureFileRecord> pictureFiles = new List<PictureFileRecord>();
+            List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
+            postings.AddRange(ShopPostings().ToList());
+            postings.AddRange(ArchivePostings().ToList());
+            List<string> files = new List<string>();
+            files = Directory.GetFiles(fullyMappedPictureFolder).ToList();
+            foreach (string file in files)
+            {
+                PictureFileRecord pictureFile = new PictureFileRecord(file);
+                ItemPostingViewModel vm = postings.Find(x => x.ItemPosting.FileName.ToUpper() == pictureFile.FileName.ToUpper());
+                if(vm == null)
+                {
+                    pictureFile.Displayed = false;
+                    pictureFile.Archived = false;
+                    pictureFile.Order = Int32.MaxValue;
+                    pictureFile.Header = "";
+                    
+                }
+                else
+                {                    
+                    pictureFile.Displayed = true;
+                    pictureFile.Archived = vm.ItemPosting.Archive_Flag;
+                    pictureFile.Order = vm.ItemPosting.Order;
+                    pictureFile.Header = vm.ItemPosting.Header;
+
+                }
+                pictureFiles.Add(pictureFile);
+            }
+            return pictureFiles;
+        }
+
     }
 }

@@ -44,36 +44,45 @@ namespace ArtPostings.Tests.Models
             archivePostings.Add(new ItemPostingViewModel()
             {
                 ItemPosting = new ItemPosting("1",
+                    "1",
                     "some filepath 1",
+                    "some filename 1",
                     "some title 1",
                     "some shortname 1",
                     "some header 1",
                     "some description 1",
                     "some size 1",
-                    "some price 1"),
+                    "some price 1",
+                    "some af_flag 1"),
                 Editing = false
             });
             archivePostings.Add(new ItemPostingViewModel()
                 { ItemPosting = new ItemPosting("2",
+                    "2",
                     "some filepath 2",
+                    "some filename 2",
                     "some title 2",
                     "some shortname 2",
                     "some header 2",
                     "some description 2",
                     "some size 2",
-                    "some price 2"),
+                    "some price 2",
+                    "some af_flag 2"),
                 Editing = false
             });
             archivePostings.Add(new ItemPostingViewModel()
             {
                 ItemPosting = new ItemPosting("3",
+                    "3",
                     "some filepath 3",
+                    "some filename 3",
                     "some title 3",
                     "some shortname 3",
                     "some header 3",
                     "some description 3",
                     "some size 3",
-                    "some price 3"),
+                    "some price 3",
+                    "some af_flag 3"),
                 Editing = false
             });
             return archivePostings;
@@ -115,37 +124,46 @@ namespace ArtPostings.Tests.Models
             shopPostings.Add(new ItemPostingViewModel()
             {
                 ItemPosting = new ItemPosting("4",
+                    "4",
                     "some filepath 4",
+                    "some filename 4",
                     "some title 4",
                     "some shortname 4",
                     "some header 4",
                     "some description 4",
                     "some size 4",
-                    "some price 4"),
+                    "some price 4",
+                    "some af_flag 4"),
                 Editing = false
             });
             shopPostings.Add(new ItemPostingViewModel()
             {
                 ItemPosting = new ItemPosting("5",
+                    "5",
                     "some filepath 5",
+                    "some filename 5",
                     "some title 5",
                     "some shortname 5",
                     "some header 5",
                     "some description 5",
                     "some size 5",
-                    "some price 5"),
+                    "some price 5",
+                    "some af_flag 5"),
                 Editing = false
             });
             shopPostings.Add(new ItemPostingViewModel()
             {
                 ItemPosting = new ItemPosting("6",
+                    "6",
                     "some filepath 6",
+                    "some filename 6",
                     "some title 6",
                     "some shortname 6",
                     "some header 6",
                     "some description 6",
                     "some size 6",
-                    "some price 6"),
+                    "some price 6",
+                    "some af_flag 6"),
                 Editing = false
             });
             return shopPostings;
@@ -158,5 +176,11 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
+        public List<PictureFileRecord> PictureFileRecordList()
+        {
+            List<PictureFileRecord> pictureFiles = new List<PictureFileRecord>();
+            return pictureFiles;
+        }
+
     }
 }

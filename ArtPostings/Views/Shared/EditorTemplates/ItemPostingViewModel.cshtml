@@ -40,6 +40,7 @@
             var desc = $("#ItemPosting_Description").val();
             var id = obj.id;
             var filepath = obj.filePath;
+            var filename = obj.fileName;
             var shortname = obj.shortName;
             var header = $("#ItemPosting_Header").val();
             var size = $("#ItemPosting_Size").val();
@@ -47,6 +48,7 @@
             return {
                 Id: id,
                 FilePath: filepath,
+                FileName: filename,
                 Title: title,
                 ShortName: shortname,
                 Header: header,

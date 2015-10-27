@@ -5,12 +5,16 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 namespace ArtPostings.Models
 {
     public class PostingRepository : IPostingRepository
     {
-        string pictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
+
+        
+        private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
+        //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
         bool IPostingRepository.Create(ItemPosting posting)
         {
@@ -18,13 +22,13 @@ namespace ArtPostings.Models
         }
         IEnumerable<ItemPosting> IPostingRepository.ShopPostings()
         {
-            string commandText = "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
+            string commandText = "SELECT [Id],[Order],[Filename],[Title],[Shortname],[Header], " +
                 "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 0";
             return getPostings(commandText);
         }
         IEnumerable<ItemPosting> IPostingRepository.ArchivePostings()
         {
-            string commandText = "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
+            string commandText = "SELECT [Id],[Order],[Filename],[Title],[Shortname],[Header], " +
                 "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 1";
             return getPostings(commandText);
         }
@@ -43,13 +47,16 @@ namespace ArtPostings.Models
                         postings.Add(
                             new ItemPosting(
                                 reader["Id"].ToString(),
-                                pictureFolder + reader["Filename"].ToString(),
+                                reader["Order"].ToString(),
+                                Path.Combine(webSafePictureFolder, reader["Filename"].ToString()),
+                                reader["Filename"].ToString(),
                                 reader["Title"].ToString(),
                                 reader["Shortname"].ToString(),
                                 reader["Header"].ToString(),
                                 reader["Description"].ToString(),
                                 reader["Size"].ToString(),
-                                reader["Price"].ToString()
+                                reader["Price"].ToString(),
+                                reader["Archive_Flag"].ToString()
                                 )
                         );
                     }
@@ -78,13 +85,16 @@ namespace ArtPostings.Models
                     {
                         posting = new ItemPosting(
                             reader["Id"].ToString(),
-                            pictureFolder + reader["Filename"].ToString(),
+                            reader["Order"].ToString(),
+                            reader["Filename"].ToString(),
+                            Path.Combine(webSafePictureFolder, reader["Filename"].ToString()),
                             reader["Title"].ToString(),
                             reader["Shortname"].ToString(),
                             reader["Header"].ToString(),
                             reader["Description"].ToString(),
                             reader["Size"].ToString(),
-                            reader["Price"].ToString()
+                            reader["Price"].ToString(),
+                            reader["Archive_Flag"].ToString()
                             );
                     }
                     return posting;
@@ -101,7 +111,8 @@ namespace ArtPostings.Models
             //try
             //{
             string commandText = "Update [dbo].[ArtPostingItems] " +
-                "SET [Filename] = '" + itemposting.FilePath.Replace(pictureFolder,"") + "'," +
+                "SET [Order] = '" + itemposting.Order + "'," +
+                "[Filename] = '" + itemposting.FileName + "'," +
                 "[Title] = '" + itemposting.Title + "'," +
                 "[Shortname] = '" + itemposting.ShortName + "'," +
                 "[Header] = '" + itemposting.Header + "'," +
