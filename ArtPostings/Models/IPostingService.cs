@@ -13,7 +13,7 @@ namespace ArtPostings.Models
         IEnumerable<ItemPostingViewModel> EditModeShopPostings(int id);
         IEnumerable<ItemPostingViewModel> EditModeArchivePostings(int id);
         ItemPostingViewModel GetPosting(int id);
-        List<PictureFileRecord> PictureFileRecordList();
+        List<PictureFileRecord> PictureFileRecordList(string status = "All");
         void SaveShopChanges(ItemPostingViewModel vm);
         void SaveArchiveChanges(ItemPostingViewModel vm);
         string ArchiveText { get; }

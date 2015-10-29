@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtPostings", "ArtPostings\ArtPostings.csproj", "{39FEAC52-E6B7-4D67-8DBA-7CB9B4B2197D}"
 EndProject
@@ -18,7 +18,6 @@ Global
 		{39FEAC52-E6B7-4D67-8DBA-7CB9B4B2197D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39FEAC52-E6B7-4D67-8DBA-7CB9B4B2197D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B03B9307-6396-4A64-B989-DB23D6244241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B03B9307-6396-4A64-B989-DB23D6244241}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B03B9307-6396-4A64-B989-DB23D6244241}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B03B9307-6396-4A64-B989-DB23D6244241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

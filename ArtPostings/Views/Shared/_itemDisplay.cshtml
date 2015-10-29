@@ -1,4 +1,4 @@
-﻿<table id="main">
+﻿<table id="items">
     <tr>
         <td><hr /></td>
     </tr>
@@ -14,7 +14,7 @@
     </tr>
     <tr>
         <td>
-            <div id="itemlist">
+            <div>
                 @{var partialView = (User.Identity.IsAuthenticated) ? "_postingEditList" : "_postingDisplayList";
             Html.RenderPartial(partialView);}
             </div>

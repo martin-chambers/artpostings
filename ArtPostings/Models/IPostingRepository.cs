@@ -13,5 +13,5 @@ namespace ArtPostings.Models
         IEnumerable<ItemPosting> ArchivePostings();
         ItemPosting GetPosting(int id);
         void Update(ItemPosting posting, bool archived);
-    }
+      }
 }

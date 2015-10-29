@@ -18,7 +18,7 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <div id="outer1">
+    <div id="page">
         <div class="top">
             <ul class="toprightmenu">
                 @Html.Partial("_LoginPartial")
@@ -32,15 +32,15 @@
                 <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
             </ul>
         </div>
-        <div id="outer2">
+        <div id="main">
             <h1>Ann Chambers Art</h1><br />
             <div id="inner">
-                <div id="listitems">
+                <div id="listpad">
                     @if (ViewBag.Mode == "_itemDisplay")
             { @Html.Partial("_itemDisplay")}
             </div>
-            <div class="commentary">
-                <section id="main">
+            <div class="notepad">
+                <section>
                     @RenderSection("scripts", required: false)
                     @RenderBody()
                 </section>

@@ -132,7 +132,7 @@ namespace ArtPostings.Models
             ItemPosting posting = vm.ItemPosting;
             repository.Update(posting, true);
         }
-        public List<PictureFileRecord> PictureFileRecordList()
+        public List<PictureFileRecord> PictureFileRecordList(string status = "All")
         {
             List<PictureFileRecord> pictureFiles = new List<PictureFileRecord>();
             List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
@@ -146,21 +146,24 @@ namespace ArtPostings.Models
                 ItemPostingViewModel vm = postings.Find(x => x.ItemPosting.FileName.ToUpper() == pictureFile.FileName.ToUpper());
                 if(vm == null)
                 {
-                    pictureFile.Displayed = false;
-                    pictureFile.Archived = false;
-                    pictureFile.Order = Int32.MaxValue;
+                    pictureFile.Status = PictureFileRecord.StatusType.NotDisplayed;
+                    pictureFile.Order = PictureFileRecord.NULL_ORDER.ToString(PictureFileRecord.NullStringFormat);
                     pictureFile.Header = "";
                     
                 }
                 else
                 {                    
-                    pictureFile.Displayed = true;
-                    pictureFile.Archived = vm.ItemPosting.Archive_Flag;
-                    pictureFile.Order = vm.ItemPosting.Order;
+                    pictureFile.Order = vm.ItemPosting.Order.ToString();
                     pictureFile.Header = vm.ItemPosting.Header;
-
+                    pictureFile.Status = (vm.ItemPosting.Archive_Flag) 
+                        ? PictureFileRecord.StatusType.Archived 
+                        : PictureFileRecord.StatusType.ForSale;
                 }
-                pictureFiles.Add(pictureFile);
+                PictureFileRecord.StatusType statusType = PictureFileRecord.GetStatusType(status);
+                if (pictureFile.Status == statusType || statusType == PictureFileRecord.StatusType.All)
+                {
+                    pictureFiles.Add(pictureFile);
+                }
             }
             return pictureFiles;
         }

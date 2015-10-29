@@ -53,7 +53,7 @@ namespace ArtPostings.Tests.Models
                     "some description 1",
                     "some size 1",
                     "some price 1",
-                    "some af_flag 1"),
+                    "true"),
                 Editing = false
             });
             archivePostings.Add(new ItemPostingViewModel()
@@ -67,7 +67,7 @@ namespace ArtPostings.Tests.Models
                     "some description 2",
                     "some size 2",
                     "some price 2",
-                    "some af_flag 2"),
+                    "true"),
                 Editing = false
             });
             archivePostings.Add(new ItemPostingViewModel()
@@ -82,7 +82,7 @@ namespace ArtPostings.Tests.Models
                     "some description 3",
                     "some size 3",
                     "some price 3",
-                    "some af_flag 3"),
+                    "true"),
                 Editing = false
             });
             return archivePostings;
@@ -133,7 +133,7 @@ namespace ArtPostings.Tests.Models
                     "some description 4",
                     "some size 4",
                     "some price 4",
-                    "some af_flag 4"),
+                    "false"),
                 Editing = false
             });
             shopPostings.Add(new ItemPostingViewModel()
@@ -148,7 +148,7 @@ namespace ArtPostings.Tests.Models
                     "some description 5",
                     "some size 5",
                     "some price 5",
-                    "some af_flag 5"),
+                    "false"),
                 Editing = false
             });
             shopPostings.Add(new ItemPostingViewModel()
@@ -163,7 +163,7 @@ namespace ArtPostings.Tests.Models
                     "some description 6",
                     "some size 6",
                     "some price 6",
-                    "some af_flag 6"),
+                    "false"),
                 Editing = false
             });
             return shopPostings;
@@ -176,7 +176,7 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
-        public List<PictureFileRecord> PictureFileRecordList()
+        public List<PictureFileRecord> PictureFileRecordList(string status)
         {
             List<PictureFileRecord> pictureFiles = new List<PictureFileRecord>();
             return pictureFiles;

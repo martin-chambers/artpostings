@@ -68,17 +68,33 @@ namespace ArtPostings.Models
             }
             return postings;
         }
+ 
         ItemPosting IPostingRepository.GetPosting(int id)
+        {
+            return this.selectPosting(id, "", "");
+        }
+        ItemPosting selectPosting(int id, string selectString, string selectField)
         {
             try
             {
                 ItemPosting posting = new ItemPosting();
-                string commandText = "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
-                    "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Id = @Id";
+                string commandText =
+
+                    (!string.IsNullOrEmpty(selectString)) 
+
+                    ? "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
+                    "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems]" +
+                    " WHERE (Id = @Id) AND (" + selectField + " = '' OR " + selectField + " = @selectValue"
+
+                    : "SELECT[Id],[Filename],[Title],[Shortname],[Header], " +
+                    "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems]" +
+                    " WHERE (Id = @Id)";
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(commandText, connection);
                     command.Parameters.Add(new SqlParameter("@Id", id));
+                    command.Parameters.Add(new SqlParameter("@selectValue", selectString));
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
