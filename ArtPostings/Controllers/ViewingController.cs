@@ -9,7 +9,7 @@ namespace ArtPostings.Controllers
 {
     public class ViewingController : Controller
     {
-        private IPostingService service;
+        private readonly IPostingService service;
         public ViewingController(IPostingService _service)
         {
             service = _service;

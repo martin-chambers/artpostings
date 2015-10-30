@@ -10,7 +10,7 @@ namespace ArtPostings.Controllers
 {
     public class AboutController : Controller
     {
- private IPostingService service;
+        private readonly IPostingService service;
         public AboutController(IPostingService _service)
         {
             service = _service;
@@ -20,7 +20,6 @@ namespace ArtPostings.Controllers
         // GET: About
         public ActionResult Index()
         {
-            ViewBag.Blurb = service.ShopText;
             ViewBag.Mode = "_noItemDisplay";
             return View();
         }

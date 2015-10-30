@@ -11,11 +11,16 @@ namespace ArtPostings.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private IPostingService service;
+        private readonly IPostingService service;
         public HomeController(IPostingService _service)
         {
             service = _service;
         }
+        /// <summary>
+        /// default parameterless constructor required by asp.net MVC framework
+        /// hard-coded here to default to the concrete PostingService class.
+        /// This will be replaced by IoC in future
+        /// </summary>
         public HomeController() : this(PostingService.Instance) { }
 
         // GET: Home

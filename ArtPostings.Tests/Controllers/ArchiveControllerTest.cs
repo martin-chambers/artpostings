@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
@@ -11,7 +10,7 @@ using ArtPostings.Tests.Models;
 namespace ArtPostings.Tests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class ArchiveControllerTest
     {
         PostingServiceMock mock;
         [TestInitialize]
@@ -20,60 +19,61 @@ namespace ArtPostings.Tests.Controllers
             mock = new PostingServiceMock();
         }
         [TestMethod]
-        public void Home_Index_SetResultNotNull_Success()
+        public void Archive_Index_SetResultNotNull_Success()
         {
-            HomeController controller = new HomeController(mock);
+            ArchiveController controller = new ArchiveController(mock);
             ViewResult result = controller.Index() as ViewResult;
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public void Home_Index_SetViewBag_Success()
+        public void Archive_Index_SetViewBag_Success()
         {
-            HomeController controller = new HomeController(mock);
+            ArchiveController controller = new ArchiveController(mock);
             ViewResult result = controller.Index() as ViewResult;
             Assert.IsTrue(result.ViewBag.Mode == "_itemDisplay");
         }
-        public void Home_Index_SetResult_Success()
+        [TestMethod]
+        public void Archive_Index_SetResult_Success()
         {
-            HomeController controller = new HomeController(mock);
+            ArchiveController controller = new ArchiveController(mock);
             ViewResult result = controller.Index() as ViewResult;
             List<ItemPostingViewModel> postings = (List<ItemPostingViewModel>)result.Model;
             Assert.IsTrue(postings.Count == 3);
         }
 
         [TestMethod]
-        public void Home_Edit_SetViewName_Success()
+        public void Archive_Edit_SetViewName_Success()
         {
-            HomeController controller = new HomeController(mock);
+            ArchiveController controller = new ArchiveController(mock);
             int existentId = 5;
             PartialViewResult result = (PartialViewResult)controller.Edit(existentId);
             Assert.IsTrue(result.ViewName == "_itemDisplay");
         }
         [TestMethod]
-        public void Home_Edit_CallServiceEdit_Success()
+        public void Archive_Edit_CallServiceEdit_Success()
         {
-            HomeController controller = new HomeController(mock);
-            int existentId = 5;
+            ArchiveController controller = new ArchiveController(mock);
+            int existentId = 2;
             PartialViewResult result = (PartialViewResult)controller.Edit(existentId);
 
             List<ItemPostingViewModel> postings = (List<ItemPostingViewModel>)result.Model;
             Assert.IsTrue(postings.Find(x => x.ItemPosting.Id == existentId).Editing);
         }
         [TestMethod]
-        public void Home_Edit_SetBlurb_Success()
+        public void Archive_Edit_SetBlurb_Success()
         {
-            HomeController controller = new HomeController(mock);
-            int existentId = 5;
+            ArchiveController controller = new ArchiveController(mock);
+            int existentId = 2;
             PartialViewResult result = (PartialViewResult)controller.Edit(existentId);
             string blurb = result.ViewData["Blurb"].ToString();
-            Assert.IsTrue(blurb == "This is Shop Text");
+            Assert.IsTrue(blurb == "This is Archive Text");
         }
         [TestMethod]
-        public void Home_Edit_SetMode_Success()
+        public void Archive_Edit_SetMode_Success()
         {
-            HomeController controller = new HomeController(mock);
-            int existentId = 5;
+            ArchiveController controller = new ArchiveController(mock);
+            int existentId = 2;
             PartialViewResult result = (PartialViewResult)controller.Edit(existentId);
             string mode = result.ViewData["Mode"].ToString();
             Assert.IsTrue(mode == "_itemDisplay");

@@ -9,11 +9,16 @@ namespace ArtPostings.Controllers
 {
     public class ArchiveController : Controller
     {
-        private IPostingService service;
+        private readonly IPostingService service;
         public ArchiveController(IPostingService _service)
         {
             service = _service;
         }
+        /// <summary>
+        /// default parameterless constructor required by asp.net MVC framework
+        /// hard-coded here to default to the concrete PostingService class.
+        /// This will be replaced by IoC in future
+        /// </summary>
         public ArchiveController() : this(PostingService.Instance) { }
 
 

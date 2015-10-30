@@ -11,11 +11,16 @@ namespace ArtPostings.Controllers
     public class AdminController : Controller
     {
 
-        private IPostingService service;
+        private readonly IPostingService service;
         public AdminController(IPostingService _service)
         {
             service = _service;
         }
+        /// <summary>
+        /// default parameterless constructor required by asp.net MVC framework
+        /// hard-coded here to default to the concrete PostingService class.
+        /// This will be replaced by IoC in future
+        /// </summary>
         public AdminController() : this(PostingService.Instance) { }
         // GET: Admin
         public ActionResult Index(string status = "All", bool initial = true)
@@ -30,12 +35,7 @@ namespace ArtPostings.Controllers
                 return PartialView("_PictureList", load(status));
             }
         }
-
-        //public ActionResult Filter (string status)
-        //{
-        //    return PartialView("_PictureList", load(status));
-        //}
-
+        
         private PictureFileRecordsViewModel load(string status)
         {
             List<PictureFileRecord> fileRecords =

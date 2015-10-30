@@ -157,10 +157,13 @@ div#main
 div#status {
     padding: 10px 0px 10px 0px;
     text-align: right;
-    float: right;
-    width: 100%;
+    float: right;    
 }
-
+    
+*:focus {
+   outline: 0;
+ }
+ 
 .form-control {
     border-radius: 4px;
     font-size: medium;
@@ -192,7 +195,20 @@ h2 {
     padding-right: 6px;    
 }
 
-.sidebar 
+.medium-column {
+    min-width: 130px;    
+}
+
+select#selectstatus{
+    width: 250px;
+    border-radius: 8px;
+    border-color: darkgray;
+    border-width:3px;
+    color: darkslategray;
+}
+
+ 
+ .sidebar 
 {
     padding-left: 15px;
     padding-top: 10px;
@@ -338,15 +354,17 @@ tr
         font-size: medium;
         width: 100%;
         display: table;
-        border-collapse: separate;
-        border: none;
+        border-collapse: collapse;
+        border: double;
+        border-width: 1px;        
         background-color: white;
     }
 
     .webgrid-table td, th {
-        border: 0px;
-        padding: 15px;
-        
+        border: inset;
+        padding: 5px 20px;
+        vertical-align: middle;
+        border-width: 1px;        
     }
 
     .wide-column {
@@ -372,7 +390,6 @@ tr
     }
 
     .webgrid-alternating-row {
-        background-color:lightblue;
         padding: 3px 7px 2px;
     }
 

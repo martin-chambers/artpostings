@@ -9,7 +9,7 @@ namespace ArtPostings.Controllers
 {
     public class ContactController : Controller
     {
-        private IPostingService service;
+        private readonly IPostingService service;
         public ContactController(IPostingService _service)
         {
             service = _service;

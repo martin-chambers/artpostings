@@ -1,6 +1,6 @@
 ﻿@model ArtPostings.Models.ItemPostingViewModel
 <script>
-    function closeEdit() {
+    function closeEdit(event) {
         event.preventDefault();
         $.ajax({
             url: '@Url.Action("Reload")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
@@ -8,7 +8,6 @@
             cache: false,
             success: function (htmlstring) {
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
-                debugger;
                 $('#listpad').html(htmlstring);
                 $('#listpad').show();
             },
@@ -30,7 +29,7 @@
         var returnVal = getFirstElementByName('__RequestVerificationToken').value;
         return returnVal;
     })();
-    function checkmarksave() {
+    function checkmarksave(event) {
         var obj = @ArtPostings.Models.JavaScriptConvert.SerializeObject(Model.ItemPosting);
         var url = '@Url.Action("Edit")';
         var edit = false;
@@ -71,7 +70,7 @@
                 alert(request.responseText);
             },
             success: function () {
-                closeEdit();
+                closeEdit(event);
             }
         })
         // the following prevents default behaviour following an onclick event. It duplicates effect of
@@ -91,10 +90,10 @@
         </strong>
         <div class="itemaction">
             <a class="icon" href="#">
-                <span class="ion-close" onclick="closeEdit()" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Cancel changes"></span>
+                <span class="ion-close" onclick="closeEdit(event)" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Cancel changes"></span>
             </a>
             <a class="icon" href="#">
-                <span class="ion-checkmark" onclick="checkmarksave()" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Done"></span>
+                <span class="ion-checkmark" onclick="checkmarksave(event)" data-pack="default" data-tags="talk" data-toggle="tooltip" title="Done"></span>
             </a>
         </div>
     </div>

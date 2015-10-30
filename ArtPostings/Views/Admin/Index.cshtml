@@ -1,8 +1,6 @@
 ﻿@model ArtPostings.Models.PictureFileRecordsViewModel
 <script type="text/javascript">
-    debugger;
     function dropdownchange(event, statusvalue) {
-        debugger;
         event.preventDefault();
         $.ajax({
             url: '@Url.Action("Index")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
@@ -22,8 +20,8 @@
 
 
 <div id="status">
-    @Html.DropDownList("StatusDropDown", Model.Statuses, new { @onchange = "dropdownchange(event, this.value)" })
-</div>
+    @Html.DropDownList("StatusDropDown", Model.Statuses, new { onchange = "dropdownchange(event, this.value)", id="selectstatus" })
+</div><br /><br /><br />
 <div id="filelistcontainer">
     @{
         Html.RenderPartial("_PictureList");

@@ -9,7 +9,7 @@ namespace ArtPostings.Controllers
 {
     public class LinksController : Controller
     {
-        private IPostingService service;
+        private readonly IPostingService service;
         public LinksController(IPostingService _service)
         {
             service = _service;

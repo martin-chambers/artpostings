@@ -5,6 +5,7 @@
             url: '@Url.Action("Edit")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
             data: {id: postingId},
             type: 'GET',
+            cache: false, // Internet Explorer needs this or it will not show the results of recent saves when editing
             success: function (htmlstring) {
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
                 $('#listpad').html(htmlstring);
