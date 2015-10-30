@@ -14,7 +14,32 @@ namespace ArtPostings.Models
         private static readonly object padlock = new object();
 
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
-        private string fullyMappedPictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");
+        public string FullyMappedPictureFolder
+        {
+            get
+            {
+                string s;
+                try
+                {
+                    s = HttpContext.Current.Server.MapPath("~/Content/Art");
+                    if (s != null)
+                    {
+                        return s;
+                    }
+                    else
+                    {
+                        return "";
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Elmah.ErrorLog.GetDefault(HttpContext.Current).Log(new Elmah.Error(ex));
+                    return "";
+
+                }
+            }
+
+        }
 
 
         // explicit private constructor to prevent other classes creating instances
@@ -132,8 +157,9 @@ namespace ArtPostings.Models
             ItemPosting posting = vm.ItemPosting;
             repository.Update(posting, true);
         }
-        public List<PictureFileRecord> PictureFileRecordList(string status = "All")
+        public List<PictureFileRecord> PictureFileRecordList(string mappedfolder, string status = "All")
         {
+            string fullyMappedPictureFolder = mappedfolder;
             List<PictureFileRecord> pictureFiles = new List<PictureFileRecord>();
             List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
             postings.AddRange(ShopPostings().ToList());
@@ -166,6 +192,11 @@ namespace ArtPostings.Models
                 }
             }
             return pictureFiles;
+        }
+        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder)
+        {
+            File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
+            return PictureFileRecordList(folder);
         }
 
     }

@@ -22,6 +22,11 @@ namespace ArtPostings.Tests.Models
                 return "This is Archive Text";
             }
         }
+        public string FullyMappedPictureFolder
+        {
+            get { return ""; }
+
+        }
 
         public string ShopText
         {
@@ -176,10 +181,15 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
-        public List<PictureFileRecord> PictureFileRecordList(string status)
+        public List<PictureFileRecord> PictureFileRecordList(string mappedfolder, string status)
         {
             List<PictureFileRecord> pictureFiles = new List<PictureFileRecord>();
             return pictureFiles;
+        }
+
+        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder)
+        {
+            throw new NotImplementedException();
         }
 
     }

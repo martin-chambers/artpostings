@@ -39,10 +39,34 @@ namespace ArtPostings.Controllers
         private PictureFileRecordsViewModel load(string status)
         {
             List<PictureFileRecord> fileRecords =
-                service.PictureFileRecordList(status).ToList();
+                service.PictureFileRecordList(service.FullyMappedPictureFolder, status).ToList();
             PictureFileRecordsViewModel viewModel = new PictureFileRecordsViewModel(fileRecords, PictureFileRecord.StatusList, status);
             // need to return partialview here or _PictureList repeats the _Layout components on the webpage
             return viewModel;
+        }
+
+        public ActionResult FileDelete(PictureFileRecord rec)
+        {
+            // currently have a problem with sorting after deleting !!!!!!!
+            try
+            {
+                if (rec.FileName == null)
+                {
+                    throw new ArgumentNullException("The view has fired the delete file process unexpectedly");
+                }
+                else
+                {
+                    List<PictureFileRecord> fileRecords =
+                        service.DeletePictureFile(rec.FileName, service.FullyMappedPictureFolder).ToList();
+                }
+            }
+            catch (ArgumentNullException anEx)
+            {
+                // log but don't halt execution - the javascript function has fired, most likely because 
+                // of difficult-to-understand interaction between the paging control and onclick event in webgrid
+                Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
+            }
+            return PartialView("_PictureList", load(PictureFileRecord.GetStatusString(rec.Status)));
         }
     }
 }

@@ -191,6 +191,10 @@ h2 {
     font-weight: bold;
 }
 
+#image-delete {
+    cursor: pointer;
+}
+
 .ion-close {
     padding-right: 6px;    
 }

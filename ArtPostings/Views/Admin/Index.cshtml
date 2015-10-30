@@ -8,6 +8,29 @@
             type: 'GET',
             success: function (htmlstring) {
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
+                debugger;
+                $('#filelistcontainer').html(htmlstring);
+                $('#filelistcontainer').show();
+                var data = data.replace('<script type="text/javascript">', '<script type="text/javascript"> $(".table").undelegate();');
+                $('#filelistcontainer').undelegate();
+                $('#filelistcontainer').html(data);
+                $(document).foundation();
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        });
+    }
+
+    function filedelete(event, file, status) {
+        event.preventDefault();
+        debugger;
+        $.ajax({
+            url: '@Url.Action("FileDelete")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
+            data: { FileName: file, Status: status},
+            type: 'POST',
+            success: function (htmlstring) {
+                // need to replace content at a fairly high level to ensure old postings are cleared out of the view
                 $('#filelistcontainer').html(htmlstring);
                 $('#filelistcontainer').show();
             },
@@ -15,6 +38,7 @@
                 alert(error);
             }
         });
+
     }
 </script>
 

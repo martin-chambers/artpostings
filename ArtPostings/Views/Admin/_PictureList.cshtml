@@ -12,6 +12,7 @@
                 grid.Column(columnName: "Header", header: "Header", style: "wide-column", canSort: true),
                 grid.Column(columnName: "FileName", header: "File", style: "wide-column", canSort: true),
                 grid.Column(columnName: "Order", header: "Order", canSort: true),
-                grid.Column(header: "Delete", canSort: false, format: @<text><img width='50' src="../../Content/icons/trash-icon.png" /></text>)
+                grid.Column(header: "Delete", canSort: false, 
+                    format: @<text><img width='50' src="@Url.Content("~/Content/icons/trash-icon.png")" id="image-delete" onclick="filedelete(event, '@item.FileName', '@item.Status')" alt="Delete" title="Delete"/></text>)
             )
   )

@@ -24,6 +24,11 @@ namespace ArtPostings.Models
             StatusType type = (StatusType)keys.IndexOf(statusString);
             return type;
         }
+        public static string GetStatusString(StatusType type)
+        {
+            return StatusList.Keys[(int)type];            
+        }
+
         public static NameValueCollection StatusList
         {
             get
@@ -32,8 +37,6 @@ namespace ArtPostings.Models
                 return statuses;
             }            
         }
-
-
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         public string FileName { get; set; }
         public string FilePath { get; set; }
@@ -59,7 +62,7 @@ namespace ArtPostings.Models
                 }
                 catch(ArgumentException argEx)
                 {
-                    // handle
+                    throw new ArgumentException("Invalid value passed to picture file table ordering function", argEx);
                 }
             }
         }

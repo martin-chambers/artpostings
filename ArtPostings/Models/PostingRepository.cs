@@ -12,7 +12,7 @@ namespace ArtPostings.Models
     public class PostingRepository : IPostingRepository
     {
 
-        
+
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
@@ -68,7 +68,7 @@ namespace ArtPostings.Models
             }
             return postings;
         }
- 
+
         ItemPosting IPostingRepository.GetPosting(int id)
         {
             return this.selectPosting(id, "", "");
@@ -80,7 +80,7 @@ namespace ArtPostings.Models
                 ItemPosting posting = new ItemPosting();
                 string commandText =
 
-                    (!string.IsNullOrEmpty(selectString)) 
+                    (!string.IsNullOrEmpty(selectString))
 
                     ? "SELECT [Id],[Filename],[Title],[Shortname],[Header], " +
                     "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems]" +
@@ -124,10 +124,10 @@ namespace ArtPostings.Models
         void IPostingRepository.Update(ItemPosting itemposting, bool archived)
         {
 
-            //try
-            //{
-            string commandText = "Update [dbo].[ArtPostingItems] " +
-                "SET [Order] = '" + itemposting.Order + "'," +
+            try
+            {
+                string commandText = "Update [dbo].[ArtPostingItems] " +
+                    "SET [Order] = '" + itemposting.Order + "'," +
                 "[Filename] = '" + itemposting.FileName + "'," +
                 "[Title] = '" + itemposting.Title + "'," +
                 "[Shortname] = '" + itemposting.ShortName + "'," +
@@ -137,32 +137,22 @@ namespace ArtPostings.Models
                 "[Price] = '" + itemposting.Price + "'," +
                 "[Archive_flag] = '" + archived.ToString() +
                 "' WHERE id = @id";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                connection.Open();
-                adapter.UpdateCommand = connection.CreateCommand();
-                adapter.UpdateCommand.CommandText = commandText;
-                SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);
-                idParam.Value = itemposting.Id;
-                adapter.UpdateCommand.Parameters.Add(idParam);
-                adapter.UpdateCommand.ExecuteNonQuery();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    connection.Open();
+                    adapter.UpdateCommand = connection.CreateCommand();
+                    adapter.UpdateCommand.CommandText = commandText;
+                    SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);
+                    idParam.Value = itemposting.Id;
+                    adapter.UpdateCommand.Parameters.Add(idParam);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                }
             }
-        //}
-        // no posting object?
-        //catch (NullReferenceException nullex)
-        //{
-        //    throw new Exception("Could not retrieve art posting to update", nullex);
-        //}
-        //catch (SqlException sqlex)
-        //{
-        //    Console.WriteLine("Could not update database for art posting item " + posting.Title + ": " + sqlex.Message);
-        //}
-        //catch (Exception ex)
-        //{
-        //    throw new Exception("Could not update database for art posting item " + posting.Title, ex);
-        //}
-
+            catch(Exception ex)
+            {
+                throw (new Exception("Error updating item posting with id: " + itemposting.Id.ToString(), ex));
+            }
+        }
     }
-    }    
 }

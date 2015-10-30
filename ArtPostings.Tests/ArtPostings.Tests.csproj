@@ -95,7 +95,9 @@
     <Compile Include="Controllers\ContactControllerTest.cs" />
     <Compile Include="Controllers\LinksControllerTest.cs" />
     <Compile Include="Controllers\ViewingControllerTest.cs" />
+    <Compile Include="Models\PostingRepositoryMock.cs" />
     <Compile Include="Models\PostingServiceMock.cs" />
+    <Compile Include="Models\PostingServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
