@@ -66,7 +66,8 @@ namespace ArtPostings.Controllers
                 // of difficult-to-understand interaction between the paging control and onclick event in webgrid
                 Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
             }
-            return PartialView("_PictureList", load(PictureFileRecord.GetStatusString(rec.Status)));
+            //return PartialView("_PictureList", load(PictureFileRecord.GetStatusString(rec.Status)));
+            return RedirectToAction("Index", new { status = PictureFileRecord.GetStatusString(rec.Status), initial = false });
         }
     }
 }
