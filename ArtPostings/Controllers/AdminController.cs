@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
 using ArtPostings.Models;
+
 
 namespace ArtPostings.Controllers
 {
@@ -12,6 +14,8 @@ namespace ArtPostings.Controllers
     {
 
         private readonly IPostingService service;
+        private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
+
         public AdminController(IPostingService _service)
         {
             service = _service;
@@ -66,8 +70,22 @@ namespace ArtPostings.Controllers
                 // of difficult-to-understand interaction between the paging control and onclick event in webgrid
                 Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
             }
-            //return PartialView("_PictureList", load(PictureFileRecord.GetStatusString(rec.Status)));
             return RedirectToAction("Index", new { status = PictureFileRecord.GetStatusString(rec.Status), initial = false });
+        }
+        
+
+        public ActionResult UploadFile()
+        {
+            //this code could handle multiple files as part of an upload
+            //the initial implementation of file uploading in the application will not require this
+            foreach (string upload in Request.Files)
+            {
+                if (!Request.Files[upload].HasFile()) continue;
+                string path = service.FullyMappedPictureFolder;
+                string filename = Path.GetFileName(Request.Files[upload].FileName);
+                Request.Files[upload].SaveAs(Path.Combine(path, filename));
+            }
+            return RedirectToAction("Index", new { status = "All", initial = false });
         }
     }
 }

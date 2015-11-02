@@ -38,13 +38,20 @@
 
 
 <div id="status">
-    @Html.DropDownList("StatusDropDown", Model.Statuses, new { onchange = "dropdownchange(event, this.value)", id="selectstatus" })
+    @Html.DropDownList("StatusDropDown", Model.Statuses, new { onchange = "dropdownchange(event, this.value)", id ="selectstatus" })
 </div><br /><br /><br />
 <div id="filelistcontainer">
     @{
         Html.RenderPartial("_PictureList");
     }
 </div>
-
-
+<div class="pageheader">
+    Upload a new picture file ...
+    <hr />
+</div>
+@using (@Html.BeginForm("UploadFile", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadForm" }))
+{
+    <input class="upload" type="file" name="FileUpload" />
+    <input type="submit" name="Submit" value="Upload" />    
+}
 <br /><br />
