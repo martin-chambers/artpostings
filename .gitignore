@@ -3,6 +3,8 @@
 *.com
 *.class
 *.dll
+!elmah.dll
+!elmah.mvc.dll
 *.exe
 *.o
 *.so
