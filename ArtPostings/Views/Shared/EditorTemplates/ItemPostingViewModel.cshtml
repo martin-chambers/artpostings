@@ -12,7 +12,8 @@
                 $('#listpad').show();
             },
             error: function (request, status, error) {
-                alert(error);
+                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
+                alert(err_resp);
             }
         });
     };
@@ -44,6 +45,7 @@
             var header = $("#ItemPosting_Header").val();
             var size = $("#ItemPosting_Size").val();
             var price = $("#ItemPosting_Price").val();
+            debugger;
             return {
                 Id: id,
                 FilePath: filepath,
@@ -66,10 +68,12 @@
             data: payload,
             dataType: "json",
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-            error: function (request, status, error) {
-                alert(request.responseText);
+            error: 
+                function (request, status, error) {
+                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
+                alert(err_resp);
             },
-            success: function () {
+            success: function (responsedata) {
                 closeEdit(event);
             }
         })

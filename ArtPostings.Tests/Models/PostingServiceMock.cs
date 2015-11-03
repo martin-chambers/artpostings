@@ -173,11 +173,11 @@ namespace ArtPostings.Tests.Models
             });
             return shopPostings;
         }
-        public void SaveArchiveChanges(ItemPostingViewModel vm)
+        public ChangeResult SaveArchiveChanges(ItemPostingViewModel vm)
         {
             throw new NotImplementedException();
         }
-        public void SaveShopChanges(ItemPostingViewModel vm)
+        public ChangeResult SaveShopChanges(ItemPostingViewModel vm)
         {
             throw new NotImplementedException();
         }
@@ -192,5 +192,19 @@ namespace ArtPostings.Tests.Models
             throw new NotImplementedException();
         }
 
+        public ChangeResult InsertArchivePosting(PictureFileRecord pfr)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ChangeResult InsertShopPosting(PictureFileRecord pfr)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ItemPostingViewModel CreateItemPostingViewModel(PictureFileRecord pfr)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

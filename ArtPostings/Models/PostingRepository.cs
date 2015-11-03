@@ -16,9 +16,46 @@ namespace ArtPostings.Models
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
-        bool IPostingRepository.Create(ItemPosting posting)
+        ChangeResult IPostingRepository.Create(ItemPosting itemposting)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string commandText =
+                    "INSERT INTO [dbo].[ArtPostingItems]" +
+                    "([Filename]" +
+                    ",[Title]" +
+                    ",[Shortname]" +
+                    ",[Header]" +
+                    ",[Description]" +
+                    ",[Size]" +
+                    ",[Price]" +
+                    ",[Archive_flag]" +
+                    ",[Order]) " +
+                    "VALUES " +
+                    "( @filename" +
+                    ", @title" +
+                    ", @shortName" +
+                    ", @header" +
+                    ", @desc" +
+                    ", @size" +
+                    ", @price" +
+                    ", @archive" +
+                    ", @order)";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    connection.Open();
+                    adapter.UpdateCommand = connection.CreateCommand();
+                    adapter.UpdateCommand.CommandText = commandText;
+                    adapter = addPostingParamsToAdapter(adapter, itemposting, itemposting.Archive_Flag);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                }
+                return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName);
+            }
+            catch (Exception ex)
+            {
+                return new ChangeResult(false, "Error inserting posting with filename: " + itemposting.FileName + ": " + ex.Message);
+            }
         }
         IEnumerable<ItemPosting> IPostingRepository.ShopPostings()
         {
@@ -121,37 +158,82 @@ namespace ArtPostings.Models
                 throw (new Exception("Error retrieving item posting with id: " + id.ToString(), ex));
             }
         }
-        void IPostingRepository.Update(ItemPosting itemposting, bool archived)
+        private SqlDataAdapter addPostingParamsToAdapter(SqlDataAdapter _adapter, ItemPosting itemposting, bool archived)
+        {
+            SqlDataAdapter adapter = _adapter;
+
+            SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);
+            idParam.Value = itemposting.Id;
+            adapter.UpdateCommand.Parameters.Add(idParam);
+
+            SqlParameter orderParam = new SqlParameter("@order", SqlDbType.Int);
+            orderParam.Value = itemposting.Order;
+            adapter.UpdateCommand.Parameters.Add(orderParam);
+
+            SqlParameter filenameParam = new SqlParameter("@filename", SqlDbType.NVarChar);
+            filenameParam.Value = itemposting.FileName;
+            adapter.UpdateCommand.Parameters.Add(filenameParam);
+
+            SqlParameter titleParam = new SqlParameter("@title", SqlDbType.NVarChar);
+            titleParam.Value = itemposting.Title;
+            adapter.UpdateCommand.Parameters.Add(titleParam);
+
+            SqlParameter shortnameParam = new SqlParameter("@shortname", SqlDbType.NVarChar);
+            shortnameParam.Value = itemposting.ShortName;
+            adapter.UpdateCommand.Parameters.Add(shortnameParam);
+
+            SqlParameter headerParam = new SqlParameter("@header", SqlDbType.NVarChar);
+            headerParam.Value = itemposting.Header;
+            adapter.UpdateCommand.Parameters.Add(headerParam);
+
+            SqlParameter descParam = new SqlParameter("@desc", SqlDbType.NVarChar);
+            descParam.Value = itemposting.Description;
+            adapter.UpdateCommand.Parameters.Add(descParam);
+
+            SqlParameter sizeParam = new SqlParameter("@size", SqlDbType.NVarChar);
+            sizeParam.Value = itemposting.Size;
+            adapter.UpdateCommand.Parameters.Add(sizeParam);
+
+            SqlParameter priceParam = new SqlParameter("@price", SqlDbType.NVarChar);
+            priceParam.Value = itemposting.Price;
+            adapter.UpdateCommand.Parameters.Add(priceParam);
+
+            SqlParameter archiveParam = new SqlParameter("@archive", SqlDbType.NVarChar);
+            archiveParam.Value = archived.ToString();
+            adapter.UpdateCommand.Parameters.Add(archiveParam);
+
+            return adapter;
+        }
+        ChangeResult IPostingRepository.Update(ItemPosting itemposting, bool archived)
         {
 
             try
             {
                 string commandText = "Update [dbo].[ArtPostingItems] " +
-                    "SET [Order] = '" + itemposting.Order + "'," +
-                "[Filename] = '" + itemposting.FileName + "'," +
-                "[Title] = '" + itemposting.Title + "'," +
-                "[Shortname] = '" + itemposting.ShortName + "'," +
-                "[Header] = '" + itemposting.Header + "'," +
-                "[Description] = '" + itemposting.Description + "'," +
-                "[Size] = '" + itemposting.Size + "'," +
-                "[Price] = '" + itemposting.Price + "'," +
-                "[Archive_flag] = '" + archived.ToString() +
-                "' WHERE id = @id";
+                    "SET [Order] = @order," +
+                "[Filename] = @filename, " +
+                "[Title] = @title, " +
+                "[Shortname] = @shortname, " +
+                "[Header] = @header, " +
+                "[Description] = @desc, " +
+                "[Size] = @size, " +
+                "[Price] = @price, " +
+                "[Archive_flag] = @archive" +
+                " WHERE id = @id";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     connection.Open();
                     adapter.UpdateCommand = connection.CreateCommand();
                     adapter.UpdateCommand.CommandText = commandText;
-                    SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);
-                    idParam.Value = itemposting.Id;
-                    adapter.UpdateCommand.Parameters.Add(idParam);
+                    adapter = addPostingParamsToAdapter(adapter, itemposting, archived);
                     adapter.UpdateCommand.ExecuteNonQuery();
                 }
+                return new ChangeResult(true, "Posting: " + itemposting.Id.ToString() + " was updated");
             }
             catch(Exception ex)
             {
-                throw (new Exception("Error updating item posting with id: " + itemposting.Id.ToString(), ex));
+                return new ChangeResult(false, "Posting: " + itemposting.Id.ToString() + " could not be updated: " + ex.Message);
             }
         }
     }

@@ -69,8 +69,7 @@ namespace ArtPostings.Models
         public string Header { get; set; }
         public PictureFileRecord(string _filePath)
         {
-            int posLastSlash = _filePath.LastIndexOf("\\");
-            FileName = _filePath.Substring(posLastSlash + 1, _filePath.Length - (posLastSlash + 1));
+            FileName = Utility.GetFilenameFromFilepath(_filePath);
             FilePath = HttpUtility.UrlPathEncode(Path.Combine(webSafePictureFolder, FileName));
             Status = StatusType.NotDisplayed;
         }

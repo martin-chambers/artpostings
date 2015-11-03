@@ -46,8 +46,8 @@ namespace ArtPostings.Controllers
         public ActionResult Edit([Bind(Include = "Editing, ItemPosting")]ItemPostingViewModel posting)
         {
             setItemInfo();
-            service.SaveShopChanges(posting);
-            return Json(new { success = true });
+            ChangeResult result = service.SaveShopChanges(posting);
+            return new ExtendedJsonResult(result) { StatusCode = result.StatusCode };
         }
         private void setItemInfo()
         {

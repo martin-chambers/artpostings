@@ -102,5 +102,15 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
+
+        ChangeResult IPostingRepository.Create(ItemPosting posting)
+        {
+            throw new NotImplementedException();
+        }
+
+        ChangeResult IPostingRepository.Update(ItemPosting posting, bool archived)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

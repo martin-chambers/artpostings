@@ -12,7 +12,8 @@
                 $('#filelistcontainer').show();
             },
             error: function (request, status, error) {
-                alert(error);
+                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
+                alert(err_resp);
             }
         });
     }
@@ -33,6 +34,36 @@
             }
         });
 
+    }
+
+    function startdrag(event, filepath) {
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData("text", filepath);
+    }
+
+    function drop_here(obj) {
+        debugger;
+        obj.event.preventDefault();
+        var filepath = event.dataTransfer.getData("text");
+         return $.ajax({
+            url: '@Url.Action("MovePicture")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
+            data: { filepath: filepath, archive: obj.archive },
+            type: 'POST',
+            success: function (responsedata) {
+                debugger;
+                alert(responsedata.Message)
+            },
+            error: function (request, status, error) {
+                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
+                alert(err_resp);
+            }
+         });
+
+        // in here, we'll call ..\archive\movepicture or ..\home\movepicture
+    }
+
+    function allow_drop_here(event) {
+        event.preventDefault();
     }
 </script>
 

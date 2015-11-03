@@ -8,10 +8,10 @@ namespace ArtPostings.Models
 {
     public interface IPostingRepository
     {
-        bool Create(ItemPosting posting);
+        ChangeResult Create(ItemPosting posting);
         IEnumerable<ItemPosting> ShopPostings();
         IEnumerable<ItemPosting> ArchivePostings();
         ItemPosting GetPosting(int id);
-        void Update(ItemPosting posting, bool archived);
+        ChangeResult Update(ItemPosting posting, bool archived);
       }
 }

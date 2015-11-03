@@ -45,11 +45,11 @@ namespace ArtPostings.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Editing, ItemPosting")]ItemPostingViewModel posting)
+        public ExtendedJsonResult Edit([Bind(Include = "Editing, ItemPosting")]ItemPostingViewModel posting)
         {
             setItemInfo();
-            service.SaveArchiveChanges(posting);
-            return Json(new { success = true });
+            ChangeResult result = service.SaveArchiveChanges(posting);
+            return new ExtendedJsonResult(result) { StatusCode = result.StatusCode };
         }
     }
 }

@@ -15,7 +15,7 @@
     <script src="../../Scripts/lightbox.min.js" type="text/javascript"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryajax")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap")    
 </head>
 <body>
     <div id="page">
@@ -26,10 +26,10 @@
             <ul class="topleftmenu">
                 <li><a href='@Url.Action("Index", "About")'>About</a></li>
                 <li><a href='@Url.Action("Index", "Links")'>Links</a></li>
-                <li><a href='@Url.Action("Index", "Archive")'>Archive</a></li>
+                <li><a href='@Url.Action("Index", "Archive")' id="dropzone-archive" ondrop="drop_here({ event: event, archive: true })" ondragover="allow_drop_here(event)">Archive</a></li>
                 <li><a href='@Url.Action("Index", "Viewing")'>Viewing</a></li>
                 <li><a href='@Url.Action("Index", "Contact")'>Contact</a></li>
-                <li><a href='@Url.Action("Index", "Home")'>Home</a></li>
+                <li><a href='@Url.Action("Index", "Home")' id="dropzone-home" ondrop="drop_here({ event: event, archive: false })" ondragover="allow_drop_here(event)">Home</a></li>
             </ul>
         </div>
         <div id="main">

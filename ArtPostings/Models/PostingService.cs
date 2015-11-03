@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace ArtPostings.Models
 {
-    public sealed class PostingService: IPostingService
+    public sealed class PostingService : IPostingService
     {
         // the service class is implemented as a singleton
         private static PostingService instance = null;
@@ -31,7 +31,7 @@ namespace ArtPostings.Models
                         return "";
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Elmah.ErrorLog.GetDefault(HttpContext.Current).Log(new Elmah.Error(ex));
                     return "";
@@ -43,7 +43,7 @@ namespace ArtPostings.Models
 
 
         // explicit private constructor to prevent other classes creating instances
-        private PostingService(IPostingRepository _repository) 
+        private PostingService(IPostingRepository _repository)
         {
             repository = _repository;
         }
@@ -69,15 +69,15 @@ namespace ArtPostings.Models
             {
                 return "Paintings are acrylic or oil. Click on any painting for a larger image. " +
                     "Please note, prices quoted for all items do not include postage and packing costs, " +
-                    "which would be by arrangement. © Copyright Ann Chambers 2014"; 
+                    "which would be by arrangement. © Copyright Ann Chambers 2014";
             }
         }
         public string ArchiveText
         {
-            get { return "Paintings are acrylic or oil. Click on any painting for a larger image. © Copyright Ann Chambers 2012";  }
+            get { return "Paintings are acrylic or oil. Click on any painting for a larger image. © Copyright Ann Chambers 2012"; }
         }
         private IPostingRepository repository;
-        
+
         public IEnumerable<ItemPostingViewModel> ShopPostings()
         {
             IEnumerable<ItemPosting> postings = repository.ShopPostings();
@@ -86,7 +86,7 @@ namespace ArtPostings.Models
             {
                 postingViewModels.Add(new ItemPostingViewModel() { ItemPosting = posting, Editing = false });
             }
-            return postingViewModels;            
+            return postingViewModels;
         }
 
         public IEnumerable<ItemPostingViewModel> ArchivePostings()
@@ -113,7 +113,7 @@ namespace ArtPostings.Models
             // the 'Editing' property of ItemPostingViewModel is originally set to false by the service
             List<ItemPostingViewModel> postings = new List<ItemPostingViewModel>();
             postings = this.ShopPostings().ToList();
-            if(postings.Find(x=>x.ItemPosting.Id==id) == null)
+            if (postings.Find(x => x.ItemPosting.Id == id) == null)
             {
                 throw new ArgumentException("ItemPostingViewModel id not found", "id");
             }
@@ -132,7 +132,7 @@ namespace ArtPostings.Models
             postings.Find(x => x.ItemPosting.Id == id).Editing = true;
             return postings;
         }
-        private ItemPosting extractItemPostingVM(ItemPostingViewModel vm)
+        private ItemPosting extractFromItemPostingVM(ItemPostingViewModel vm)
         {
             ItemPosting ip = new ItemPosting();
             ip.Id = vm.ItemPosting.Id;
@@ -147,15 +147,17 @@ namespace ArtPostings.Models
             return ip;
         }
 
-        void IPostingService.SaveShopChanges(ItemPostingViewModel vm)
+        ChangeResult IPostingService.SaveShopChanges(ItemPostingViewModel vm)
         {
-            ItemPosting posting = extractItemPostingVM(vm);
-            repository.Update(posting, false);
+            ItemPosting posting = extractFromItemPostingVM(vm);
+            ChangeResult result = repository.Update(posting, false);
+            return result;
         }
-        void IPostingService.SaveArchiveChanges(ItemPostingViewModel vm)
+        ChangeResult IPostingService.SaveArchiveChanges(ItemPostingViewModel vm)
         {
-            ItemPosting posting = vm.ItemPosting;
-            repository.Update(posting, true);
+            ItemPosting posting = vm.ItemPosting;            
+            ChangeResult result = repository.Update(posting, true);
+            return result;
         }
         public List<PictureFileRecord> PictureFileRecordList(string mappedfolder, string status = "All")
         {
@@ -170,19 +172,19 @@ namespace ArtPostings.Models
             {
                 PictureFileRecord pictureFile = new PictureFileRecord(file);
                 ItemPostingViewModel vm = postings.Find(x => x.ItemPosting.FileName.ToUpper() == pictureFile.FileName.ToUpper());
-                if(vm == null)
+                if (vm == null)
                 {
                     pictureFile.Status = PictureFileRecord.StatusType.NotDisplayed;
                     pictureFile.Order = PictureFileRecord.NULL_ORDER.ToString(PictureFileRecord.NullStringFormat);
                     pictureFile.Header = "";
-                    
+
                 }
                 else
-                {                    
+                {
                     pictureFile.Order = vm.ItemPosting.Order.ToString();
                     pictureFile.Header = vm.ItemPosting.Header;
-                    pictureFile.Status = (vm.ItemPosting.Archive_Flag) 
-                        ? PictureFileRecord.StatusType.Archived 
+                    pictureFile.Status = (vm.ItemPosting.Archive_Flag)
+                        ? PictureFileRecord.StatusType.Archived
                         : PictureFileRecord.StatusType.ForSale;
                 }
                 PictureFileRecord.StatusType statusType = PictureFileRecord.GetStatusType(status);
@@ -197,6 +199,46 @@ namespace ArtPostings.Models
         {
             File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
             return PictureFileRecordList(folder);
+        }
+        ItemPostingViewModel IPostingService.CreateItemPostingViewModel(PictureFileRecord pfr)
+        {
+            ItemPosting posting = new ItemPosting();
+            posting.FileName = Utility.GetFilenameFromFilepath(pfr.FilePath);
+            posting.FilePath = pfr.FilePath;
+            posting.Archive_Flag = true;
+            posting.Description = "";
+            posting.Header = "";
+            posting.Order = 0;
+            posting.Price = "";
+            posting.ShortName = "";
+            posting.Size = "";
+            posting.Title = "";
+
+            ItemPostingViewModel vm = new ItemPostingViewModel();
+            vm.Editing = false;
+            vm.ItemPosting = posting;
+            return vm;
+        }
+        ChangeResult IPostingService.InsertArchivePosting(PictureFileRecord pfr)
+        {
+
+            ItemPosting posting = new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), true);
+            ItemPostingViewModel vm = new ItemPostingViewModel();
+            vm.Editing = false;
+            vm.ItemPosting = posting;
+            ChangeResult result = repository.Create(posting);
+            return result;
+        }
+
+        ChangeResult IPostingService.InsertShopPosting(PictureFileRecord pfr)
+        {
+
+            ItemPosting posting = new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), false);
+            ItemPostingViewModel vm = new ItemPostingViewModel();
+            vm.Editing = false;
+            vm.ItemPosting = posting;
+            ChangeResult result = repository.Create(posting);
+            return result;
         }
 
     }

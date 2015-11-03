@@ -87,5 +87,32 @@ namespace ArtPostings.Controllers
             }
             return RedirectToAction("Index", new { status = "All", initial = false });
         }
+
+        [HttpPost]
+        public ActionResult MovePicture(string filepath, bool archive)
+        {
+            string filename = Utility.GetFilenameFromFilepath(filepath);
+            IEnumerable<ItemPostingViewModel> postingVMs = (archive) ? service.ArchivePostings() : service.ShopPostings();
+            foreach (ItemPostingViewModel vm in postingVMs)
+            {
+                if (filename == vm.ItemPosting.FileName)
+                {
+                    //return Json(new { success = false, responsetext = vm.ItemPosting.FileName + " is already included on the archive page" });
+                    return new ExtendedJsonResult(
+                            new
+                            {
+                                success = false,
+                                message = vm.ItemPosting.FileName + " is already included in the " + ((archive) ? "Archive" : "Home") + " page"
+                            }
+                    )
+                    { StatusCode = 409 };
+                }
+            }
+            PictureFileRecord pfr = new PictureFileRecord(filepath);
+            ChangeResult result = (archive) ? service.InsertArchivePosting(pfr) : service.InsertShopPosting(pfr);
+            
+            return new ExtendedJsonResult(result) { StatusCode = result.StatusCode };
+        }
+
     }
 }
