@@ -16,7 +16,7 @@ namespace ArtPostings.Models
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
-        ChangeResult IPostingRepository.Create(ItemPosting itemposting)
+        ChangeResult IPostingRepository.Create(ItemPosting itemposting, bool archive)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace ArtPostings.Models
                     connection.Open();
                     adapter.UpdateCommand = connection.CreateCommand();
                     adapter.UpdateCommand.CommandText = commandText;
-                    adapter = addPostingParamsToAdapter(adapter, itemposting, itemposting.Archive_Flag);
+                    adapter = addPostingParamsToAdapter(adapter, itemposting, archive);
                     adapter.UpdateCommand.ExecuteNonQuery();
                 }
                 return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName);
@@ -235,6 +235,30 @@ namespace ArtPostings.Models
             {
                 return new ChangeResult(false, "Posting: " + itemposting.Id.ToString() + " could not be updated: " + ex.Message);
             }
+        }
+        ChangeResult IPostingRepository.Delete(ItemPosting itemposting)
+        {
+            try
+            {
+                string commandText = "DELETE FROM [dbo].[ArtPostingItems] WHERE [Filename] = @filename";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    connection.Open();
+                    adapter.UpdateCommand = connection.CreateCommand();
+                    adapter.UpdateCommand.CommandText = commandText;
+                    SqlParameter filenameParam = new SqlParameter("@filename", SqlDbType.NVarChar);
+                    filenameParam.Value = itemposting.FileName;
+                    adapter.UpdateCommand.Parameters.Add(filenameParam);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                }
+                return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database");
+            }
+            catch (Exception ex)
+            {
+                return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database: " + ex.Message);
+            }
+
         }
     }
 }

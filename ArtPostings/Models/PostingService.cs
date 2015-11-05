@@ -132,30 +132,30 @@ namespace ArtPostings.Models
             postings.Find(x => x.ItemPosting.Id == id).Editing = true;
             return postings;
         }
-        private ItemPosting extractFromItemPostingVM(ItemPostingViewModel vm)
+        private ItemPosting extractSQLItemPosting(ItemPosting nonSQLPosting)
         {
-            ItemPosting ip = new ItemPosting();
-            ip.Id = vm.ItemPosting.Id;
-            ip.Description = Utility.PrepForSql(vm.ItemPosting.Description);
-            ip.FileName = Utility.PrepForSql(vm.ItemPosting.FileName);
-            ip.FilePath = Utility.PrepForSql(vm.ItemPosting.FilePath);
-            ip.Header = Utility.PrepForSql(vm.ItemPosting.Header);
-            ip.Price = Utility.PrepForSql(vm.ItemPosting.Price);
-            ip.ShortName = Utility.PrepForSql(vm.ItemPosting.ShortName);
-            ip.Size = Utility.PrepForSql(vm.ItemPosting.Size);
-            ip.Title = Utility.PrepForSql(vm.ItemPosting.Title);
-            return ip;
+            ItemPosting SQLPosting = new ItemPosting();
+            SQLPosting.Id = nonSQLPosting.Id;
+            SQLPosting.Description = Utility.PrepForSql(nonSQLPosting.Description);
+            SQLPosting.FileName = Utility.PrepForSql(nonSQLPosting.FileName);
+            SQLPosting.FilePath = Utility.PrepForSql(nonSQLPosting.FilePath);
+            SQLPosting.Header = Utility.PrepForSql(nonSQLPosting.Header);
+            SQLPosting.Price = Utility.PrepForSql(nonSQLPosting.Price);
+            SQLPosting.ShortName = Utility.PrepForSql(nonSQLPosting.ShortName);
+            SQLPosting.Size = Utility.PrepForSql(nonSQLPosting.Size);
+            SQLPosting.Title = Utility.PrepForSql(nonSQLPosting.Title);
+            return SQLPosting;
         }
 
         ChangeResult IPostingService.SaveShopChanges(ItemPostingViewModel vm)
         {
-            ItemPosting posting = extractFromItemPostingVM(vm);
-            ChangeResult result = repository.Update(posting, false);
+            ItemPosting sqlPosting = extractSQLItemPosting(vm.ItemPosting);
+            ChangeResult result = repository.Update(sqlPosting, false);
             return result;
         }
         ChangeResult IPostingService.SaveArchiveChanges(ItemPostingViewModel vm)
         {
-            ItemPosting posting = vm.ItemPosting;            
+            ItemPosting posting = extractSQLItemPosting(vm.ItemPosting);      
             ChangeResult result = repository.Update(posting, true);
             return result;
         }
@@ -198,6 +198,7 @@ namespace ArtPostings.Models
         public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder)
         {
             File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
+            repository.Delete(new ItemPosting(filename));
             return PictureFileRecordList(folder);
         }
         ItemPostingViewModel IPostingService.CreateItemPostingViewModel(PictureFileRecord pfr)
@@ -219,27 +220,12 @@ namespace ArtPostings.Models
             vm.ItemPosting = posting;
             return vm;
         }
-        ChangeResult IPostingService.InsertArchivePosting(PictureFileRecord pfr)
+        ChangeResult IPostingService.InsertPosting(PictureFileRecord pfr, bool archive)
         {
 
-            ItemPosting posting = new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), true);
-            ItemPostingViewModel vm = new ItemPostingViewModel();
-            vm.Editing = false;
-            vm.ItemPosting = posting;
-            ChangeResult result = repository.Create(posting);
+            ItemPosting SQLPosting = extractSQLItemPosting(new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), archive));
+            ChangeResult result = repository.Create(SQLPosting, archive);
             return result;
         }
-
-        ChangeResult IPostingService.InsertShopPosting(PictureFileRecord pfr)
-        {
-
-            ItemPosting posting = new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), false);
-            ItemPostingViewModel vm = new ItemPostingViewModel();
-            vm.Editing = false;
-            vm.ItemPosting = posting;
-            ChangeResult result = repository.Create(posting);
-            return result;
-        }
-
     }
 }

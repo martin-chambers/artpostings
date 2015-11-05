@@ -50,7 +50,7 @@ namespace ArtPostings.Models
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="archived"></param>
-        public ItemPosting(string filename, bool archived)
+        public ItemPosting(string filename, bool archived = true)
         {
             FileName = filename;
             FilePath = Path.Combine(webSafePictureFolder, filename);
@@ -63,6 +63,7 @@ namespace ArtPostings.Models
             Size = "";
             Title = FileName;
         }
+        
         /// <summary>
         /// default constructor
         /// </summary>

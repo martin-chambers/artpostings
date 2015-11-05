@@ -54,6 +54,16 @@ namespace ArtPostings.Tests.Models
             throw new NotImplementedException();
         }
 
+        public ChangeResult Create(ItemPosting posting, bool archive)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ChangeResult Delete(ItemPosting posting)
+        {
+            throw new NotImplementedException();
+        }
+
         public ItemPosting GetPosting(int id)
         {
             throw new NotImplementedException();
@@ -102,12 +112,7 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
-
-        ChangeResult IPostingRepository.Create(ItemPosting posting)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         ChangeResult IPostingRepository.Update(ItemPosting posting, bool archived)
         {
             throw new NotImplementedException();

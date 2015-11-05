@@ -206,5 +206,10 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
+
+        public ChangeResult InsertPosting(PictureFileRecord pfr, bool archive)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -51,20 +51,12 @@ namespace ArtPostings.Controllers
 
         public ActionResult FileDelete(PictureFileRecord rec)
         {
-            // currently have a problem with sorting after deleting !!!!!!!
             try
             {
-                if (rec.FileName == null)
-                {
-                    throw new ArgumentNullException("The view has fired the delete file process unexpectedly");
-                }
-                else
-                {
-                    List<PictureFileRecord> fileRecords =
-                        service.DeletePictureFile(rec.FileName, service.FullyMappedPictureFolder).ToList();
-                }
+                List<PictureFileRecord> fileRecords =
+                    service.DeletePictureFile(rec.FileName, service.FullyMappedPictureFolder).ToList();
             }
-            catch (ArgumentNullException anEx)
+            catch (Exception anEx)
             {
                 // log but don't halt execution - the javascript function has fired, most likely because 
                 // of difficult-to-understand interaction between the paging control and onclick event in webgrid
@@ -109,7 +101,7 @@ namespace ArtPostings.Controllers
                 }
             }
             PictureFileRecord pfr = new PictureFileRecord(filepath);
-            ChangeResult result = (archive) ? service.InsertArchivePosting(pfr) : service.InsertShopPosting(pfr);
+            ChangeResult result = service.InsertPosting(pfr, archive);
             
             return new ExtendedJsonResult(result) { StatusCode = result.StatusCode };
         }
