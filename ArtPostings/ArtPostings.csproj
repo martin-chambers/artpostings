@@ -288,7 +288,6 @@
     <Content Include="database\ArtPostingItems.table.insert.archive.sql" />
     <Content Include="database\ArtPostingItems.table.insert.for_sale.sql" />
     <Content Include="database\ArtPostingItems.table.sql" />
-    <Content Include="error.htm" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -386,7 +385,6 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.old.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
     <Content Include="Scripts\lightbox.min.map" />
     <Content Include="Views\About\Index.cshtml" />

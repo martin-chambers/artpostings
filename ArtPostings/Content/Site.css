@@ -176,16 +176,30 @@ div#status {
 }
 
 
-h1 {
+h1.main {
     float: left;
     color: cornflowerblue;
     font-weight: bold;
     font-family: 'Segoe Print', Mistral, sans-serif;
-    padding:30px;
+    padding:30px 23px;
     margin:0px;
     border: none;
     line-height: 2em;
     font-size: 40px !important; 
+    width:100%; 
+    float:left;
+}
+
+h1.minor {
+    float: left;
+    color: cornflowerblue;
+    font-weight: bold;
+    font-family: 'Segoe Print', Mistral, sans-serif;
+    padding:10px 0px;
+    margin:0px;
+    border: none;
+    line-height: 2em;
+    font-size: 20px !important; 
     width:100%; 
     float:left;
 }
