@@ -29,7 +29,6 @@ C:\git\artpostings\ArtPostings\bin\System.Web.WebPages.Deployment.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.WebPages.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.WebPages.Razor.dll
 C:\git\artpostings\ArtPostings\bin\WebGrease.dll
-C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.Helpers.xml
 C:\git\artpostings\ArtPostings\bin\System.Web.Mvc.xml
 C:\git\artpostings\ArtPostings\bin\System.Web.Optimization.xml
@@ -56,3 +55,4 @@ C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.dll
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.pdb
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache
+C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll
