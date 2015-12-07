@@ -16,7 +16,15 @@
             </li>
             <li>
                 <a>
-                    @Html.ActionLink("Admin", "Index", "Admin", routeValues: null, htmlAttributes: new { id = "adminLink" })
+                    @Html.ActionLink("Admin",
+                        "Index",
+                        "Admin",
+                        routeValues: null,
+                        htmlAttributes: new {
+                            id = "adminLink",
+                            ondrop = "drop_here({ event: event, archive: false, display: false })",
+                            ondragover = "allow_drop_here(event)"
+                        })
                 </a>
             </li>
     }
@@ -24,6 +32,11 @@
 else
 {
     @*<li><a>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</a></li>*@
-    <li><a>@Html.ActionLink("Admin Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</a></li>
+    <li><a>@Html.ActionLink("Admin Log in",
+          "Login",
+          "Account",
+          routeValues: null,
+          htmlAttributes: new {
+              id = "loginLink"})</a></li>
 }
 

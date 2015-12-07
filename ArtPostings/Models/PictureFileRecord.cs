@@ -45,7 +45,7 @@ namespace ArtPostings.Models
         {
             get
             {
-                if( order == int.MaxValue)
+                if( order == NULL_ORDER)
                 {
                     return "No order";
                 }

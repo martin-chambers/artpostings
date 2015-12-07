@@ -8,7 +8,8 @@
             alternatingRowStyle: "webgrid-alternating-row",
             rowStyle: "webgrid-row-style",
             columns: grid.Columns(
-                grid.Column(header: "Image", format: @<text><img width='120' draggable="true" ondragstart="startdrag(event, '@item.FilePath')" src=@item.FilePath /></text>, canSort: false),
+                grid.Column(header: "Image", format: @<text><img width='120' draggable="true" 
+                          ondragstart="startdrag(event, '@item.FilePath')" ondragend="enddrag(event)" src=@item.FilePath /></text>, canSort: false),
                 grid.Column(columnName: "Header", header: "Header", style: "wide-column", canSort: true),
                 grid.Column(columnName: "FileName", header: "File", style: "wide-column", canSort: true),
                 grid.Column(columnName: "Order", header: "Order", canSort: true),

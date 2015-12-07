@@ -81,24 +81,37 @@ namespace ArtPostings.Controllers
         }
 
         [HttpPost]
-        public ActionResult MovePicture(string filepath, bool archive)
+        public ActionResult MovePicture(string filepath, bool archive, bool display)
         {
             string filename = Utility.GetFilenameFromFilepath(filepath);
-            IEnumerable<ItemPostingViewModel> postingVMs = (archive) ? service.ArchivePostings() : service.ShopPostings();
-            foreach (ItemPostingViewModel vm in postingVMs)
+
+            List<ItemPostingViewModel> postingVMs = new List<ItemPostingViewModel>();
+            if (display)
             {
-                if (filename == vm.ItemPosting.FileName)
+                postingVMs = (archive) ? service.ArchivePostings().ToList() : service.ShopPostings().ToList();
+                foreach (ItemPostingViewModel vm in postingVMs)
                 {
-                    //return Json(new { success = false, responsetext = vm.ItemPosting.FileName + " is already included on the archive page" });
-                    return new ExtendedJsonResult(
-                            new
-                            {
-                                success = false,
-                                message = vm.ItemPosting.FileName + " is already included in the " + ((archive) ? "Archive" : "Home") + " page"
-                            }
-                    )
-                    { StatusCode = 409 };
+                    if (filename == vm.ItemPosting.FileName)
+                    {
+                        return new ExtendedJsonResult(
+                                new
+                                {
+                                    success = false,
+                                    message = vm.ItemPosting.FileName + " is already included in the " + ((archive) ? "Archive" : "Home") + " page"
+                                }
+                        )
+                        // this is the body of the ExtendedJsonResult constructor which is a custom extension
+                        // of JsonResult which bundles statuscode. Go to definition for more info.
+                        // 409 is a rule conflict error
+                        { StatusCode = 409 };
+                    }
                 }
+            }
+            else
+            {
+                postingVMs.AddRange(service.ArchivePostings().ToList());
+                postingVMs.AddRange(service.ShopPostings().ToList());
+                    
             }
             PictureFileRecord pfr = new PictureFileRecord(filepath);
             ChangeResult result = service.InsertPosting(pfr, archive);
