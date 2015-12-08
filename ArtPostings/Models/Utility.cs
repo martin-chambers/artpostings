@@ -15,18 +15,21 @@ namespace ArtPostings.Models
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string PrepForSql(string value)
+        public static string NormaliseString(string value)
         {
             string rv = "";
             // tags - get rid
             if (value != null)
             {
-                var step1 = Regex.Replace(value, @"<[^>]+>", "").Trim();
-                // double spaces, %20s and nspbs, replace with 1 space
-                var step2 = Regex.Replace(step1, @"\s{2,}|%20|&nbsp;|&nbsp", " ");
+                // take out html tag markers
+                string step1 = Regex.Replace(value, @"<[^>]+>", "").Trim();
+                // take out double spaces, %20s and nspbs, replace with 1 space
+                string step2 = step1.WithSoftSpace();
+                // replaces JS escaped single quote with normal single quote
+                string step3 = Regex.Replace(step2, @"\'", "'");
                 // single quotes - replace with double
                 //var step3 = Regex.Replace(step2, @"'", "''");
-                rv = step2;
+                rv = step3;
             }
             return rv;
         }

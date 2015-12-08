@@ -211,5 +211,10 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
+
+        public ChangeResult RemoveFromDisplay(ItemPosting posting)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

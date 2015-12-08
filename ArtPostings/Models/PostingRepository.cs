@@ -238,6 +238,7 @@ namespace ArtPostings.Models
         }
         ChangeResult IPostingRepository.Delete(ItemPosting itemposting)
         {
+            int deleted = 0;
             try
             {
                 string commandText = "DELETE FROM [dbo].[ArtPostingItems] WHERE [Filename] = @filename";
@@ -248,15 +249,22 @@ namespace ArtPostings.Models
                     adapter.UpdateCommand = connection.CreateCommand();
                     adapter.UpdateCommand.CommandText = commandText;
                     SqlParameter filenameParam = new SqlParameter("@filename", SqlDbType.NVarChar);
-                    filenameParam.Value = itemposting.FileName;
+                    filenameParam.Value = itemposting.FileName.Normalise();
                     adapter.UpdateCommand.Parameters.Add(filenameParam);
-                    adapter.UpdateCommand.ExecuteNonQuery();
+                    deleted = adapter.UpdateCommand.ExecuteNonQuery();
                 }
-                return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database");
+                if (deleted > 0)
+                {
+                    return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database");
+                }
+                else
+                {
+                    return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database");
+                }
             }
             catch (Exception ex)
             {
-                return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database: " + ex.Message);
+                return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database - error: " + ex.Message);
             }
 
         }

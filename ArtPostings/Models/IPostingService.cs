@@ -16,6 +16,7 @@ namespace ArtPostings.Models
         List<PictureFileRecord> PictureFileRecordList(string mappedfolder, string status = "All");
         IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder);
         ChangeResult InsertPosting(PictureFileRecord pfr, bool archive);
+        ChangeResult RemoveFromDisplay(ItemPosting posting);
         ItemPostingViewModel CreateItemPostingViewModel(PictureFileRecord pfr);
         ChangeResult SaveShopChanges(ItemPostingViewModel vm);
         ChangeResult SaveArchiveChanges(ItemPostingViewModel vm);

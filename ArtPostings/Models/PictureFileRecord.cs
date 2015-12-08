@@ -40,6 +40,8 @@ namespace ArtPostings.Models
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         public string FileName { get; set; }
         public string FilePath { get; set; }
+        public string JSFileName { get; set; }
+        public string JSFilePath { get; set; }
         private int order;
         public string Order
         {
@@ -69,8 +71,13 @@ namespace ArtPostings.Models
         public string Header { get; set; }
         public PictureFileRecord(string _filePath)
         {
+            // make sure we are using a normalised filePath string
+            string filePath = Utility.NormaliseString(_filePath);
+            // need to insert JavaScript escape sequence for single quotes in filenames
             FileName = Utility.GetFilenameFromFilepath(_filePath);
             FilePath = HttpUtility.UrlPathEncode(Path.Combine(webSafePictureFolder, FileName));
+            JSFileName = FileName.JSEscSingleQuote();
+            JSFilePath = FilePath.JSEscSingleQuote();
             Status = StatusType.NotDisplayed;
         }
         public PictureFileRecord() { }

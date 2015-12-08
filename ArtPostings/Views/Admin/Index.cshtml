@@ -20,6 +20,7 @@
     }
     // deletes the file when the trash-can icon is clicked
     function filedelete(event, file, status) {
+        debugger;
         event.preventDefault();
         $.ajax({
             url: '@Url.Action("FileDelete")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
@@ -38,7 +39,7 @@
     }
 
     function startdrag(event, filepath) {
-        //debugger;
+        debugger;
         event.dataTransfer.effectAllowed = "move";
         event.dataTransfer.setData("text", filepath);
         $('#dropzone-archive').css({ 'text-decoration': 'underline', 'font-size': '1.2em' });
@@ -59,11 +60,11 @@
         obj.event.preventDefault();
         var filepath = event.dataTransfer.getData("text");
          return $.ajax({
-            url: '@Url.Action("MovePicture")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
+            url: '@Url.Action("MovePicture")', 
             data: { filepath: filepath, archive: obj.archive, display: obj.display },
             type: 'POST',
             success: function (responsedata) {
-                //debugger;
+                debugger;
                 alert(responsedata.Message)
             },
             error: function (request, status, error) {

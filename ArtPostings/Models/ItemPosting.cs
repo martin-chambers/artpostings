@@ -32,12 +32,16 @@ namespace ArtPostings.Models
         public ItemPosting(string id, string order, string filepath, string filename, string title, string shortName, string header, string description, string size, string price, string archive_flag)
         {
             Id = Convert.ToInt32(id);
-            FileName = filename;
+            FileName = HttpUtility.UrlPathEncode(filename);
             Order = Convert.ToInt32(order);
-
+            // The official advice is not to use UrlPathEncode because it does not escape all alphanumerics. Trouble
+            // is - the src attribute of the img tag requires a vanilla string with single quotes and space chararcters where
+            // they appear in the filename. Even if you use UrlDecode in the view, UrlEncode replaces space chararcters with 
+            // '+' symbols, which seem to be converted back to breaking space characters by UrlDecode
+            //FilePath = HttpUtility.UrlEncode(Path.Combine(webSafePictureFolder, filename).WithNBSP());
             FilePath = HttpUtility.UrlPathEncode(Path.Combine(webSafePictureFolder, filename));
             // title is passed to jQuery as Html, so need to avoid breaking spaces
-            Title = title.Replace(" ", "&nbsp");
+            Title = title.WithNBSP();
             Header = header;
             Description = description;
             Size = size;

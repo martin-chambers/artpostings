@@ -197,6 +197,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChangeResult.cs" />
     <Compile Include="Models\ExtendedJsonResult.cs" />
+    <Compile Include="Models\ExtensionMethods.cs" />
     <Compile Include="Models\HttpPostedFileBaseExt.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IPostingRepository.cs" />

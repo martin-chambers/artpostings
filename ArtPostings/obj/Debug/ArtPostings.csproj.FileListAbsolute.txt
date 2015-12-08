@@ -54,5 +54,5 @@ C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.Twitter.xml
 C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.dll
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.pdb
-C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache
 C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll
+C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache

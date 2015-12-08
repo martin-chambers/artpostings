@@ -83,15 +83,17 @@ namespace ArtPostings.Controllers
         [HttpPost]
         public ActionResult MovePicture(string filepath, bool archive, bool display)
         {
-            string filename = Utility.GetFilenameFromFilepath(filepath);
-
+            // filepaths / names brought in from ajax call will not have %20 spaces but will have JS escaped single quotes
+            string filename = Utility.GetFilenameFromFilepath(filepath).Normalise();
+            // default is failed result
+            ChangeResult result = new ChangeResult();
             List<ItemPostingViewModel> postingVMs = new List<ItemPostingViewModel>();
             if (display)
             {
                 postingVMs = (archive) ? service.ArchivePostings().ToList() : service.ShopPostings().ToList();
                 foreach (ItemPostingViewModel vm in postingVMs)
                 {
-                    if (filename == vm.ItemPosting.FileName)
+                    if (filename == vm.ItemPosting.FileName.Normalise())
                     {
                         return new ExtendedJsonResult(
                                 new
@@ -101,23 +103,28 @@ namespace ArtPostings.Controllers
                                 }
                         )
                         // this is the body of the ExtendedJsonResult constructor which is a custom extension
-                        // of JsonResult which bundles statuscode. Go to definition for more info.
+                        // of JsonResult. It bundles statuscode. Go to definition of ExtendedJsonResult for more info.
                         // 409 is a rule conflict error
                         { StatusCode = 409 };
-                    }
+                    }                    
                 }
+                PictureFileRecord pfr = new PictureFileRecord(filepath);
+                result = service.InsertPosting(pfr, archive);
             }
             else
             {
                 postingVMs.AddRange(service.ArchivePostings().ToList());
                 postingVMs.AddRange(service.ShopPostings().ToList());
-                    
+                foreach (ItemPostingViewModel vm in postingVMs)
+                {
+                    if (filename == vm.ItemPosting.FileName.Normalise())
+                    {
+                        bool foundInArchive = vm.ItemPosting.Archive_Flag;
+                        result = service.RemoveFromDisplay(vm.ItemPosting);                        
+                    }
+                }
             }
-            PictureFileRecord pfr = new PictureFileRecord(filepath);
-            ChangeResult result = service.InsertPosting(pfr, archive);
-            
-            return new ExtendedJsonResult(result) { StatusCode = result.StatusCode };
+            return new ExtendedJsonResult(result);
         }
-
     }
 }

@@ -136,14 +136,14 @@ namespace ArtPostings.Models
         {
             ItemPosting SQLPosting = new ItemPosting();
             SQLPosting.Id = nonSQLPosting.Id;
-            SQLPosting.Description = Utility.PrepForSql(nonSQLPosting.Description);
-            SQLPosting.FileName = Utility.PrepForSql(nonSQLPosting.FileName);
-            SQLPosting.FilePath = Utility.PrepForSql(nonSQLPosting.FilePath);
-            SQLPosting.Header = Utility.PrepForSql(nonSQLPosting.Header);
-            SQLPosting.Price = Utility.PrepForSql(nonSQLPosting.Price);
-            SQLPosting.ShortName = Utility.PrepForSql(nonSQLPosting.ShortName);
-            SQLPosting.Size = Utility.PrepForSql(nonSQLPosting.Size);
-            SQLPosting.Title = Utility.PrepForSql(nonSQLPosting.Title);
+            SQLPosting.Description = Utility.NormaliseString(nonSQLPosting.Description);
+            SQLPosting.FileName = Utility.NormaliseString(nonSQLPosting.FileName);
+            SQLPosting.FilePath = Utility.NormaliseString(nonSQLPosting.FilePath);
+            SQLPosting.Header = Utility.NormaliseString(nonSQLPosting.Header);
+            SQLPosting.Price = Utility.NormaliseString(nonSQLPosting.Price);
+            SQLPosting.ShortName = Utility.NormaliseString(nonSQLPosting.ShortName);
+            SQLPosting.Size = Utility.NormaliseString(nonSQLPosting.Size);
+            SQLPosting.Title = Utility.NormaliseString(nonSQLPosting.Title);
             return SQLPosting;
         }
 
@@ -171,7 +171,7 @@ namespace ArtPostings.Models
             foreach (string file in files)
             {
                 PictureFileRecord pictureFile = new PictureFileRecord(file);
-                ItemPostingViewModel vm = postings.Find(x => x.ItemPosting.FileName.ToUpper() == pictureFile.FileName.ToUpper());
+                ItemPostingViewModel vm = postings.Find(x => x.ItemPosting.FileName.ToUpper() == HttpUtility.UrlPathEncode(pictureFile.FileName.ToUpper()));
                 if (vm == null)
                 {
                     pictureFile.Status = PictureFileRecord.StatusType.NotDisplayed;
@@ -195,6 +195,11 @@ namespace ArtPostings.Models
             }
             return pictureFiles;
         }
+        public ChangeResult RemoveFromDisplay(ItemPosting posting)
+        {
+            return repository.Delete(posting);
+        }
+
         public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder)
         {
             File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
