@@ -124,7 +124,7 @@ namespace ArtPostings.Controllers
                     }
                 }
             }
-            return new ExtendedJsonResult(result);
+            return new ExtendedJsonResult(result, result.StatusCode);
         }
     }
 }

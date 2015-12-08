@@ -17,6 +17,11 @@ namespace ArtPostings.Models
             base.Data = data;
         }
 
+        public ExtendedJsonResult(object data, int statuscode) : this(data)
+        {
+            StatusCode = statuscode;
+        }
+
         public int StatusCode { get; set; }
 
         public override void ExecuteResult(ControllerContext context)
