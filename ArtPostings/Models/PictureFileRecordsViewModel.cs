@@ -11,9 +11,11 @@ namespace ArtPostings.Models
     {
         public List<PictureFileRecord> PictureFileRecords { get; set; }
         public IEnumerable<SelectListItem> Statuses { get; set; }
+        public string Status { get; set; }
         public PictureFileRecordsViewModel() { }
         public PictureFileRecordsViewModel(List<PictureFileRecord> _pictureFileRecords,  NameValueCollection _statuscollection, string statusKey)
         {
+            Status = statusKey;
             List<SelectListItem> statuslist = new List<SelectListItem>();
             PictureFileRecords = _pictureFileRecords;
             foreach(string key in _statuscollection)
@@ -33,8 +35,5 @@ namespace ArtPostings.Models
             }
             Statuses = statuslist.AsEnumerable();
         }
-
-
-
     }
 }

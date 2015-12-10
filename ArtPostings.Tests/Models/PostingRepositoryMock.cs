@@ -108,14 +108,22 @@ namespace ArtPostings.Tests.Models
             return shopPostings;
         }
 
-    public void Update(ItemPosting posting, bool archived)
+        public void Update(ItemPosting posting, bool archived)
         {
             throw new NotImplementedException();
         }
-        
         ChangeResult IPostingRepository.Update(ItemPosting posting, bool archived)
         {
             throw new NotImplementedException();
         }
+        ChangeResult IPostingRepository.ExchangeOrders(ItemPosting posting1, ItemPosting posting2, bool archived)
+        {
+            throw new NotImplementedException();
+        }
+        ItemPosting IPostingRepository.GetPosting(Predicate<ItemPosting> pred, bool archive)
+        {
+            return default(ItemPosting);
+        }
+
     }
 }

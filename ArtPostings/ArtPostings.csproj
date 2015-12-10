@@ -350,6 +350,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="To Do.txt" />
+    <Content Include="Views\Admin\_PictureList.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_postingDisplayList.cshtml" />
@@ -400,8 +401,8 @@
     <Content Include="Views\Shared\_postingDisplayItem.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ItemPostingViewModel.cshtml" />
     <Content Include="Views\Shared\Error500.cshtml" />
-    <Content Include="Views\Admin\_PictureList.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_NonOrderablePictureList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

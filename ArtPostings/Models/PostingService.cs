@@ -144,6 +144,7 @@ namespace ArtPostings.Models
             SQLPosting.ShortName = Utility.NormaliseString(nonSQLPosting.ShortName);
             SQLPosting.Size = Utility.NormaliseString(nonSQLPosting.Size);
             SQLPosting.Title = Utility.NormaliseString(nonSQLPosting.Title);
+            SQLPosting.Order = nonSQLPosting.Order;
             return SQLPosting;
         }
 
@@ -230,6 +231,43 @@ namespace ArtPostings.Models
 
             ItemPosting SQLPosting = extractSQLItemPosting(new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), archive));
             ChangeResult result = repository.Create(SQLPosting, archive);
+            return result;
+        }
+
+        /// <summary>
+        /// Promotes the item in its list
+        /// This action reduces the order number of the item by one if the order value is greater than zero. 
+        /// The order value of the preceding item is increased by one.
+        /// </summary>
+        /// <param name="rec"></param>
+        /// <returns></returns>
+        ChangeResult IPostingService.AdvanceInList(PictureFileRecord rec)
+        {
+            ChangeResult result = new ChangeResult();
+            int order;
+            bool archive = rec.Status == PictureFileRecord.StatusType.Archived;
+            string encodedFilename = HttpUtility.UrlPathEncode(rec.FileName);
+            ItemPosting subjectItem = repository.GetPosting(x => x.FileName.ToUpper() == encodedFilename.ToUpper(), archive);          
+            try
+            {
+                order = Convert.ToInt32(subjectItem.Order);
+                if (order > 0)
+                {
+                    // get previously ordered item
+                    ItemPosting precedingItem = repository.GetPosting(pre => pre.Order == subjectItem.Order - 1, archive);
+                    result = repository.ExchangeOrders(subjectItem, precedingItem, archive);
+                }
+                else
+                {
+                    result = new ChangeResult(false, "Cannot promote item which is at the top of the list");
+                }
+            }
+            catch (Exception anEx)
+            {
+                // log but don't halt execution - the javascript function has fired, most likely because 
+                // of difficult-to-understand interaction between the paging control and onclick event in webgrid
+                Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
+            }
             return result;
         }
     }

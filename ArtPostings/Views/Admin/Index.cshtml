@@ -5,7 +5,7 @@
         event.preventDefault();
         $.ajax({
             url: '@Url.Action("Index")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
-            data: { status: statusvalue, initial: false},
+            data: { status: statusvalue, initial: false },
             type: 'GET',
             success: function (htmlstring) {
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
@@ -18,12 +18,37 @@
             }
         });
     }
-    // deletes the file when the trash-can icon is clicked
+    // deletes the file from the file system when the trash-can icon is clicked
     function filedelete(event, file, status) {
         event.preventDefault();
         $.ajax({
-            url: '@Url.Action("FileDelete")', 
-            data: { FileName: file, Status: status},
+            url: '@Url.Action("FileDelete")',
+            // the FilePromote controller action takes a 'PictureFileRecord' object as a parameter
+            // That object has FileName and Status properties which are populated by the json data posted here
+            // these are the only two properties required by the controller
+            data: { FileName: file, Status: status },
+            type: 'POST',
+            success: function (htmlstring) {
+                // need to replace content at a fairly high level to ensure old postings are cleared out of the view
+                $('#filelistcontainer').html(htmlstring);
+                $('#filelistcontainer').show();
+            },
+            error: function (request, status, error) {
+                alert(error);
+            }
+        });
+
+    }
+
+    // promotes the file in its display list by calling a controller action when the promote icon is clicked
+    function filepromote(event, file, status) {
+        event.preventDefault();
+        $.ajax({
+            url: '@Url.Action("FilePromote")',
+            // the FilePromote controller action takes a 'PictureFileRecord' object as a parameter
+            // That object has FileName and Status properties which are populated by the json data posted here
+            // these are the only two properties required by the controller
+            data: { FileName: file, Status: status },
             type: 'POST',
             success: function (htmlstring) {
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
@@ -38,13 +63,12 @@
     }
 
     function startdrag(event, filepath) {
-        //debugger;
         event.dataTransfer.effectAllowed = "move";
         event.dataTransfer.setData("text", filepath);
         $('#dropzone-archive').css({ 'text-decoration': 'underline', 'font-size': '1.2em' });
         $('#dropzone-home').css({ 'text-decoration': 'underline', 'font-size': '1.2em' });
         $('#adminLink').css({ 'text-decoration': 'underline', 'font-size': '1.2em' });
-        
+
     }
 
     function enddrag(event) {
@@ -55,24 +79,21 @@
     }
 
     function drop_here(obj) {
-        //debugger;
         obj.event.preventDefault();
         var filepath = event.dataTransfer.getData("text");
-         return $.ajax({
-            url: '@Url.Action("MovePicture")', 
+        return $.ajax({
+            url: '@Url.Action("MovePicture")',
             dataType: 'json',
             data: { filepath: filepath, archive: obj.archive, display: obj.display },
             type: 'POST',
             success: function (responsedata, status, response) {
-                debugger;
                 alert(responsedata.Message)
             },
             error: function (request, status, error) {
-                debugger;
                 var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
                 alert(err_resp);
             }
-         });
+        });
 
         // in here, we'll call ..\archive\movepicture or ..\home\movepicture
     }
@@ -84,11 +105,21 @@
 
 
 <div id="status">
-    @Html.DropDownList("StatusDropDown", Model.Statuses, new { onchange = "dropdownchange(event, this.value)", id ="selectstatus" })
+    @Html.DropDownList("StatusDropDown", Model.Statuses, new { onchange = "dropdownchange(event, this.value)", id = "selectstatus" })
 </div><br /><br /><br />
 <div id="filelistcontainer">
-    @{
-        Html.RenderPartial("_PictureList");
+    @{if (Model.Status == "All" || Model.Status == "NotDisplayed")
+        // defensive coding:
+        // The controller returns the appropriate partial view when the status dropdown changes.
+        // So this is to get the correct partial view on first load - which always defaults to 'All' status
+        // so the 'else' statement should never be hit
+        {
+            Html.RenderPartial("_NonOrderablePictureList");
+        }
+        else
+        {
+            Html.RenderPartial("_PictureList");
+        }
     }
 </div>
 <div class="pageheader">
@@ -98,6 +129,6 @@
 @using (@Html.BeginForm("UploadFile", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadForm" }))
 {
     <input class="upload" type="file" name="FileUpload" />
-    <input type="submit" name="Submit" value="Upload" />    
+    <input type="submit" name="Submit" value="Upload" />
 }
 <br /><br />

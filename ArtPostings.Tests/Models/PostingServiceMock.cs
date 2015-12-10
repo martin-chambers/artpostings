@@ -216,5 +216,10 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
+
+        public ChangeResult AdvanceInList(PictureFileRecord pfr)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

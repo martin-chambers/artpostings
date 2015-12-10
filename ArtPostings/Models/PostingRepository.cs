@@ -11,8 +11,6 @@ namespace ArtPostings.Models
 {
     public class PostingRepository : IPostingRepository
     {
-
-
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
@@ -57,21 +55,21 @@ namespace ArtPostings.Models
                 return new ChangeResult(false, "Error inserting posting with filename: " + itemposting.FileName + ": " + ex.Message);
             }
         }
-        IEnumerable<ItemPosting> IPostingRepository.ShopPostings()
+        public IEnumerable<ItemPosting> ShopPostings()
         {
             string commandText = "SELECT [Id],[Order],[Filename],[Title],[Shortname],[Header], " +
-                "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 0";
+                "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 0 ORDER BY [Order]";
             return getPostings(commandText);
         }
-        IEnumerable<ItemPosting> IPostingRepository.ArchivePostings()
+        public IEnumerable<ItemPosting> ArchivePostings()
         {
             string commandText = "SELECT [Id],[Order],[Filename],[Title],[Shortname],[Header], " +
-                "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 1";
+                "[Description],[Size],[Price],[Archive_Flag] FROM [dbo].[ArtPostingItems] WHERE Archive_Flag = 1 ORDER BY [Order]";
             return getPostings(commandText);
         }
         private IEnumerable<ItemPosting> getPostings(string commandText)
         {
-            List<ItemPosting> postings = new List<ItemPosting>();
+            List<ItemPosting> postings = new List<ItemPosting>();            
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -109,6 +107,22 @@ namespace ArtPostings.Models
         ItemPosting IPostingRepository.GetPosting(int id)
         {
             return this.selectPosting(id, "", "");
+        }
+
+        ItemPosting IPostingRepository.GetPosting(Predicate<ItemPosting> pred, bool archive)
+        {
+            List<ItemPosting> postings = new List<ItemPosting>();
+            if (archive)
+            {
+                postings.AddRange(ArchivePostings().ToList());
+            }
+            else
+            {
+                postings.AddRange(ShopPostings().ToList());
+            }
+            
+            ItemPosting posting = postings.Find(pred);
+            return posting;
         }
         ItemPosting selectPosting(int id, string selectString, string selectField)
         {
@@ -206,7 +220,6 @@ namespace ArtPostings.Models
         }
         ChangeResult IPostingRepository.Update(ItemPosting itemposting, bool archived)
         {
-
             try
             {
                 string commandText = "Update [dbo].[ArtPostingItems] " +
@@ -267,6 +280,70 @@ namespace ArtPostings.Models
                 return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database - error: " + ex.Message);
             }
 
+        }
+        /// <summary>
+        /// Exchange the order values of posting1 and posting2
+        /// </summary>
+        /// <param name="posting1"></param>
+        /// <param name="posting2"></param>
+        /// <param name="archived"></param>
+        /// <returns></returns>
+        ChangeResult IPostingRepository.ExchangeOrders(ItemPosting posting1, ItemPosting posting2, bool archived)
+        {
+            int order1 = posting1.Order;
+            int order2 = posting2.Order;
+            ChangeResult result = new ChangeResult();
+            string commandText = "Update [dbo].[ArtPostingItems] " +
+                "SET [Order] = @neworder " +
+                "WHERE Id = @id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    int updated = 0;
+                    try
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+
+                        // update #1: set 1 to 2
+                        adapter.UpdateCommand = new SqlCommand(commandText, connection, transaction);                        
+                        SqlParameter newOrderParam = new SqlParameter("@neworder", SqlDbType.Int);
+                        newOrderParam.Value = order2;
+                        SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);
+                        idParam.Value = posting1.Id;
+                        adapter.UpdateCommand.Parameters.Add(newOrderParam);
+                        adapter.UpdateCommand.Parameters.Add(idParam);
+                        updated = adapter.UpdateCommand.ExecuteNonQuery();
+
+                        // update #2: set 2 to 1
+                        if (updated > 0)
+                        {
+                            updated = 0;
+                            newOrderParam.Value = order1;
+                            idParam.Value = posting2.Id;
+                            updated = adapter.UpdateCommand.ExecuteNonQuery();
+                        }
+
+                        // commit
+                        if (updated > 0)
+                        {
+                            transaction.Commit();
+                        }
+                        else
+                        {
+                            throw new Exception("There was a problem changing the orders of " + posting1.FileName + " and " + posting2.FileName);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return new ChangeResult(false, ex.Message);
+                    }
+                }
+                result = new ChangeResult(true, "Promoted: " + posting1.FileName.Normalise());
+                return result;
+            }
         }
     }
 }

@@ -13,6 +13,8 @@ namespace ArtPostings.Models
         IEnumerable<ItemPosting> ShopPostings();
         IEnumerable<ItemPosting> ArchivePostings();
         ItemPosting GetPosting(int id);
+        ItemPosting GetPosting(Predicate<ItemPosting> pred, bool archive);
         ChangeResult Update(ItemPosting posting, bool archived);
+        ChangeResult ExchangeOrders(ItemPosting posting1, ItemPosting posting2, bool archived);
       }
 }

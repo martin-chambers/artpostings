@@ -42,6 +42,7 @@
             var filepath = obj.filePath;
             var filename = obj.fileName;
             var shortname = obj.shortName;
+            var order = obj.order;
             var header = $("#ItemPosting_Header").val();
             var size = $("#ItemPosting_Size").val();
             var price = $("#ItemPosting_Price").val();
@@ -55,7 +56,8 @@
                 Header: header,
                 Description: desc,
                 Size: size,
-                Price: price
+                Price: price,
+                Order: order
             };
         })();
         var payload = (function () {

@@ -36,7 +36,14 @@ namespace ArtPostings.Controllers
             }
             else
             {
-                return PartialView("_PictureList", load(status));
+                if (status == "All" || status == "NotDisplayed")
+                {
+                    return PartialView("_NonOrderablePictureList", load(status));
+                }
+                else
+                {
+                    return PartialView("_PictureList", load(status));
+                }
             }
         }
         
@@ -58,13 +65,40 @@ namespace ArtPostings.Controllers
             }
             catch (Exception anEx)
             {
-                // log but don't halt execution - the javascript function has fired, most likely because 
-                // of difficult-to-understand interaction between the paging control and onclick event in webgrid
+                // log but don't halt execution - the javascript function has fired, possibly at an inappropriate time. 
+                // This is most likely because of not-fully-understood interaction between the paging control and onclick 
+                // event in webgrid
                 Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
             }
+            // RedirectToAction works by sending an http 302 response to browser which causes the 
+            // browser to make a GET request to the action - this is precisely what we want
             return RedirectToAction("Index", new { status = PictureFileRecord.GetStatusString(rec.Status), initial = false });
         }
-        
+
+        /// <summary>
+        /// Promotes the item in its list
+        /// This action reduces the order number of the item by one if the order value is greater than zero. 
+        /// The order value of the preceding item is increased by one.
+        /// </summary>
+        /// <param name="rec"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult FilePromote(PictureFileRecord rec)
+        {
+            ChangeResult result = new ChangeResult();
+            try
+            {
+                result = service.AdvanceInList(rec);
+            }
+            catch (Exception anEx)
+            {
+                // log but don't halt execution
+                Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
+            }
+            // RedirectToAction works by sending an http 302 response to browser which causes the 
+            // browser to make a GET request to the action - this is precisely what we want
+            return RedirectToAction("Index", new { status = PictureFileRecord.GetStatusString(rec.Status), initial = false });            
+        }
 
         public ActionResult UploadFile()
         {
@@ -77,6 +111,8 @@ namespace ArtPostings.Controllers
                 string filename = Path.GetFileName(Request.Files[upload].FileName);
                 Request.Files[upload].SaveAs(Path.Combine(path, filename));
             }
+            // RedirectToAction works by sending an http 302 response to browser which causes the 
+            // browser to make a GET request to the action - this is precisely what we want
             return RedirectToAction("Index", new { status = "All", initial = false });
         }
 

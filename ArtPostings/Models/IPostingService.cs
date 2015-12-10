@@ -20,6 +20,7 @@ namespace ArtPostings.Models
         ItemPostingViewModel CreateItemPostingViewModel(PictureFileRecord pfr);
         ChangeResult SaveShopChanges(ItemPostingViewModel vm);
         ChangeResult SaveArchiveChanges(ItemPostingViewModel vm);
+        ChangeResult AdvanceInList(PictureFileRecord pfr);
         string ArchiveText { get; }
         string ShopText { get; }
         string FullyMappedPictureFolder { get; }
