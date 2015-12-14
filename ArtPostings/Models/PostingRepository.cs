@@ -14,46 +14,69 @@ namespace ArtPostings.Models
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
+
         ChangeResult IPostingRepository.Create(ItemPosting itemposting, bool archive)
         {
-            try
+            string commandText =
+                "INSERT INTO [dbo].[ArtPostingItems]" +
+                "([Filename]" +
+                ",[Title]" +
+                ",[Shortname]" +
+                ",[Header]" +
+                ",[Description]" +
+                ",[Size]" +
+                ",[Price]" +
+                ",[Archive_flag]" +
+                ",[Order]) " +
+                "VALUES " +
+                "( @filename" +
+                ", @title" +
+                ", @shortName" +
+                ", @header" +
+                ", @desc" +
+                ", @size" +
+                ", @price" +
+                ", @archive" +
+                ", @order)";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string commandText =
-                    "INSERT INTO [dbo].[ArtPostingItems]" +
-                    "([Filename]" +
-                    ",[Title]" +
-                    ",[Shortname]" +
-                    ",[Header]" +
-                    ",[Description]" +
-                    ",[Size]" +
-                    ",[Price]" +
-                    ",[Archive_flag]" +
-                    ",[Order]) " +
-                    "VALUES " +
-                    "( @filename" +
-                    ", @title" +
-                    ", @shortName" +
-                    ", @header" +
-                    ", @desc" +
-                    ", @size" +
-                    ", @price" +
-                    ", @archive" +
-                    ", @order)";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                connection.Open();
+                using (SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    connection.Open();
-                    adapter.UpdateCommand = connection.CreateCommand();
-                    adapter.UpdateCommand.CommandText = commandText;
-                    adapter = addPostingParamsToAdapter(adapter, itemposting, archive);
-                    adapter.UpdateCommand.ExecuteNonQuery();
+                    try
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        adapter.UpdateCommand = new SqlCommand(commandText, connection, transaction);
+                        adapter = addPostingParamsToAdapter(adapter, itemposting, archive);
+                        updateOrderValues(connection, transaction, archive, true);
+                        adapter.UpdateCommand.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return new ChangeResult(false, "Error inserting posting with filename: " + itemposting.FileName + ": " + ex.Message);
+                    }
                 }
-                return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName);
             }
-            catch (Exception ex)
-            {
-                return new ChangeResult(false, "Error inserting posting with filename: " + itemposting.FileName + ": " + ex.Message);
-            }
+            return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName);
+        }
+        /// <summary>
+        /// Updates all Order values upwards or downwards for a specified list (archive or !archive) 
+        /// where the order value is greater than that specified. This is intended to be called when 
+        /// an item is being inserted or deleted. It is assumed that this method will be called from 
+        /// a context in which there is an open connection, and an open transaction.
+        /// </summary>
+        /// <param name="excludeId"></param>
+        private void updateOrderValues(SqlConnection connection, SqlTransaction transaction, bool archive, bool increment, int order = 0)
+        {
+            string inc_symbol = (increment) ? "+" : "-";
+            string arch_val = (archive) ? "'true'" : "'false'";
+            string commandText = "Update [dbo].[ArtPostingItems] SET [Order] = [Order] " + inc_symbol +
+                " 1 WHERE Archive_flag = " + arch_val + " AND [Order] >= " + order.ToString();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.UpdateCommand = new SqlCommand(commandText, connection, transaction);
+            adapter.UpdateCommand.ExecuteNonQuery();
         }
         public IEnumerable<ItemPosting> ShopPostings()
         {
@@ -69,7 +92,7 @@ namespace ArtPostings.Models
         }
         private IEnumerable<ItemPosting> getPostings(string commandText)
         {
-            List<ItemPosting> postings = new List<ItemPosting>();            
+            List<ItemPosting> postings = new List<ItemPosting>();
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -98,7 +121,7 @@ namespace ArtPostings.Models
                 }
             }
             catch (Exception ex)
-            {
+            {                
                 throw new Exception("Error reading from ArtPostitems data source", ex);
             }
             return postings;
@@ -109,7 +132,7 @@ namespace ArtPostings.Models
             return this.selectPosting(id, "", "");
         }
 
-        ItemPosting IPostingRepository.GetPosting(Predicate<ItemPosting> pred, bool archive)
+        ItemPosting IPostingRepository.GetPosting(Predicate<ItemPosting> predicate, bool archive)
         {
             List<ItemPosting> postings = new List<ItemPosting>();
             if (archive)
@@ -120,8 +143,8 @@ namespace ArtPostings.Models
             {
                 postings.AddRange(ShopPostings().ToList());
             }
-            
-            ItemPosting posting = postings.Find(pred);
+
+            ItemPosting posting = postings.Find(predicate);
             return posting;
         }
         ItemPosting selectPosting(int id, string selectString, string selectField)
@@ -244,40 +267,48 @@ namespace ArtPostings.Models
                 }
                 return new ChangeResult(true, "Posting: " + itemposting.Id.ToString() + " was updated");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new ChangeResult(false, "Posting: " + itemposting.Id.ToString() + " could not be updated: " + ex.Message);
             }
         }
         ChangeResult IPostingRepository.Delete(ItemPosting itemposting)
         {
+            bool archive = itemposting.Archive_Flag == true;
             int deleted = 0;
-            try
+            string commandText = "DELETE FROM [dbo].[ArtPostingItems] WHERE [Filename] = @filename";
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string commandText = "DELETE FROM [dbo].[ArtPostingItems] WHERE [Filename] = @filename";
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                connection.Open();
+                using (SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    connection.Open();
-                    adapter.UpdateCommand = connection.CreateCommand();
-                    adapter.UpdateCommand.CommandText = commandText;
-                    SqlParameter filenameParam = new SqlParameter("@filename", SqlDbType.NVarChar);
-                    filenameParam.Value = itemposting.FileName.Normalise();
-                    adapter.UpdateCommand.Parameters.Add(filenameParam);
-                    deleted = adapter.UpdateCommand.ExecuteNonQuery();
+                    try
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        adapter.DeleteCommand = new SqlCommand(commandText, connection, transaction);
+                        SqlParameter filenameParam = new SqlParameter("@filename", SqlDbType.NVarChar);
+                        filenameParam.Value = itemposting.FileName.Normalise();
+                        adapter.DeleteCommand.Parameters.Add(filenameParam);
+                        updateOrderValues(connection, transaction, archive, false, itemposting.Order);
+                        deleted = adapter.DeleteCommand.ExecuteNonQuery();
+                        if (deleted > 0)
+                        {
+                            transaction.Commit();
+                            return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database");
+                        }
+                        else
+                        {
+                            transaction.Rollback();
+                            return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database");
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database - error: " + ex.Message);
+                    }
                 }
-                if (deleted > 0)
-                {
-                    return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database");
-                }
-                else
-                {
-                    return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database");
-                }
-            }
-            catch (Exception ex)
-            {
-                return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database - error: " + ex.Message);
             }
 
         }
@@ -307,7 +338,7 @@ namespace ArtPostings.Models
                         SqlDataAdapter adapter = new SqlDataAdapter();
 
                         // update #1: set 1 to 2
-                        adapter.UpdateCommand = new SqlCommand(commandText, connection, transaction);                        
+                        adapter.UpdateCommand = new SqlCommand(commandText, connection, transaction);
                         SqlParameter newOrderParam = new SqlParameter("@neworder", SqlDbType.Int);
                         newOrderParam.Value = order2;
                         SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);

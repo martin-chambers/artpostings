@@ -41,6 +41,11 @@ namespace ArtPostings.Models
             // takes out double spaces, %20s and nspbs, replaces with 1 space
             return Regex.Replace(value, @"\s{2,}|%20|&nbsp;|&nbsp", " ");
         }
+        /// <summary>
+        /// Converts a string to plain readable format. Removes relevant escape characters and url encoding
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string Normalise(this string value)
         {
             // takes out html tag markers

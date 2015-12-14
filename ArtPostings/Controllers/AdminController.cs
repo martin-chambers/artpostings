@@ -46,7 +46,7 @@ namespace ArtPostings.Controllers
                 }
             }
         }
-        
+
         private PictureFileRecordsViewModel load(string status)
         {
             List<PictureFileRecord> fileRecords =
@@ -60,8 +60,11 @@ namespace ArtPostings.Controllers
         {
             try
             {
+                bool display =
+                    rec.Status == PictureFileRecord.StatusType.Archived || rec.Status == PictureFileRecord.StatusType.ForSale;
+                bool archive = rec.Status == PictureFileRecord.StatusType.Archived;
                 List<PictureFileRecord> fileRecords =
-                    service.DeletePictureFile(rec.FileName, service.FullyMappedPictureFolder).ToList();
+                    service.DeletePictureFile(rec.FileName, archive, display, service.FullyMappedPictureFolder).ToList();
             }
             catch (Exception anEx)
             {
@@ -97,9 +100,15 @@ namespace ArtPostings.Controllers
             }
             // RedirectToAction works by sending an http 302 response to browser which causes the 
             // browser to make a GET request to the action - this is precisely what we want
-            return RedirectToAction("Index", new { status = PictureFileRecord.GetStatusString(rec.Status), initial = false });            
+            return RedirectToAction("Index", new { status = PictureFileRecord.GetStatusString(rec.Status), initial = false });
         }
 
+        /// <summary>
+        /// Called from within a view form. Uploads a selected set of files (which is identified 
+        /// as part of the current request) to the configured picture folder
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
         public ActionResult UploadFile()
         {
             //this code could handle multiple files as part of an upload
@@ -117,50 +126,89 @@ namespace ArtPostings.Controllers
         }
 
         [HttpPost]
-        public ActionResult MovePicture(string filepath, bool archive, bool display)
+        public ActionResult MovePicture(string filepath, bool archivedestination, bool displaydestination)
         {
-            // filepaths / names brought in from ajax call will not have %20 spaces but will have JS escaped single quotes
+            // filepaths / names brought in from ajax call will have %20 spaces and will not have JS escaped single quotes
             string filename = Utility.GetFilenameFromFilepath(filepath).Normalise();
-            // default is failed result
-            ChangeResult result = new ChangeResult();
+
+            // default constructor gives failed results
+            ChangeResult removeResult = new ChangeResult();
+            ChangeResult insertResult = new ChangeResult();
+            // initialising variables
+            PictureFileRecord pfr = new PictureFileRecord(filepath);
+            PictureFileRecord.StatusType source;
             List<ItemPostingViewModel> postingVMs = new List<ItemPostingViewModel>();
-            if (display)
+
+            // getting current database contents
+            postingVMs.AddRange(service.ArchivePostings().ToList());
+            postingVMs.AddRange(service.ShopPostings().ToList());
+            // getting full info on item to move 
+            ItemPostingViewModel moveItem = postingVMs.FirstOrDefault(x => x.ItemPosting.FileName.ToUpper().Normalise() == filename.ToUpper());
+            ItemPosting posting = new ItemPosting();
+            // determine current location of move item
+            if (moveItem == null)
             {
-                postingVMs = (archive) ? service.ArchivePostings().ToList() : service.ShopPostings().ToList();
-                foreach (ItemPostingViewModel vm in postingVMs)
-                {
-                    if (filename == vm.ItemPosting.FileName.Normalise())
-                    {
-                        return new ExtendedJsonResult(
-                                new
-                                {
-                                    success = false,
-                                    message = vm.ItemPosting.FileName + " is already included in the " + ((archive) ? "Archive" : "Home") + " page"
-                                }
-                        )
-                        // this is the body of the ExtendedJsonResult constructor which is a custom extension
-                        // of JsonResult. It bundles statuscode. Go to definition of ExtendedJsonResult for more info.
-                        // 409 is a rule conflict error
-                        { StatusCode = 409 };
-                    }                    
-                }
-                PictureFileRecord pfr = new PictureFileRecord(filepath);
-                result = service.InsertPosting(pfr, archive);
+                source = PictureFileRecord.StatusType.NotDisplayed;
             }
             else
             {
-                postingVMs.AddRange(service.ArchivePostings().ToList());
-                postingVMs.AddRange(service.ShopPostings().ToList());
-                foreach (ItemPostingViewModel vm in postingVMs)
+                posting = moveItem.ItemPosting;
+                if (posting.Archive_Flag == true)
                 {
-                    if (filename == vm.ItemPosting.FileName.Normalise())
+                    source = PictureFileRecord.StatusType.Archived;
+                }
+                else
+                {
+                    source = PictureFileRecord.StatusType.ForSale;
+                }
+            }
+            if (displaydestination)
+            {
+                // (1) the move item's being moved to the list it's already in
+                if (archivedestination && source == PictureFileRecord.StatusType.Archived ||
+                    !archivedestination && source == PictureFileRecord.StatusType.ForSale)
+                {
+                    return new ExtendedJsonResult(
+                        new ChangeResult(
+                            false,
+                            filename + " is already included in the " + ((archivedestination) ? "Archive" : "Home") + " page"),
+                            400);
+                }
+                else
+                {
+                    // (2) the moveItem's being moved from one list to another
+                    if (archivedestination && source == PictureFileRecord.StatusType.ForSale ||
+                        !archivedestination && source == PictureFileRecord.StatusType.Archived)
                     {
-                        bool foundInArchive = vm.ItemPosting.Archive_Flag;
-                        result = service.RemoveFromDisplay(vm.ItemPosting);                        
+                        removeResult = service.RemoveFromDisplay(posting);
+                        insertResult = service.InsertPosting(pfr, archivedestination);
+                        return new ExtendedJsonResult(insertResult, insertResult.StatusCode);
+                    }
+                    else
+                    {
+                        // (3) the moveItem's being moved onto a list from not_displayed
+                        insertResult = service.InsertPosting(pfr, archivedestination);
+                        return new ExtendedJsonResult(insertResult, insertResult.StatusCode);
                     }
                 }
             }
-            return new ExtendedJsonResult(result, result.StatusCode);
+            // (4) the moveItem's being removed from all lists
+            else
+            {
+                if (source == PictureFileRecord.StatusType.NotDisplayed)
+                {
+                    return new ExtendedJsonResult(
+                        new ChangeResult(
+                            false,
+                            filename + " is not currently displayed, and therefore is not in the database. Therefore it cannot be removed from the database"),
+                        500);
+                }
+                else
+                {
+                    removeResult = service.RemoveFromDisplay(posting);
+                    return new ExtendedJsonResult(removeResult, removeResult.StatusCode);
+                }
+            }
         }
     }
 }

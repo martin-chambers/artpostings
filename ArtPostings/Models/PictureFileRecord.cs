@@ -78,7 +78,7 @@ namespace ArtPostings.Models
             FilePath = HttpUtility.UrlPathEncode(Path.Combine(webSafePictureFolder, FileName));
             JSFileName = FileName.JSEscSingleQuote();
             JSFilePath = FilePath.JSEscSingleQuote();
-            Status = StatusType.NotDisplayed;
+            Status = StatusType.NotDisplayed;            
         }
         public PictureFileRecord() { }
 

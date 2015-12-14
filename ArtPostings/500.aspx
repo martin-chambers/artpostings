@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8" />
     <title>500 Server Error</title>
+    <link rel="stylesheet" type="text/css" href="/Content/Site.css">
 </head>
 <body>
 <body>
-    <b>
-        Sorry, there was a 500 'internal server error' in this website.<br><br />        
-        You can let us know by emailing: <a href="mailto:techsupport@annchambers.net?subject=Technical Issue: annchambers.net">Technical Support</a> 
-    </b>
+    <h1 class="errortext">
+        Status code 500 - Internal server error<br><br />                
+    </h1>
 </body>
 </body>
 </html>

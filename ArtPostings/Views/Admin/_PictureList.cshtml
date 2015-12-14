@@ -1,5 +1,5 @@
 ﻿    @{
-        var grid = new WebGrid(source: Model.PictureFileRecords, rowsPerPage: 15, defaultSort: "Order", canPage: true);        
+        var grid = new WebGrid(source: Model.PictureFileRecords, rowsPerPage: 6, defaultSort: "Order", canPage: true);        
     }
     @grid.GetHtml(
             tableStyle: "webgrid-table",
@@ -13,8 +13,8 @@
                 grid.Column(columnName: "Header", header: "Header", style: "wide-column", canSort: true),
                 grid.Column(columnName: "FileName", header: "File", style: "wide-column", canSort: true),
                 grid.Column(header: "Order", canSort: true,
-                    format: @<text><img width='50' src="@Url.Content("~/Content/icons/promote.png")" id="image-promote" onclick="filepromote(event, '@item.JSFileName', '@item.Status')" alt="Promote" title="Promote" /></text>),
+                    format: @<text><img width='50' src="@Url.Content("~/Content/icons/promote.png")" class="icon-link" onclick="filepromote(event, '@item.JSFileName', '@item.Status')" alt="Promote" title="Promote" /></text>),
                 grid.Column(header: "Delete", canSort: false,
-                    format: @<text><img width='50' src="@Url.Content("~/Content/icons/trash-icon.png")" id="image-delete" onclick="filedelete(event, '@item.JSFileName', '@item.Status')" alt="Delete" title="Delete"/></text>)
+                    format: @<text><img width='50' src="@Url.Content("~/Content/icons/trash-icon.png")" class="icon-link" onclick="filedelete(event, '@item.JSFileName', '@item.Status')" alt="Delete" title="Delete"/></text>)
             )
   )

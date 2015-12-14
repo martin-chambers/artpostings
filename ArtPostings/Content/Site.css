@@ -163,6 +163,12 @@ div#status {
     text-align: right;
     float: right;    
 }
+
+.errortext {
+    text-align: center;
+    margin-top: 220px;
+    font-size: 3em;
+}
     
 *:focus {
    outline: 0;
@@ -215,7 +221,7 @@ hr {
     border-style: solid;    
 }
 
-#image-delete {
+.icon-link {
     cursor: pointer;
 }
 
@@ -351,6 +357,7 @@ tr
     font-size: x-small;
     font-style: normal;
 }
+
 .welcometitle {
     color: #FFFFFF;
     font-family: Arial,Helvetica,sans-serif;

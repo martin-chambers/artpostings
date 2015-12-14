@@ -12,7 +12,9 @@
                 $('#listpad').show();
             },
             error: function (request, status, error) {
-                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
+                var err_resp = (request.responseJSON == undefined || request.responseJSON == '')
+                    ? 'The server is not responding'
+                    : request.responseJSON.Message;
                 alert(err_resp);
             }
         });
@@ -72,9 +74,11 @@
             contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             error: 
                 function (request, status, error) {
-                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
-                alert(err_resp);
-            },
+                    var err_resp = (request.responseJSON == undefined || request.responseJSON == '')
+                        ? 'The server is not responding'
+                        : request.responseJSON.Message;
+                    alert(err_resp);
+                },
             success: function (responsedata) {
                 closeEdit(event);
             }

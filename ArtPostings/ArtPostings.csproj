@@ -292,6 +292,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Guide to error-handling.txt" />
     <Content Include="img\bg-checker.png" />
     <Content Include="img\box.png" />
     <Content Include="img\bullet.gif" />
@@ -349,10 +350,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="To Do.txt" />
     <Content Include="Views\Admin\_PictureList.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_postingDisplayList.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -400,7 +399,6 @@
     <Content Include="Views\Shared\_postingEditItem.cshtml" />
     <Content Include="Views\Shared\_postingDisplayItem.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ItemPostingViewModel.cshtml" />
-    <Content Include="Views\Shared\Error500.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\_NonOrderablePictureList.cshtml" />
   </ItemGroup>

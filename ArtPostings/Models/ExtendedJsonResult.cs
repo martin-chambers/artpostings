@@ -12,12 +12,16 @@ namespace ArtPostings.Models
     /// </summary>
     public class ExtendedJsonResult : JsonResult
     {
-        public ExtendedJsonResult(object data)
+        public ExtendedJsonResult(ChangeResult data)
         {
             base.Data = data;
+            Success = data.Success;
+            Message = data.Message;
         }
+        public bool Success { get; set; }
+        public string Message { get; set; }
 
-        public ExtendedJsonResult(object data, int statuscode) : this(data)
+        public ExtendedJsonResult(ChangeResult data, int statuscode) : this(data)
         {
             StatusCode = statuscode;
         }

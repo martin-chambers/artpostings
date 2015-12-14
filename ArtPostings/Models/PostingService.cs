@@ -196,15 +196,24 @@ namespace ArtPostings.Models
             }
             return pictureFiles;
         }
+        /// <summary>
+        /// Removes an item from the database so it is no longer displayed on any list
+        /// </summary>
+        /// <param name="posting"></param>
+        /// <returns></returns>
         public ChangeResult RemoveFromDisplay(ItemPosting posting)
         {
             return repository.Delete(posting);
         }
 
-        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder)
+        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive,  bool display, string folder)
         {
             File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
-            repository.Delete(new ItemPosting(filename));
+            if (display)
+            {
+                ItemPosting posting = repository.GetPosting(x => x.FileName == filename, archive);
+                repository.Delete(posting);
+            }
             return PictureFileRecordList(folder);
         }
         ItemPostingViewModel IPostingService.CreateItemPostingViewModel(PictureFileRecord pfr)
@@ -228,7 +237,7 @@ namespace ArtPostings.Models
         }
         ChangeResult IPostingService.InsertPosting(PictureFileRecord pfr, bool archive)
         {
-
+            // The constructor ItemPosting(string filename, bool archived) defaults the Order value to 0
             ItemPosting SQLPosting = extractSQLItemPosting(new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), archive));
             ChangeResult result = repository.Create(SQLPosting, archive);
             return result;

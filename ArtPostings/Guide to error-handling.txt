@@ -1,0 +1,86 @@
+﻿A)	Elmah - if the Elmah dlls are situated in the bin folder, they provide the following:
+
+	- Logging of nearly all unhandled exceptions.
+	- A web page to remotely view the entire log of recoded exceptions.
+	- A web page to remotely view the full details of any one logged exception.
+	- In many cases, you can review the original yellow screen of death that ASP.NET generated for a given exception, even with 
+	  customErrors mode turned off.
+	- An e-mail notification of each error at the time it occurs.
+	- An RSS feed of the last 15 errors from the log.
+	- A number of backing storage implementations for the log, including in-memory, Microsoft SQL Server and several contributed by the community.
+
+B)	Application errors not tracked by Elmah are handled following the guidance outlined in Ben Foster's 
+	blog - http://benfoster.io/blog/aspnet-mvc-custom-error-pages
+
+	1. 	For scenarios where asp.net is not bypassed (i.e. navigating to a url which is non-existent but which matches the routing 
+		configuration), the following steps are observed to set up asp.net's custom errors:
+
+		The following section is added to web.config -
+
+			<customErrors mode="RemoteOnly" redirectMode="ResponseRewrite" defaultRedirect="500.aspx">
+				<error statusCode="404" redirect="404.aspx"/>
+				<error statusCode="500" redirect="500.aspx"/>
+			</customErrors>
+
+		This, and the line of aspx code at the top of 404.aspx, prevents the MVC framework from redirecting 
+		the request to an aspx error path and returning a 200 (ok) response code, which it would otherwise do.
+
+		The line of code at the top of 404.aspx is:
+
+			<% Response.StatusCode = 404 %>
+
+		The mvc HandleErrorAttribute global filter is commented out in app_start/filterconfig.cs
+
+	2.  For scenarios where asp.net is bypassed (such as where the url does not match the routing configuration 
+		or a an attempt is made to access a non-existent static resource, or you return HttpNotFound() from a 
+		controller action) IIS will handle the request itself. Therefore, we need  to set up custom error pages in
+		IIS using the following lines in web.config:
+
+			<httpErrors errorMode="DetailedLocalOnly">
+			  <remove statusCode="404"/>
+			  <error statusCode="404" path="404.html" responseMode="File"/>
+			  <remove statusCode="500"/>
+			  <error statusCode="500" path="500.html" responseMode="File"/>
+			</httpErrors>
+
+C)	Events including errors requiring feedback to the user are handled in JavaScript callbacks. Where there is an ajax call to a 
+	controller and the following is returned from the controller:
+
+		// success
+		return new ExtendedJsonResult(
+			new ChangeResult(
+				true,
+				"success message"),
+			200);
+
+		);
+		// error
+        return new ExtendedJsonResult(
+            new ChangeResult(
+				false,
+				"bad request error message"),
+			400);
+
+	This is picked up in the success/error functions of the callback function as follows:
+
+	    return $.ajax({
+        url: '@Url.Action("ControllerAction")',
+        dataType: 'json',
+        data: { inputParamWithSameNameAsContollerParam: somevalue },
+        type: 'POST',
+        success: function (responsedata, status, response) {
+            debugger;
+            alert(responsedata.Message)
+        },
+        error: function (request, status, error) {
+            var err_resp = (request.responseJSON.Message == undefined || request.responseJSON.Message == '')
+                ? 'The server is not responding'
+                : request.responseJSON.Message;
+            alert(err_resp);
+        }
+
+
+
+
+
+

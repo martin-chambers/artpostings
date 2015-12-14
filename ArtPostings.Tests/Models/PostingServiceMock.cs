@@ -187,7 +187,7 @@ namespace ArtPostings.Tests.Models
             return pictureFiles;
         }
 
-        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, string folder)
+        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive, bool display, string folder)
         {
             throw new NotImplementedException();
         }

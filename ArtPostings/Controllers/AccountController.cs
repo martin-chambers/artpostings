@@ -5,6 +5,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -78,7 +81,7 @@ namespace ArtPostings.Controllers
             if (user != null)
             {
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
-                {
+                {                    
                     ViewBag.errorMessage = "You must have a confirmed email to log on.";
                     return View("Error");
                 }
@@ -159,33 +162,48 @@ namespace ArtPostings.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
-        {
+        {            
 
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                NameValueCollection permittedEmails = ConfigurationManager.GetSection("PermittedEmails") as NameValueCollection;
+                var emailObjects = permittedEmails.AllKeys.SelectMany(permittedEmails.GetValues, (k, v) => new {key = k,  value = v });                
+                List<string> emails = new List<string>();
+                foreach(var s in emailObjects)
                 {
-                    // Comment the following line to prevent log in until the user is confirmed.
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    
-                    // Uncomment to debug locally 
-                    //TempData["ViewBagLink"] = callbackUrl;
-
-                    ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
-                                    + "before you can log in.";
-
-                    return View("Info");
-                    //return RedirectToAction("Index", "Home");
+                    emails.Add(s.value);
                 }
-                AddErrors(result);
+                if (!emails.Contains(model.Email))
+                {
+                    ViewBag.Message = "This email is not on the pre-approved list. Registration denied";
+                    return View("Info");
+                }
+                else
+                {
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        // Comment the following line to prevent log in until the user is confirmed.
+                        //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Send an email with this link
+                        string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                        // Uncomment to debug locally 
+                        //TempData["ViewBagLink"] = callbackUrl;
+
+                        ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
+                                        + "before you can log in.";
+
+                        return View("Info");
+                        //return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
+                }
             }
 
             // If we got this far, something failed, redisplay form

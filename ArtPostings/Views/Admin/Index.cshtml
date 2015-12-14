@@ -51,12 +51,15 @@
             data: { FileName: file, Status: status },
             type: 'POST',
             success: function (htmlstring) {
+                debugger;
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view
                 $('#filelistcontainer').html(htmlstring);
                 $('#filelistcontainer').show();
             },
             error: function (request, status, error) {
-                alert(error);
+                debugger;
+                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : request.responsetext;
+                alert(err_resp);
             }
         });
 
@@ -84,13 +87,17 @@
         return $.ajax({
             url: '@Url.Action("MovePicture")',
             dataType: 'json',
-            data: { filepath: filepath, archive: obj.archive, display: obj.display },
+            data: { filepath: filepath, archivedestination: obj.archive, displaydestination: obj.display },
             type: 'POST',
             success: function (responsedata, status, response) {
+                debugger;
                 alert(responsedata.Message)
             },
             error: function (request, status, error) {
-                var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
+                debugger;
+                var err_resp = (request.responseJSON == undefined || request.responseJSON == '')
+                    ? 'The server is not responding'
+                    : request.responseJSON.Message;
                 alert(err_resp);
             }
         });
@@ -109,7 +116,7 @@
 </div><br /><br /><br />
 <div id="filelistcontainer">
     @{if (Model.Status == "All" || Model.Status == "NotDisplayed")
-        // defensive coding:
+        // somewhat defensive coding ...
         // The controller returns the appropriate partial view when the status dropdown changes.
         // So this is to get the correct partial view on first load - which always defaults to 'All' status
         // so the 'else' statement should never be hit
