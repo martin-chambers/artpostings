@@ -55,4 +55,9 @@ C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.dll
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.pdb
 C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll
-C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.xml
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.xml
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.xml

@@ -15,8 +15,7 @@ namespace ArtPostings.Controllers
         {
             service = _service;
         }
-        public AboutController() : this(PostingService.Instance) { }
-
+        
         // GET: About
         public ActionResult Index()
         {

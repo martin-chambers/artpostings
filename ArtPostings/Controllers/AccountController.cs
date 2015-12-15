@@ -21,25 +21,15 @@ namespace ArtPostings.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }
-
         public ApplicationSignInManager SignInManager
         {
             get
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -81,7 +71,7 @@ namespace ArtPostings.Controllers
             if (user != null)
             {
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
-                {                    
+                {
                     ViewBag.errorMessage = "You must have a confirmed email to log on.";
                     return View("Error");
                 }
@@ -134,7 +124,7 @@ namespace ArtPostings.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -162,15 +152,15 @@ namespace ArtPostings.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
-        {            
+        {
 
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 NameValueCollection permittedEmails = ConfigurationManager.GetSection("PermittedEmails") as NameValueCollection;
-                var emailObjects = permittedEmails.AllKeys.SelectMany(permittedEmails.GetValues, (k, v) => new {key = k,  value = v });                
+                var emailObjects = permittedEmails.AllKeys.SelectMany(permittedEmails.GetValues, (k, v) => new { key = k, value = v });
                 List<string> emails = new List<string>();
-                foreach(var s in emailObjects)
+                foreach (var s in emailObjects)
                 {
                     emails.Add(s.value);
                 }

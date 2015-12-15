@@ -14,7 +14,6 @@ namespace ArtPostings.Controllers
         {
             service = _service;
         }
-        public ViewingController() : this(PostingService.Instance) { }
         
         // GET: Viewing
         public ActionResult Index()

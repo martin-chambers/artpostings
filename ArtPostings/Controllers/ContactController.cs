@@ -14,7 +14,6 @@ namespace ArtPostings.Controllers
         {
             service = _service;
         }
-        public ContactController() : this(PostingService.Instance) { }
 
         // GET: Contact
         public ActionResult Index()

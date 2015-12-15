@@ -20,12 +20,6 @@ namespace ArtPostings.Controllers
         {
             service = _service;
         }
-        /// <summary>
-        /// default parameterless constructor required by asp.net MVC framework
-        /// hard-coded here to default to the concrete PostingService class.
-        /// This will be replaced by IoC in future
-        /// </summary>
-        public AdminController() : this(PostingService.Instance) { }
         // GET: Admin
         public ActionResult Index(string status = "All", bool initial = true)
         {

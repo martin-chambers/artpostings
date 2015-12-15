@@ -9,9 +9,18 @@ namespace ArtPostings.Models
 {
     public sealed class PostingService : IPostingService
     {
+        /*
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        The following section preceded the introduction of Simple Injector IoC. Simple Injector requires 
+        a public constructor to exist but can be configured to restrict use of class as a singleton - see global.asax
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // the service class is implemented as a singleton
         private static PostingService instance = null;
         private static readonly object padlock = new object();
+
+        */
 
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         public string FullyMappedPictureFolder
@@ -42,6 +51,13 @@ namespace ArtPostings.Models
         }
 
 
+        /*
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        The following section preceded the introduction of Simple Injector IoC. Simple Injector requires 
+        a public constructor to exist but can be configured to restrict use of class as a singleton - see global.asax
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // explicit private constructor to prevent other classes creating instances
         private PostingService(IPostingRepository _repository)
         {
@@ -63,6 +79,17 @@ namespace ArtPostings.Models
                 }
             }
         }
+        */
+        /// <summary>
+        /// public constructor intended to be used with singleton configuration by DI framework
+        /// </summary>
+        /// <param name="_repository"></param>
+        public PostingService(IPostingRepository _repository)
+        {
+            repository = _repository;
+        }
+
+
         public string ShopText
         {
             get
@@ -156,7 +183,7 @@ namespace ArtPostings.Models
         }
         ChangeResult IPostingService.SaveArchiveChanges(ItemPostingViewModel vm)
         {
-            ItemPosting posting = extractSQLItemPosting(vm.ItemPosting);      
+            ItemPosting posting = extractSQLItemPosting(vm.ItemPosting);
             ChangeResult result = repository.Update(posting, true);
             return result;
         }
@@ -206,7 +233,7 @@ namespace ArtPostings.Models
             return repository.Delete(posting);
         }
 
-        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive,  bool display, string folder)
+        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive, bool display, string folder)
         {
             File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
             if (display)
@@ -256,7 +283,7 @@ namespace ArtPostings.Models
             int order;
             bool archive = rec.Status == PictureFileRecord.StatusType.Archived;
             string encodedFilename = HttpUtility.UrlPathEncode(rec.FileName);
-            ItemPosting subjectItem = repository.GetPosting(x => x.FileName.ToUpper() == encodedFilename.ToUpper(), archive);          
+            ItemPosting subjectItem = repository.GetPosting(x => x.FileName.ToUpper() == encodedFilename.ToUpper(), archive);
             try
             {
                 order = Convert.ToInt32(subjectItem.Order);
