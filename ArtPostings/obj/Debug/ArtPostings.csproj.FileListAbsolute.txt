@@ -61,3 +61,4 @@ C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.dll
 C:\git\artpostings\ArtPostings\bin\SimpleInjector.xml
 C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.xml
 C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.xml
+C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache

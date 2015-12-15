@@ -54,5 +54,10 @@ namespace ArtPostings.Models
             return Utility.NormaliseString(value);
         }
 
+        public static string CustomUrlEncode(this string value)
+        {
+            return value.Replace(" ", "%20");
+        }
+
     }
 }

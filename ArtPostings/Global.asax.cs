@@ -25,7 +25,7 @@ namespace ArtPostings
             var container = new Container();
             container.Register<IPostingService, PostingService>(Lifestyle.Singleton);
             container.Register<IPostingRepository, PostingRepository>(Lifestyle.Singleton);
-
+            
             container.Verify();
 
             // this was included in an example I saw - not apparently required for my application; retained for later examination
