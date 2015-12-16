@@ -29,6 +29,8 @@
 # excluded folders #
 ####################
 /ArtPostings/bin/*
+/ArtPostings/obj/*
+
  
 # Logs and databases #
 ######################
