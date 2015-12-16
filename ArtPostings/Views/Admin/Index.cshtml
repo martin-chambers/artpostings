@@ -7,10 +7,8 @@
             url: '@Url.Action("Index")', // controller-agnostic: this might call either the Archive or Home versions of 'Reload'
             data: { status: statusvalue, initial: false },
             type: 'GET',
-            success: function (htmlstring) {
-                // need to replace content at a fairly high level to ensure old postings are cleared out of the view
-                $('#filelistcontainer').html(htmlstring);
-                $('#filelistcontainer').show();
+            success: function(htmlstring) {
+                refresh(htmlstring);
             },
             error: function (request, status, error) {
                 var err_resp = (error == undefined || error == '') ? 'The server is not responding' : error;
@@ -18,6 +16,14 @@
             }
         });
     }
+
+    function refresh(htmlstring) {
+        debugger;
+        // need to replace content at a fairly high level to ensure old postings are cleared out of the view
+        $('#filelistcontainer').html(htmlstring);
+        $('#filelistcontainer').show();
+    }
+
     // deletes the file from the file system when the trash-can icon is clicked
     function filedelete(event, file, status) {
         event.preventDefault();
@@ -28,14 +34,22 @@
             // these are the only two properties required by the controller
             data: { FileName: file, Status: status },
             type: 'POST',
-            success: function (htmlstring) {
-                // need to replace content at a fairly high level to ensure old postings are cleared out of the view
-                $('#filelistcontainer').html(htmlstring);
-                $('#filelistcontainer').show();
+            success: function (responsedata, status, response) {
+                debugger;
+                refresh(responsedata.view);
+                alert(responsedata.data.Message);
+            },
+             success: function (htmlstring) {
+                debugger;
+                refresh(htmlstring);
             },
             error: function (request, status, error) {
-                alert(error);
-            }
+                debugger;
+                var err_resp = (request.responseJSON == undefined || request.responseJSON == '')
+                    ? 'The server is not responding'
+                    : request.responseJSON.Message;
+                alert(err_resp);
+            },
         });
 
     }
@@ -49,7 +63,7 @@
             // That object has FileName and Status properties which are populated by the json data posted here
             // these are the only two properties required by the controller
             data: { FileName: file, Status: status },
-            type: 'POST',
+            type: 'GET',
             success: function (htmlstring) {
                 debugger;
                 // need to replace content at a fairly high level to ensure old postings are cleared out of the view

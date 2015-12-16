@@ -21,6 +21,9 @@ C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.Twitter.dll
 C:\git\artpostings\ArtPostings\bin\Microsoft.Web.Infrastructure.dll
 C:\git\artpostings\ArtPostings\bin\Newtonsoft.Json.dll
 C:\git\artpostings\ArtPostings\bin\Owin.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.Helpers.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.Mvc.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.Optimization.dll
@@ -29,6 +32,10 @@ C:\git\artpostings\ArtPostings\bin\System.Web.WebPages.Deployment.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.WebPages.dll
 C:\git\artpostings\ArtPostings\bin\System.Web.WebPages.Razor.dll
 C:\git\artpostings\ArtPostings\bin\WebGrease.dll
+C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.xml
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.xml
+C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.xml
 C:\git\artpostings\ArtPostings\bin\System.Web.Helpers.xml
 C:\git\artpostings\ArtPostings\bin\System.Web.Mvc.xml
 C:\git\artpostings\ArtPostings\bin\System.Web.Optimization.xml
@@ -52,13 +59,6 @@ C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.OAuth.xml
 C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.Google.xml
 C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.Twitter.xml
 C:\git\artpostings\ArtPostings\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.dll
 C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.pdb
-C:\git\artpostings\ArtPostings\bin\System.Data.SqlServerCe.dll
-C:\git\artpostings\ArtPostings\bin\SimpleInjector.dll
-C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.dll
-C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.dll
-C:\git\artpostings\ArtPostings\bin\SimpleInjector.xml
-C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.xml
-C:\git\artpostings\ArtPostings\bin\SimpleInjector.Integration.Web.Mvc.xml
-C:\git\artpostings\ArtPostings\obj\Debug\ArtPostings.csprojResolveAssemblyReference.cache

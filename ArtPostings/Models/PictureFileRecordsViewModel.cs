@@ -12,10 +12,12 @@ namespace ArtPostings.Models
         public List<PictureFileRecord> PictureFileRecords { get; set; }
         public IEnumerable<SelectListItem> Statuses { get; set; }
         public string Status { get; set; }
+        public object Data { get; set; }
         public PictureFileRecordsViewModel() { }
-        public PictureFileRecordsViewModel(List<PictureFileRecord> _pictureFileRecords,  NameValueCollection _statuscollection, string statusKey)
+        public PictureFileRecordsViewModel(List<PictureFileRecord> _pictureFileRecords,  NameValueCollection _statuscollection, string statusKey, object data = null)
         {
             Status = statusKey;
+            Data = data;
             List<SelectListItem> statuslist = new List<SelectListItem>();
             PictureFileRecords = _pictureFileRecords;
             foreach(string key in _statuscollection)

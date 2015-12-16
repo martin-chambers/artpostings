@@ -36,7 +36,7 @@ namespace ArtPostings.Controllers
         {
             setItemInfo();
             ChangeResult result = service.SaveShopChanges(posting);
-            return new ExtendedJsonResult(result) { StatusCode = result.StatusCode };
+            return new ExtendedJsonResult(result);
         }
         private void setItemInfo()
         {

@@ -23,8 +23,8 @@ namespace ArtPostings
 
             //Code for registering our repository class and DI
             var container = new Container();
-            container.Register<IPostingService, PostingService>(Lifestyle.Singleton);
-            container.Register<IPostingRepository, PostingRepository>(Lifestyle.Singleton);
+            container.Register<IPostingService, PostingService>(Lifestyle.Transient);
+            container.Register<IPostingRepository, PostingRepository>(Lifestyle.Transient);
             
             container.Verify();
 

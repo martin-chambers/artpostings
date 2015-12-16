@@ -9,11 +9,14 @@ namespace ArtPostings.Models
 {
     public sealed class PostingService : IPostingService
     {
+        private const int HTTP_SUCCESS = 200;
+        private const int HTTP_INTERNAL_SERVER_ERROR = 500;
+        private const int HTTP_BAD_REQUEST = 400;
         /*
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         The following section preceded the introduction of Simple Injector IoC. Simple Injector requires 
-        a public constructor to exist but can be configured to restrict use of class as a singleton - see global.asax
+        one public constructor to exist but can be configured to restrict use of class as a singleton - see global.asax
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // the service class is implemented as a singleton
@@ -233,15 +236,27 @@ namespace ArtPostings.Models
             return repository.Delete(posting);
         }
 
-        public IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive, bool display, string folder)
+        public ChangeResult DeletePictureFile(string filename, bool archive, bool display, string folder)
         {
-            File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
+            ChangeResult result = new ChangeResult();
             if (display)
             {
-                ItemPosting posting = repository.GetPosting(x => x.FileName == filename, archive);
-                repository.Delete(posting);
+                // file is in database
+                ItemPosting posting = repository.GetPosting(x => x.FileName.Normalise().ToUpper() == filename.Normalise().ToUpper(), archive);
+                if (posting == null)
+                {
+                    // did not find filename - something's wrong, so don't delete file
+                    result = new ChangeResult(false, "Error deleting " + filename + " from database", HTTP_INTERNAL_SERVER_ERROR);
+                    Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(new Exception(result.Message)));
+                    return result;
+                }
+                // remove from database
+                result = repository.Delete(posting);
             }
-            return PictureFileRecordList(folder);
+            //return PictureFileRecordList(folder);
+            // delete file
+            File.Delete(Path.Combine(FullyMappedPictureFolder, filename));
+            return new ChangeResult(true, "Deleted " + filename, HTTP_SUCCESS); ;
         }
         ItemPostingViewModel IPostingService.CreateItemPostingViewModel(PictureFileRecord pfr)
         {
@@ -262,7 +277,7 @@ namespace ArtPostings.Models
             vm.ItemPosting = posting;
             return vm;
         }
-        ChangeResult IPostingService.InsertPosting(PictureFileRecord pfr, bool archive)
+        public ChangeResult InsertPosting(PictureFileRecord pfr, bool archive)
         {
             // The constructor ItemPosting(string filename, bool archived) defaults the Order value to 0
             ItemPosting SQLPosting = extractSQLItemPosting(new ItemPosting(Utility.GetFilenameFromFilepath(pfr.FilePath), archive));
@@ -295,7 +310,7 @@ namespace ArtPostings.Models
                 }
                 else
                 {
-                    result = new ChangeResult(false, "Cannot promote item which is at the top of the list");
+                    result = new ChangeResult(false, "Cannot promote item which is at the top of the list", 400);
                 }
             }
             catch (Exception anEx)
@@ -305,6 +320,89 @@ namespace ArtPostings.Models
                 Elmah.ErrorLog.GetDefault(System.Web.HttpContext.Current).Log(new Elmah.Error(anEx));
             }
             return result;
+        }
+
+        public ChangeResult MovePicture(string filepath, bool archivedestination, bool displaydestination)
+        {
+            // filepaths / names brought in from ajax call will have %20 spaces and will not have JS escaped single quotes
+            string filename = Utility.GetFilenameFromFilepath(filepath).Normalise();
+
+            // default constructor gives failed results
+            ChangeResult removeResult = new ChangeResult();
+            ChangeResult insertResult = new ChangeResult();
+            // initialising variables
+            PictureFileRecord pfr = new PictureFileRecord(filepath);
+            PictureFileRecord.StatusType source;
+            List<ItemPostingViewModel> postingVMs = new List<ItemPostingViewModel>();
+
+            // getting current database contents
+            postingVMs.AddRange(ArchivePostings().ToList());
+            postingVMs.AddRange(ShopPostings().ToList());
+            // getting full info on item to move 
+            ItemPostingViewModel moveItem = postingVMs.FirstOrDefault(x => x.ItemPosting.FileName.ToUpper().Normalise() == filename.ToUpper());
+            ItemPosting posting = new ItemPosting();
+            // determine current location of move item
+            if (moveItem == null)
+            {
+                source = PictureFileRecord.StatusType.NotDisplayed;
+            }
+            else
+            {
+                posting = moveItem.ItemPosting;
+                if (posting.Archive_Flag == true)
+                {
+                    source = PictureFileRecord.StatusType.Archived;
+                }
+                else
+                {
+                    source = PictureFileRecord.StatusType.ForSale;
+                }
+            }
+            if (displaydestination)
+            {
+                // (1) the move item's being moved to the list it's already in
+                if (archivedestination && source == PictureFileRecord.StatusType.Archived ||
+                    !archivedestination && source == PictureFileRecord.StatusType.ForSale)
+                {
+                    return new ChangeResult(
+                        false,
+                        filename + " is already included in the " + ((archivedestination) ? "Archive" : "Home") + " page",
+                        400);
+                }
+                else
+                {
+                    // (2) the moveItem's being moved from one list to another
+                    if (archivedestination && source == PictureFileRecord.StatusType.ForSale ||
+                        !archivedestination && source == PictureFileRecord.StatusType.Archived)
+                    {
+                        removeResult = RemoveFromDisplay(posting);
+                        insertResult = InsertPosting(pfr, archivedestination);
+                        return insertResult;
+                    }
+                    else
+                    {
+                        // (3) the moveItem's being moved onto a list from not_displayed
+                        insertResult = InsertPosting(pfr, archivedestination);
+                        return insertResult;
+                    }
+                }
+            }
+            // (4) the moveItem's being removed from all lists
+            else
+            {
+                if (source == PictureFileRecord.StatusType.NotDisplayed)
+                {
+                    return new ChangeResult(
+                        false,
+                        filename + " is not currently displayed, and therefore is not in the database. Therefore it cannot be removed from the database",
+                        500);
+                }
+                else
+                {
+                    removeResult = RemoveFromDisplay(posting);
+                    return removeResult;
+                }
+            }
         }
     }
 }

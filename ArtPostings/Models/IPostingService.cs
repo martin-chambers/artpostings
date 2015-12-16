@@ -14,13 +14,15 @@ namespace ArtPostings.Models
         IEnumerable<ItemPostingViewModel> EditModeArchivePostings(int id);
         ItemPostingViewModel GetPosting(int id);
         List<PictureFileRecord> PictureFileRecordList(string mappedfolder, string status = "All");
-        IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive, bool display, string folder);
+        //IEnumerable<PictureFileRecord> DeletePictureFile(string filename, bool archive, bool display, string folder);
+        ChangeResult DeletePictureFile(string filename, bool archive, bool display, string folder);
         ChangeResult InsertPosting(PictureFileRecord pfr, bool archive);
         ChangeResult RemoveFromDisplay(ItemPosting posting);
         ItemPostingViewModel CreateItemPostingViewModel(PictureFileRecord pfr);
         ChangeResult SaveShopChanges(ItemPostingViewModel vm);
         ChangeResult SaveArchiveChanges(ItemPostingViewModel vm);
         ChangeResult AdvanceInList(PictureFileRecord pfr);
+        ChangeResult MovePicture(string filepath, bool archivedestination, bool displaydestination);
         string ArchiveText { get; }
         string ShopText { get; }
         string FullyMappedPictureFolder { get; }

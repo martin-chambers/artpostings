@@ -221,5 +221,15 @@ namespace ArtPostings.Tests.Models
         {
             throw new NotImplementedException();
         }
+
+        public ChangeResult MovePicture(string filepath, bool archivedestination, bool displaydestination)
+        {
+            throw new NotImplementedException();
+        }
+
+        ChangeResult IPostingService.DeletePictureFile(string filename, bool archive, bool display, string folder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

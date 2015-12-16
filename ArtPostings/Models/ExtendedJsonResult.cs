@@ -9,6 +9,7 @@ namespace ArtPostings.Models
     /// <summary>
     /// Bundles HttpResponse-useable status code with JsonResult
     /// (credit to NaveenBhat: http://stackoverflow.com/questions/15208699/setting-up-net-mvc-http-error-codes-for-ajax-calls )
+    /// This acts as a json wrapper for Models.ChangeResult
     /// </summary>
     public class ExtendedJsonResult : JsonResult
     {
@@ -17,15 +18,17 @@ namespace ArtPostings.Models
             base.Data = data;
             Success = data.Success;
             Message = data.Message;
+            StatusCode = data.StatusCode;
         }
+        public ExtendedJsonResult(Object data, bool _success, int _statuscode)
+        {
+            base.Data = data;
+            Success = _success;
+            StatusCode = _statuscode;
+        }
+
         public bool Success { get; set; }
         public string Message { get; set; }
-
-        public ExtendedJsonResult(ChangeResult data, int statuscode) : this(data)
-        {
-            StatusCode = statuscode;
-        }
-
         public int StatusCode { get; set; }
 
         public override void ExecuteResult(ControllerContext context)

@@ -222,6 +222,7 @@
     <Compile Include="Models\PictureFileRecordsViewModel.cs" />
     <Compile Include="Models\PostingRepository.cs" />
     <Compile Include="Models\PostingService.cs" />
+    <Compile Include="Models\RenderHelper.cs" />
     <Compile Include="Models\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

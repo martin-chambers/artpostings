@@ -11,6 +11,8 @@ namespace ArtPostings.Models
 {
     public class PostingRepository : IPostingRepository
     {
+        private const int HTTP_SUCCESS = 200;
+        private const int HTTP_INTERNAL_SERVER_ERROR = 500;
         private string webSafePictureFolder = ConfigurationManager.AppSettings["pictureLocation"];
         //private string pictureFolder = HttpContext.Current.Server.MapPath("~/Content/Art");        
         string connectionString = ConfigurationManager.ConnectionStrings["ArtPostings"].ConnectionString;
@@ -55,11 +57,11 @@ namespace ArtPostings.Models
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        return new ChangeResult(false, "Error inserting posting with filename: " + itemposting.FileName + ": " + ex.Message);
+                        return new ChangeResult(false, "Error inserting posting with filename: " + itemposting.FileName + ": " + ex.Message, HTTP_INTERNAL_SERVER_ERROR);
                     }
                 }
             }
-            return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName);
+            return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName, HTTP_INTERNAL_SERVER_ERROR);
         }
         /// <summary>
         /// Updates all Order values upwards or downwards for a specified list (archive or !archive) 
@@ -265,11 +267,11 @@ namespace ArtPostings.Models
                     adapter = addPostingParamsToAdapter(adapter, itemposting, archived);
                     adapter.UpdateCommand.ExecuteNonQuery();
                 }
-                return new ChangeResult(true, "Posting: " + itemposting.Id.ToString() + " was updated");
+                return new ChangeResult(true, "Posting: " + itemposting.Id.ToString() + " was updated", HTTP_SUCCESS);
             }
             catch (Exception ex)
             {
-                return new ChangeResult(false, "Posting: " + itemposting.Id.ToString() + " could not be updated: " + ex.Message);
+                return new ChangeResult(false, "Posting: " + itemposting.Id.ToString() + " could not be updated: " + ex.Message, HTTP_INTERNAL_SERVER_ERROR);
             }
         }
         ChangeResult IPostingRepository.Delete(ItemPosting itemposting)
@@ -294,19 +296,19 @@ namespace ArtPostings.Models
                         if (deleted > 0)
                         {
                             transaction.Commit();
-                            return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database");
+                            return new ChangeResult(true, "Posting: " + itemposting.FileName + " was deleted from the database", HTTP_SUCCESS);
                         }
                         else
                         {
                             transaction.Rollback();
-                            return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database");
+                            return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database", HTTP_INTERNAL_SERVER_ERROR);
                         }
 
                     }
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database - error: " + ex.Message);
+                        return new ChangeResult(false, "Posting: " + itemposting.FileName + " could not be deleted from the database - error: " + ex.Message, HTTP_INTERNAL_SERVER_ERROR);
                     }
                 }
             }
@@ -369,10 +371,10 @@ namespace ArtPostings.Models
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        return new ChangeResult(false, ex.Message);
+                        return new ChangeResult(false, ex.Message, HTTP_INTERNAL_SERVER_ERROR);
                     }
                 }
-                result = new ChangeResult(true, "Promoted: " + posting1.FileName.Normalise());
+                result = new ChangeResult(true, "Promoted: " + posting1.FileName.Normalise(), HTTP_SUCCESS);
                 return result;
             }
         }
