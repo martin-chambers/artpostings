@@ -25,6 +25,10 @@
 *.rar
 *.tar
 *.zip
+
+# excluded folders #
+####################
+/ArtPostings/bin/*
  
 # Logs and databases #
 ######################
