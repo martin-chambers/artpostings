@@ -83,12 +83,6 @@ a.icon {
     border-radius:10px;        
 }
 
-div.notepad {
-    display: inline-block; 
-    float:left; 
-    padding-top: 12px; 
-    padding-left:25px;
-}
 div.head
 {
     font-size:medium;    
@@ -138,10 +132,14 @@ div.itemheader {
 
 div#listpad {
     display: inline-block; 
-    max-width:50%;  
+    max-width:600px;  
     float:left; 
-    padding-left:30px;
     padding-right: 30px;
+}
+div.notepad {
+    display: inline-block; 
+    float:left; 
+    padding-top: 12px; 
 }
 div#page
 {
@@ -153,7 +151,7 @@ div#main
 {
     display:block;   
     width: 75%;
-    margin: 0px 250px;
+    margin: 0% 17%;
     
     
 }
@@ -187,7 +185,7 @@ h1.main {
     color: cornflowerblue;
     font-weight: bold;
     font-family: 'Segoe Print', Mistral, sans-serif;
-    padding:30px 23px;
+    padding:45px 23px 5px 4px;
     margin:0px;
     border: none;
     line-height: 2em;
@@ -231,8 +229,9 @@ hr {
 
 #maintain {
     font-size: 3.5em;
-    padding: 20px;
-    /*visibility:hidden;*/
+    padding: 0px;
+    visibility:hidden;
+    display:none;
 }
 
 .medium-column {
@@ -298,7 +297,6 @@ th a {
 .top 
 {
     padding-top: 14px;
-    margin: 0px;
     padding-bottom:50px;        
     background-color: plum;
     font-size: 1.1em;   
@@ -308,30 +306,28 @@ th a {
 {
     float: left;    
     display:block;
-    margin: 10px;
+    margin: 0.5%;
 }
 
 .toprightmenu
 {
     float: right;    
     display:block;
-    margin: 10px;
+    margin: 0.5%;
 }
 
 .toprightmenu li
 {
     display:inline;
-    margin-right: 10px;    
-    margin-left: 30px;    
     float:right;
+    padding-right: 1em;
 }
 
 .topleftmenu li
 {
     display:inline;
-    margin-right: 10px;    
-    margin-left: 30px;    
     float:right;
+    padding-left: 1em;
 }
 
 
