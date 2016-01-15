@@ -61,7 +61,7 @@ namespace ArtPostings.Models
                     }
                 }
             }
-            return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName, HTTP_INTERNAL_SERVER_ERROR);
+            return new ChangeResult(true, "Inserted posting with filename: " + itemposting.FileName, HTTP_SUCCESS);
         }
         /// <summary>
         /// Updates all Order values upwards or downwards for a specified list (archive or !archive) 
