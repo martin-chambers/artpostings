@@ -1,4 +1,4 @@
 # artpostings
 website to display paintings
 
-This is a private MVC5 project using SQL Server, MVC identity, web drag and drop, extensive use of AJAX callbacks. An implementation can be viewed on http://annchambers.net
+This is a private MVC5 project using SQL Server, MVC identity, web drag and drop, extensive use of AJAX callbacks.
