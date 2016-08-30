@@ -71,14 +71,14 @@ namespace ArtPostings.Models
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="archived"></param>
-        public ItemPosting(string filename, bool archived = true)
+        public ItemPosting(string filename, bool archived = true, int order = 1)
         {
             FileName = filename;
             FilePath = Path.Combine(webSafePictureFolder, filename);
             Archive_Flag = archived;
             Description = "";
             Header = FileName;
-            Order = 0;
+            Order = order;
             Price = "";
             ShortName = FileName;
             Size = "";
