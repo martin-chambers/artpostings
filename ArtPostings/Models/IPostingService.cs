@@ -25,6 +25,8 @@ namespace ArtPostings.Models
         ChangeResult MovePicture(string filepath, bool archivedestination, bool displaydestination);
         string ArchiveText { get; }
         string ShopText { get; }
+        string ArchiveHeader { get; }
+        string ShopHeader { get; }
         string FullyMappedPictureFolder { get; }
 
     }

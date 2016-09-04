@@ -41,6 +41,7 @@ namespace ArtPostings.Controllers
         private void setItemInfo()
         {
             ViewBag.Blurb = service.ShopText;
+            ViewBag.Header = service.ShopHeader;
             ViewBag.Mode = "_itemDisplay";
         }
 

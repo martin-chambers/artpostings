@@ -106,6 +106,17 @@ namespace ArtPostings.Models
         {
             get { return "Paintings are acrylic or oil. Click on any painting for a larger image. © Copyright Ann Chambers 2012"; }
         }
+        public string ShopHeader
+        {
+            get
+            {
+                return "These items are for sale";
+            }
+        }
+        public string ArchiveHeader
+        {
+            get { return "These are archive items which are no longer for sale"; }
+        }
         private IPostingRepository repository;
 
         public IEnumerable<ItemPostingViewModel> ShopPostings()

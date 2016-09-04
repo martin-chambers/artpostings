@@ -82,12 +82,15 @@ a.icon {
     border:dotted;
     border-radius:10px;        
 }
-
+div.boldhead
+{
+    font-size:medium;    
+    font-weight:bold;
+}
 div.head
 {
     font-size:medium;    
 }
-
 div.sidetext{
     max-width:330px;
 }
@@ -128,6 +131,13 @@ div.itemheader {
     border-radius: 5px; 
     padding: 4px; 
     width:97%
+}
+
+div.subheader {
+    color:cornflowerblue; 
+    font-size:x-large;
+    text-align:left; 
+    padding-bottom: 10px;     
 }
 
 div#listpad {

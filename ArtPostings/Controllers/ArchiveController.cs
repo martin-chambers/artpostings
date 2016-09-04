@@ -34,6 +34,7 @@ namespace ArtPostings.Controllers
         private void setItemInfo()
         {
             ViewBag.Blurb = service.ArchiveText;
+            ViewBag.Header = service.ArchiveHeader;
             ViewBag.Mode = "_itemDisplay";
         }
         [HttpPost]
