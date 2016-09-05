@@ -23,6 +23,7 @@ namespace ArtPostings.Controllers
         // GET: Admin
         public ActionResult Index(string status = "All", bool initial = true)
         {
+            ViewBag.Admin = true;
             ViewBag.Mode = "_noItemDisplay";
             if (initial || !Request.IsAjaxRequest())
             {
