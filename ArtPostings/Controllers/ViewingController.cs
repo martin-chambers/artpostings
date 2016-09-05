@@ -18,9 +18,12 @@ namespace ArtPostings.Controllers
         // GET: Viewing
         public ActionResult Index()
         {
+            throw new HttpException(404, "Not found"); // this view has been removed
+            /*
             ViewBag.Blurb = service.ShopText;
             ViewBag.Mode = "_noItemDisplay";
             return View();
+            */
         }
     }
 }
